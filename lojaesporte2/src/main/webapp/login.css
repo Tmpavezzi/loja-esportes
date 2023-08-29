@@ -1,0 +1,85 @@
+body {
+align-items: center;
+justify-content: center;
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 110px;
+background-image: url(/img/fitness.png);
+background-size: cover;
+background-position: center;
+}
+
+h1 {
+text-align: center;
+margin-bottom: 30px;
+color: white;
+}
+
+form {
+max-width: 400px;
+flex: 1;
+margin-right: 10px;
+margin: 0 auto;
+background: rgba(0, 0, 0, .5);
+padding: 30px;
+border-radius: 8px;
+box-shadow: 0px 0px 10px 0px rgb(9, 255, 0);
+}
+
+label {
+display: block;
+color: #e9e9e9;
+margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="E-mail"],
+input[type="Senha"] {
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+border: 1px solid #e9e9e9;
+border-radius: 8px;
+box-sizing: border-box;
+}
+
+input[type="E-mail"] {
+padding: 20px;
+}
+
+input[type="submit"],
+input[type="Cadastrar"] {
+background-color: #1adb00;
+color: #000000;
+padding: 10px 20px;
+border: none;
+border-radius: 12px;
+cursor: pointer;
+font-size: 16px;
+}
+
+input[type="submit"]:hover,
+input[type="Cadastrar"]:hover {
+background-color: black;
+}
+
+input[id="Cadastrar"] {
+display: inline-block;
+margin-top: 10px;
+margin-left: 178px;
+}
+
+.led-container {
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+
+.led {
+width: 10px;
+height: 10px;
+border-radius: 50%;
+background-color: red;
+margin: 5px;
+animation: ledAnimation 1s ease-in-out infinite alternate;
+}

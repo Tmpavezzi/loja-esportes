@@ -1,0 +1,46 @@
+body {
+align-items: center;
+justify-content: center;
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 110px;
+background-image: url();
+background-size: cover;
+background-position: center;
+}
+
+h1 {
+text-align: center;
+margin-bottom: 30px;
+color: #000000;
+}
+
+.links {
+margin: 0 auto;
+text-align: center;
+}
+
+.painel {
+width: 50%;
+margin: auto;
+padding: 20px;
+background-color: #333333;
+border-radius: 5px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+a:link {
+color: #00ff00;
+text-decoration: none;
+}
+
+a:visited {
+color: #ff00ff;
+text-decoration: none;
+}
+
+a:hover {
+color: #ff0000;
+text-decoration: underline;
+}
