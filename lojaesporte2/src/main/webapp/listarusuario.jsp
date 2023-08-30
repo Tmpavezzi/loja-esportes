@@ -2,14 +2,14 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="listarusuario.css">
-    <title>Lista de Usuários</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="listarusuario.css">
+  <title>Lista de Usuários</title>
 </head>
+
 <body>
   <h1>Lista de Usuários</h1>
-
 
   <div class="search-container">
     <label for="search">Buscar usuário:</label>
@@ -51,9 +51,8 @@
         <td>Inabilitar</td>
 
       </tr>
-
-      <!-- Para adicionar mais linhas bastas seguir o mesmo exemplo acima -->
     </tbody>
   </table>
 </body>
+
 </html>
