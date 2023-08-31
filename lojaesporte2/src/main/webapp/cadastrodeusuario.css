@@ -26,7 +26,7 @@ form {
     margin: 0 auto;
     background: rgba(0, 0, 0, .8);
     border-radius: 5px;
-    box-shadow: 0px 0px 10px 0px rgb(17, 0, 255);
+    box-shadow: 5px 10px 30px 10px rgb(17, 0, 255);
 }
 
 input[type="text"],
@@ -45,11 +45,39 @@ label[for="status"],
 label[for="nome"],
 label[for="cpf"],
 label[for="email"],
-label[for="senha"] {
+label[for="senha"],
+label[for="grupo"] {
     color: white;
 }
 
 input[type="radio"][value="ativado"]+label,
 input[type="radio"][value="desativado"]+label {
     color: white;
+}
+
+input[type="submit"] {
+    background-color: #1600db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(47, 0, 255);
+}
+
+select {
+    width: 30%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+option {
+    font-size: 16px;
 }

@@ -10,7 +10,7 @@
 
 <body>
     <form action="cadastra-usuario" method="post">
-        <h1>Cadastrar/Alterar usuarios</h1>
+        <h1>Cadastrar/Alterar Usuários</h1>
         <p>
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required>
@@ -32,12 +32,21 @@
             <input type="password" class="senha" name="senha" required>
         </p>
         <p>
+            <label for="grupo">Grupo/Cargo:</label>
+            <select name="role">
+                <option value="">Selecione o Cargo</option>
+                <option value="administrativo">Administrativo</option>
+                <option value="estoquista">Estoquista</option>
+            </select>
+        </p>
+        <p>
             <label for="status">Status:</label>
             <input type="radio" id="statusAtivar" name="status" value="ativado">
             <label for="statusAtivar">Ativar</label>
             <input type="radio" id="statusDesativar" name="status" value="desativado">
             <label for="statusDesativar">Desativar</label>
         </p>
+        <input type="submit" value="Cadastrar">
     </form>
 
 </body>
