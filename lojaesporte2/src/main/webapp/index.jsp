@@ -10,7 +10,7 @@
 
 <body>
     <form action="/create-login" method="post">
-        <h1>Faça seu Login</h1>
+        <h1>Fa&ccedil;a seu Login</h1>
         <label for="nome">E-mail:</label>
         <input type="text" id="name" name="nome" required>
         <label for="senha">Senha:</label>

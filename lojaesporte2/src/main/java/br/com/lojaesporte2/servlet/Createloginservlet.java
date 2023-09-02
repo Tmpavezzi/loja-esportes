@@ -35,7 +35,7 @@ public class Createloginservlet extends  HttpServlet {
             String userType = new logindao().getUserType(email);
 
 
-            if(userType!=null&&(userType.equals("administrador")||userType.equals("estoque"))){
+            if(userType!=null&&(userType.equals("adm")||userType.equals("estoque"))){
                     request.getSession().setAttribute("usergroup",userType);
                 request.getRequestDispatcher("telaprincipal.jsp").forward(request, response);
             }else{

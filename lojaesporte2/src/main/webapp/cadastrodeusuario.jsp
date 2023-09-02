@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <form action="cadastra-usuario" method="post">
+    <form action="cadastrousuarioservlet" method="post">
         <h1>Cadastrar/Alterar Usuários</h1>
         <p>
             <label for="nome">Nome:</label>
