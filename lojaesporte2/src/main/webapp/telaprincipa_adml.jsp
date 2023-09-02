@@ -1,4 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -25,7 +24,12 @@
             </p>
 
             <p>
+                <a href="listarpedido.jsp">Lista de Pedidos</a><br>
+            </p>
 
+            <p>
+              <a href="cadastrodeusuario.jsp">Cadastrad de Usuario </a><br>
+            </p>
         </div>
 
     </section>
