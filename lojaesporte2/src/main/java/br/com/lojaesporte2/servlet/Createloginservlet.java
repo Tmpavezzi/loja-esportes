@@ -1,8 +1,8 @@
 package br.com.lojaesporte2.servlet;
 
 import br.com.lojaesporte2.dao.logindao;
-import br.com.lojaesporte2.dao.loginusedao;
 import br.com.lojaesporte2.model.login;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +10,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import  javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+
+import static org.mindrot.jbcrypt.BCrypt.gensalt;
+
 
 @WebServlet("/create-login")
 public class Createloginservlet extends  HttpServlet {
@@ -23,23 +26,31 @@ public class Createloginservlet extends  HttpServlet {
         String email =request.getParameter("nome");
         String senha = request.getParameter("senha");
 
-      login login = new login(email,senha);
-
-        boolean isValiadm = new logindao().verifyCreddential(email,senha);
 
 
-            boolean isUser = new loginusedao().verifyUser(email,senha);
 
-        if(isValiadm){
-            request.getSession().setAttribute("loggeduser",email);
-            request.getRequestDispatcher("telaprincipal.jsp").forward(request,response);
-        }else if(isUser){
-            request.getSession().setAttribute("loggeduser",email);
-            request.getRequestDispatcher("produtos.jsp").forward(request,response);
+        boolean isAuthennticard = new logindao().verifyCreddential(email,senha);
+
+        if(isAuthennticard){
+            String userType = new logindao().getUserType(email);
+
+
+            if(userType!=null&&(userType.equals("administrador")||userType.equals("estoque"))){
+                    request.getSession().setAttribute("usergroup",userType);
+                request.getRequestDispatcher("telaprincipal.jsp").forward(request, response);
+            }else{
+                request.setAttribute("message", "Acesso restrito aos usuários do backoffice.");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
         }else{
-            request.setAttribute("message","Invalid credentials");
-            request.getRequestDispatcher("index.jsp").forward(request,response);
+            request.setAttribute("message", "Credenciais inválidas");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
+
+
+
+
+
 
 
     }

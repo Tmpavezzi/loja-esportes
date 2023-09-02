@@ -11,7 +11,9 @@
 <body>
 
     <section class="painel"></div>
-        <h1>Opções de menus:</h1>
+
+        <h1>Opções de menus</h1>
+
         <div class="links">
             <p>
                 <a href="listarproduto.jsp">Lista de Produtos</a><br>
@@ -26,7 +28,7 @@
             </p>
 
             <p>
-              <a href="cadastrodeusuario.jsp">Cadastro de Usuario </a><br>
+              <a href="cadastrodeusuario.jsp">Cadastrad de Usuario </a><br>
             </p>
         </div>
 

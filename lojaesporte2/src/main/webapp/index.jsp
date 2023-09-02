@@ -12,7 +12,7 @@
     <form action="/create-login" method="post">
         <h1>Faça seu Login</h1>
         <label for="nome">E-mail:</label>
-        <input type="text" id="nome" name="nome" required>
+        <input type="text" id="name" name="nome" required>
         <label for="senha">Senha:</label>
         <input type="senha" id="senha" name="senha" required>
         <input type="submit" value="Entrar">
