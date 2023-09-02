@@ -10,7 +10,8 @@
 
 <body>
 
-    <section class="painel"></div>
+    <section class="painel">
+        </div>
 
         <h1>Opções de menus</h1>
 
@@ -28,7 +29,7 @@
             </p>
 
             <p>
-              <a href="cadastrodeusuario.jsp">Cadastrad de Usuario </a><br>
+                <a href="cadastrodeusuario.jsp">Cadastro de Usuario </a><br>
             </p>
         </div>
 
