@@ -18,8 +18,12 @@ public class logindao {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test","sa","sa");
             System.out.println("Sucesso in connection");
 
+
             PreparedStatement preparedStatement= connection.prepareStatement(SQL);
+
             preparedStatement.setString(1,Email);
+            System.out.println("email usando"+ Email);
+
 
 
 

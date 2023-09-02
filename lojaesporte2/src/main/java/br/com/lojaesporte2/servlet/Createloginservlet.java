@@ -35,17 +35,23 @@ public class Createloginservlet extends  HttpServlet {
             String userType = new logindao().getUserType(email);
 
 
-            if(userType!=null&&(userType.equals("administrador")||userType.equals("estoque"))){
+            if(userType !=null){
+                if(userType.equals("administrador")) {
+                  request.getSession().setAttribute("usergroup",userType);
+                  request.getRequestDispatcher("telaprincipa_adml.jsp").forward(request,response);
+                }else if (userType.equals("estoque")){
                     request.getSession().setAttribute("usergroup",userType);
-                request.getRequestDispatcher("telaprincipal.jsp").forward(request, response);
-            }else{
-                request.setAttribute("message", "Acesso restrito aos usuários do backoffice.");
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                    request.getRequestDispatcher("telaprincipal_esto.jsp").forward(request,response);
+                }else{
+                    request.setAttribute("message","Acesso restrito aos usuário da lojaesporte");
+                    request.getRequestDispatcher("index.jsp").forward(request,response);
+                }
+
+                }else{
+                request.setAttribute("message","Credenciais invalidas");
+                request.getRequestDispatcher("index.jsp").forward(request,response);
             }
-        }else{
-            request.setAttribute("message", "Credenciais inválidas");
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-        }
+            }
 
 
 
