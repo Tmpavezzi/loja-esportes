@@ -18,50 +18,44 @@ import static org.mindrot.jbcrypt.BCrypt.gensalt;
 public class Createloginservlet extends  HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
-  request.getRequestDispatcher("index.jsp").forward(request,response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
-@Override
-    protected void doPost(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException{
-        String email =request.getParameter("nome");
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String email = request.getParameter("nome");
         String senha = request.getParameter("senha");
 
 
+        boolean isAuthennticard = new logindao().verifyCreddential(email, senha);
 
-
-        boolean isAuthennticard = new logindao().verifyCreddential(email,senha);
-
-        if(isAuthennticard){
+        if (isAuthennticard) {
             String userType = new logindao().getUserType(email);
 
 
-<<<<<<< HEAD
-            if(userType!=null&&(userType.equals("adm")||userType.equals("estoque"))){
-=======
-            if(userType !=null){
-                if(userType.equals("administrador")) {
-                  request.getSession().setAttribute("usergroup",userType);
-                  request.getRequestDispatcher("telaprincipa_adml.jsp").forward(request,response);
-                }else if (userType.equals("estoque")){
->>>>>>> 91a2e0823b3c94e00e62b9238c4ba27dcdd50f23
-                    request.getSession().setAttribute("usergroup",userType);
-                    request.getRequestDispatcher("telaprincipal_esto.jsp").forward(request,response);
-                }else{
-                    request.setAttribute("message","Acesso restrito aos usuário da lojaesporte");
-                    request.getRequestDispatcher("index.jsp").forward(request,response);
+            if (userType != null && (userType.equals("adm") || userType.equals("estoque"))) {
+
+                if (userType != null) {
+                    if (userType.equals("adm")) {
+                        request.getSession().setAttribute("usergroup", userType);
+                        request.getRequestDispatcher("telaprincipa_adml.jsp").forward(request, response);
+                    } else if (userType.equals("estoque")) {
+
+                        request.getSession().setAttribute("usergroup", userType);
+                        request.getRequestDispatcher("telaprincipal_esto.jsp").forward(request, response);
+                    } else {
+                        request.setAttribute("message", "Acesso restrito aos usuário da lojaesporte");
+                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                    }
+
+                } else {
+                    request.setAttribute("message", "Credenciais invalidas");
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
-
-                }else{
-                request.setAttribute("message","Credenciais invalidas");
-                request.getRequestDispatcher("index.jsp").forward(request,response);
-            }
             }
 
 
-
-
-
-
-
+        }
     }
 }

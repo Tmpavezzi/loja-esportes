@@ -23,7 +23,7 @@ public class cadastrousuariodao {
 
             preparedStatement.execute();
 
-            System.out.println("Sucesso na insert");
+            System.out.println("Sucesso no update");
 
             connection.close();
 

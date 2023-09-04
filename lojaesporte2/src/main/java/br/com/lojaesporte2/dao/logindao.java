@@ -11,6 +11,19 @@ import br.com.lojaesporte2.model.login;
 
 public class logindao {
 
+    //CREATE TABLE usuario (
+    //    id INT AUTO_INCREMENT PRIMARY KEY,
+    //    nome VARCHAR(100),
+    //    cpf VARCHAR(100),
+    //    email VARCHAR(100),
+    //    senha VARCHAR(100),
+    //    grupo VARCHAR(100),
+    //    situacao ENUM('ativo', 'inativo')
+    //);
+
+    //INSERT INTO usuario (nome, cpf, email, senha, grupo, situacao)
+    //VALUES ('Felipe', '473.957.478-01', 'felipe.mc0501@gmail.com', '1234', 'Adm', 'ativo');
+
     public boolean verifyCreddential(String Email, String Senha ){
         String SQL = "SELECT * FROM USUARIO  WHERE EMAIL=?";
 
