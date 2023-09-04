@@ -17,7 +17,7 @@
     </header>
 
     <div class="search">
-        <input type="text" id="searchInput" placeholder="Pesquisar produto...">
+        <input type="text" id="searchInput" placeholder="Pesquisar produto">
         <button id="searchButton">Pesquisar</button>
     </div>
 
@@ -33,13 +33,27 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Aqui será onde ficará os produtos manualmente (para termos base de onde vai ficar) -->
+            <tr>
+                <td>001</td>
+                <td>Whey Protein 100%</td>
+                <td>50</td>
+                <td>R$ 120.00</td>
+                <td>Ativo</td>
+                <td>
+                    <a href="#" class="button">Alterar</a>
+                    <a href="#" class="button">Inativar</a>
+                    <a href="#" class="button">Visualizar</a>
+                </td>
+            </tr>
+            <!-- Aqui é o espaço onde ficará os produtos que será inserido manualmente 
+            (para termos base de onde vai ficar) -->
         </tbody>
     </table>
 
-    <div class="pagination">
+    <div class="paginacao">
         <button id="prevPage">Anterior</button>
         <button id="nextPage">Próxima</button>
+        <button id="btnAddProduto">+ Adicionar Produtos</button>
     </div>
 </body>
 

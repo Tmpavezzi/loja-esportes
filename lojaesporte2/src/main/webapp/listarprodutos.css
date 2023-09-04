@@ -28,13 +28,17 @@ h1 {
 }
 
 button {
-    background-color: #1600db;
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+#btnAddProduto {
+    background-color: #0030b3;
 }
 
 .search {
@@ -53,13 +57,13 @@ input[type="text"] {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    background-color: white;
 }
 
 table,
 th,
 td {
-    border: 1px solid rgba(0, 0, 0, 0.493);
+    border: 1px solid #ccc;
 }
 
 th,
@@ -68,14 +72,23 @@ td {
     text-align: center;
 }
 
-.pagination {
+th {
+    background-color: #333;
+    color: white;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.paginacao {
     text-align: center;
     margin-top: 20px;
 }
 
 button#prevPage,
 button#nextPage {
-    background-color: #1600db;
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -83,4 +96,27 @@ button#nextPage {
     cursor: pointer;
     border-radius: 5px;
     margin: 0 10px;
+}
+
+button#prevPage:hover,
+button#nextPage:hover,
+button#searchButton:hover {
+    background-color: #0056b3;
+}
+
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    /* Espaço entre os botões */
+    cursor: pointer;
+}
+
+a.button:hover {
+    background-color: #a70707;
 }
