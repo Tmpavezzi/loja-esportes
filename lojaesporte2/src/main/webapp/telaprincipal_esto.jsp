@@ -22,7 +22,7 @@
             </p>
 
             <p>
-              <a href="cadastrodeusuario.jsp">Cadastrad de Usuario </a><br>
+              <a href="cadastrodeusuario.jsp">Cadastro de Usuario </a><br>
             </p>
         </div>
 

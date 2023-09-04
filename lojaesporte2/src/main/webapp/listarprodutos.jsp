@@ -33,7 +33,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Aqui será onde listar os produtos manualmente (para termos base de onde vai ficar) -->
+            <!-- Aqui será onde ficará os produtos manualmente (para termos base de onde vai ficar) -->
         </tbody>
     </table>
 
