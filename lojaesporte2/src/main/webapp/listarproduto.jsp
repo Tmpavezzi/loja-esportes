@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="listarprodutos.css">
+    <link rel="stylesheet" href="listarproduto.css">
     <title>Backoffice - Lista de Produtos</title>
 </head>
 
@@ -53,7 +53,7 @@
     <div class="paginacao">
         <button id="prevPage">Anterior</button>
         <button id="nextPage">Próxima</button>
-        <button id="btnAddProduto">+ Adicionar Produtos</button>
+        <a href="cadastrodeproduto.jsp" class="botao">+ Adicionar Produtos</a>
     </div>
 </body>
 
