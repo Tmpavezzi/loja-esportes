@@ -2,15 +2,15 @@ package br.com.lojaesporte2.model;
 
 public class usuario {
 
-    String nome ;
-    String  cpf ;
+     private String nome ;
+    private String  cpf ;
 
-    String email;
+    private String email;
 
-    String senha;
+    private String senha;
 
-    String grupo;
-    String situacao;
+    private String grupo;
+    private String situacao;
 
     public String getSituacao() {
         return situacao;

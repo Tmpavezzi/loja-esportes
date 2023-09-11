@@ -23,14 +23,7 @@
                 <a href="listarusuario.jsp">Lista de Usuarios</a><br>
             </p>
 
-            <p>
-                <a href="listarpedido.jsp">Lista de Pedidos</a><br>
-            </p>
-
-            <p>
-              <a href="cadastrodeusuario.jsp">Cadastro de Usuario </a><br>
-            </p>
-        </div>
+                    </div>
 
     </section>
 </body>

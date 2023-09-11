@@ -36,7 +36,7 @@ public class Createloginservlet extends  HttpServlet {
 
 
             if(userType !=null){
-                if(userType.equals("administrador")) {
+                if(userType.equals("adm")) {
                   request.getSession().setAttribute("usergroup",userType);
                   request.getRequestDispatcher("telaprincipa_adml.jsp").forward(request,response);
                 }else if (userType.equals("estoque")){

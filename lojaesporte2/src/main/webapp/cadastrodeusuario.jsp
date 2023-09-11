@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
+
+<% String message = (String) request.getAttribute("message"); %>
+<% if (message != null) { %>
+    <div class="error-message">
+        <%= message %>
+    </div>
+<% } %>
 <html lang="pt-br">
 
 <head>
@@ -10,7 +17,7 @@
 </head>
 
 <body>
-    <form action="cadastra-usuario" method="post">
+    <form action="/cadastrado-usuario" method="post">
         <h1>Cadastrar/Alterar Usuários</h1>
         <p>
             <label for="nome">Nome:</label>
@@ -42,9 +49,9 @@
         </p>
         <p>
             <label for="status">Status:</label>
-            <input type="radio" id="statusAtivar" name="status" value="ativado">
+            <input type="radio" id="statusAtivar" name="status" value="ATIVO">
             <label for="statusAtivar">Ativar</label>
-            <input type="radio" id="statusDesativar" name="status" value="desativado">
+            <input type="radio" id="statusDesativar" name="status" value="INATIVO">
             <label for="statusDesativar">Desativar</label>
         </p>
         <input type="submit" value="Cadastrar">
