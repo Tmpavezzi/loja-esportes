@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="listarproduto.css">
-    <title>Backoffice - Lista de Produtos</title>
+    <title>Lista de Produtos</title>
 </head>
 
 <body>
@@ -16,11 +18,12 @@
         <h1>Listas de Produtos</h1>
     </header>
 
-    <div class="search">
-        <input type="text" id="searchInput" placeholder="Pesquisar produto">
-        <button id="searchButton">Pesquisar</button>
-    </div>
-
+    <form action="/listarprodutos" method="post">
+            <div class="search">
+                <label for="search">Buscar produto:</label>
+                <input type="text" id="search" name="search" placeholder="Digite o nome do produto">
+                 </div>
+        </form>
     <table>
         <thead>
             <tr>
@@ -33,20 +36,25 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>001</td>
-                <td>Whey Protein 100%</td>
-                <td>50</td>
-                <td>R$ 120.00</td>
-                <td>Ativo</td>
-                <td>
-                    <a href="#" class="button">Alterar</a>
-                    <a href="#" class="button">Inativar</a>
-                    <a href="#" class="button">Visualizar</a>
-                </td>
-            </tr>
-            <!-- Aqui é o espaço onde ficará os produtos que será inserido manualmente 
-            (para termos base de onde vai ficar) -->
+            <c:choose>
+                <c:when test="${empty produtos}">
+                    <tr>
+                        <td colspan="7">Nenhum produto encontrado.</td>
+                    </tr>
+                </c:when>
+                <c:otherwise>
+                    <c:forEach var="listaprodutos" items="${produtos}">
+                        <tr>
+                            <td>${listaprodutos.id}</td>
+                            <td>${listaprodutos.desc}</td>
+                            <td>${listaprodutos.quantidade}</td>
+                            <td>${listaprodutos.valor}</td>
+                            <td>${listaprodutos.ativo}</td>
+                            <td><a href="cadastrodeproduto.jsp">Alterar</a></td>
+                        </tr>
+                    </c:forEach>
+                </c:otherwise>
+            </c:choose>
         </tbody>
     </table>
 

@@ -2,33 +2,33 @@ package br.com.lojaesporte2.model;
 
 public class listaprodutos {
 
-    private int id;
-    private String nome;
-    private int quantidade;
+    private String id;
+    private String desc;
+    private String quantidade;
     private double valor;
     private boolean ativo;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    public int getQuantidade() {
+    public String getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(String quantidade) {
         this.quantidade = quantidade;
     }
 
