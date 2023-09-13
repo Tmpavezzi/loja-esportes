@@ -1,46 +1,82 @@
+header {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+    position: relative;
+}
+
 body {
-align-items: center;
-justify-content: center;
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 240px;
-background-image: url(fitness.png);
-background-size: cover;
-background-position: center;
+    font-family: Arial, sans-serif;
+        background-image: url(img/fitness.png);
+        background-size: cover;
+        background-position: center;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background: #e9e9e9;
+    height: 100vh;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
 }
 
 h1 {
-text-align: center;
-margin-bottom: 30px;
-color: white;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
 }
 
 .links {
-margin: 0 auto;
-text-align: center;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .painel {
-width: 50%;
-margin: auto;
-padding: 20px;
-background-color: #333333;
-border-radius: 5px;
-box-shadow: 0px 0px 10px 0px rgb(17, 0, 255);
+    font-family: Arial, sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    margin: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, .8);
+    border-radius: 5px;
+    box-shadow: 5px 10px 30px 10px rgb(17, 0, 255);
 }
 
-
 a:link {
-color: white;
-text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 a:visited {
-color: #ff00ff;
-text-decoration: none;
+    color: #ff00ff;
+    text-decoration: none;
 }
 
 a:hover {
-color: #ff0000;
-text-decoration: underline;
+    color: #ff0000;
+    text-decoration: underline;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.rodape {
+    font-size: 14px;
 }

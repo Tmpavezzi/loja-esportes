@@ -19,8 +19,6 @@
             <input type="text" id="search" name="search" placeholder="Digite o nome do usuário">
              </div>
     </form>
-
-
     <table>
         <thead>
             <tr>
@@ -48,8 +46,8 @@
                             <td>${usuario.email}</td>
                             <td>${usuario.grupo}</td>
                             <td>${usuario.situacao}</td>
-                            <td><a href="cadastrodeusuario.jsp">Alterar</a></td>
-                            <td>Inabilitar</td>
+                            <td><a href="alterar.jsp" class="button">Alterar</a></td>
+                            <td><a href="#" class="button">Inabilitar</a></td>
                         </tr>
                     </c:forEach>
                 </c:otherwise>

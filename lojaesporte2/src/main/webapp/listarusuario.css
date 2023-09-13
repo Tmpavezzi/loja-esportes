@@ -71,3 +71,19 @@ a:hover {
   color: #ff0000;
   text-decoration: underline;
 }
+a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff0000;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    /* Espaço entre os botões */
+    cursor: pointer;
+}
+
+a.button:hover {
+    background-color: #a70707;
+}
