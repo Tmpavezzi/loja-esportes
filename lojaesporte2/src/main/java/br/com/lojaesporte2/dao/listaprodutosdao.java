@@ -1,7 +1,6 @@
 package br.com.lojaesporte2.dao;
 
 import br.com.lojaesporte2.model.listaprodutos;
-import br.com.lojaesporte2.model.usuario;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,11 +14,11 @@ public class listaprodutosdao {
     //    descprod VARCHAR(100),
     //    quantprod VARCHAR(100),
     //    val DECIMAL(5,2),
-    //    status TINYINT(1) DEFAULT 1
+    //    status BOOLEAN DEFAULT TRUE
     //);
 
     //INSERT INTO produtos (descprod, quantprod, val, status)
-    //VALUES ('Wheyprotein - Growth', '30', '139.99', 1);
+    //VALUES ('Wheyprotein - Growth', '30', '139.99', TRUE);
 
     public List<listaprodutos> listarProdutos() {
 
@@ -46,6 +45,7 @@ public class listaprodutosdao {
                 listaprodutos.setQuantidade(quantidade);
                 listaprodutos.setValor(valor);
                 listaprodutos.setAtivo(ativo);
+                listaprodutos.setStatusformatado(ativo ? "Ativo" : "Inativo");
 
                 produtos.add(listaprodutos);
             }
@@ -61,8 +61,6 @@ public class listaprodutosdao {
             return Collections.emptyList();
         }
     }
-
-///////////////////////////
 
     public List<listaprodutos> listarProdutosFiltrados(String filtro) {
         String sql = "SELECT idprod, descprod, quantprod, val, status FROM PRODUTOS  WHERE descprod LIKE ?";
@@ -90,9 +88,9 @@ public class listaprodutosdao {
                 listaprodutos.setQuantidade(quantidade);
                 listaprodutos.setValor(valor);
                 listaprodutos.setAtivo(ativo);
+                listaprodutos.setStatusformatado(ativo ? "Ativo" : "Inativo");
 
                 produtos.add(listaprodutos);
-
 
             }
 

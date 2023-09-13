@@ -49,7 +49,7 @@
                             <td>${listaprodutos.desc}</td>
                             <td>${listaprodutos.quantidade}</td>
                             <td>${listaprodutos.valor}</td>
-                            <td>${listaprodutos.ativo}</td>
+                            <td>${listaprodutos.statusformatado}</td>
                             <td><a href="cadastrodeproduto.jsp">Alterar</a></td>
                         </tr>
                     </c:forEach>

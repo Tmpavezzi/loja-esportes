@@ -8,6 +8,8 @@ public class listaprodutos {
     private double valor;
     private boolean ativo;
 
+    private String statusformatado;
+
     public String getId() {
         return id;
     }
@@ -46,6 +48,14 @@ public class listaprodutos {
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public String getStatusformatado() {
+        return statusformatado;
+    }
+
+    public void setStatusformatado(String statusformatado) {
+        this.statusformatado = statusformatado;
     }
 
 }
