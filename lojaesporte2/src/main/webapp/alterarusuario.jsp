@@ -14,7 +14,7 @@
         <form action="/atualizar_usuario" method="post">
             <label for="grupo">Grupo:</label>
             <select name="grupo" id="grupo">
-                <option value="admin">Admin</option>
+                <option value="adm">Admin</option>
                 <option value="usuario">Usuário</option>
             </select>
 
