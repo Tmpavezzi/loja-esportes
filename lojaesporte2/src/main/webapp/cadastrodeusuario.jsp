@@ -18,7 +18,7 @@
 
 <body>
     <form action="/cadastrado-usuario" method="post">
-        <h1>Cadastrar/Alterar Usuários</h1>
+        <h1>Cadastrar Usuários</h1>
         <p>
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required>
