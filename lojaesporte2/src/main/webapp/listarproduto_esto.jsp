@@ -61,7 +61,6 @@
     <div class="paginacao">
         <button id="prevPage">Anterior</button>
         <button id="nextPage">Próxima</button>
-        <a href="cadastrodeproduto.jsp" class="botao">+ Adicionar Produtos</a>
     </div>
 </body>
 

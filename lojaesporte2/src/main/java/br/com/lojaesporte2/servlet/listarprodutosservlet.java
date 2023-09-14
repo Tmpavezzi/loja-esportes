@@ -33,7 +33,6 @@ public class listarprodutosservlet extends  HttpServlet {
             produtos = dao.listarProdutos();
         }
 
-
         request.setAttribute("produtos", produtos);
         request.getRequestDispatcher("listarproduto.jsp").forward(request, response);
     }
