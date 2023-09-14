@@ -95,4 +95,34 @@ public class listardao {
         }
     }
 
+    public boolean atulizarstatus(String cpf,String novaSituacao){
+
+        String SQL = "UPDATE USUARIO SET SITUACAO = ? WHERE CPF = ?";
+
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test","sa","sa");
+            PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+            System.out.println("Sucesso na conexão");
+
+            preparedStatement.setString(1,novaSituacao);
+            preparedStatement.setString(2,cpf);
+
+            int linhasAfetadas = preparedStatement.executeUpdate();
+
+            if (linhasAfetadas>0){
+                System.out.println("usuario atualizado com sucesso");
+                return  true;
+            }else{
+                System.out.println("Nenhum usuario atualizado");
+                return false;
+            }
+        }catch (SQLException e){
+            System.out.println("Falha na atualização" + e.getMessage());
+            return false;
+        }
+    }
+
+
+
 }

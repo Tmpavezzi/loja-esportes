@@ -18,7 +18,7 @@
 
 <body>
     <form action="/cadastrado-usuario" method="post">
-        <h1>Cadastrar Usuários</h1>
+        <h1>Cadastrar/Alterar Usuários</h1>
         <p>
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome" required>
@@ -43,8 +43,8 @@
             <label for="grupo">Grupo/Cargo:</label>
             <select name="role">
                 <option value="">Selecione o Cargo</option>
-                <option value="adm">Administrativo</option>
-                <option value="estoque">Estoquista</option>
+                <option value="administrativo">Administrativo</option>
+                <option value="estoquista">Estoquista</option>
             </select>
         </p>
         <p>

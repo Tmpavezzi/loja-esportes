@@ -52,7 +52,7 @@ label[for="grupo"] {
 
 input[type="radio"][value="ativado"]+label,
 input[type="radio"][value="desativado"]+label {
-    color: white;
+    color: red;
 }
 
 input[type="submit"] {

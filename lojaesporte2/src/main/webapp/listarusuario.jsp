@@ -12,6 +12,12 @@
 
 <body>
     <h1>Lista de Usuários</h1>
+     <% String mensagem = request.getParameter("mensagem"); %>
+        <% if (mensagem != null && !mensagem.isEmpty()) { %>
+            <div class="mensagem">
+                <%= mensagem %>
+            </div>
+        <% } %>
 
     <form action="/listar" method="post">
         <div class="search-container">
@@ -19,6 +25,8 @@
             <input type="text" id="search" name="search" placeholder="Digite o nome do usuário">
              </div>
     </form>
+
+
     <table>
         <thead>
             <tr>
@@ -46,8 +54,14 @@
                             <td>${usuario.email}</td>
                             <td>${usuario.grupo}</td>
                             <td>${usuario.situacao}</td>
-                            <td><a href="alterar.jsp" class="button">Alterar</a></td>
-                            <td><a href="#" class="button">Inabilitar</a></td>
+                            <td><a href="alterarusuario.jsp">Alterar</a></td>
+                            <td>
+                            <form action="/Alteracao-status" method="post">
+                              <input type="hidden" name="novaSituacao" value="${usuario.situacao}">
+                              <button type="submit" name="usuariocpf" value="${usuario.cpf}" onclick="return confirm('Deseja realmente alterar o status deste usuário?')">Hab/Des</button>
+                             </from>
+                              </td>
+
                         </tr>
                     </c:forEach>
                 </c:otherwise>

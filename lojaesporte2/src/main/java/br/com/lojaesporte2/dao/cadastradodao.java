@@ -3,8 +3,7 @@ package br.com.lojaesporte2.dao;
 
 import br.com.lojaesporte2.model.usuario;
 
-import  java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+
 import org.mindrot.jbcrypt.BCrypt;
 import java.sql.*;
 
