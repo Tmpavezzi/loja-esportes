@@ -32,11 +32,9 @@
 
             <label for="defaultImage">Imagem Padrão:</label>
             <select id="defaultImage" name="defaultImage" required>
-                <!-- Opções de imagens carregadas -->
-            </select>
 
-            <button type="submit">Salvar</button>
-            <a href="listarproduto.jsp" class="botao">Cancelar</a>
+                <input type="submit" value="Salvar">
+                <a href="listarproduto.jsp" class="botao">Cancelar</a>
         </form>
     </div>
 </body>

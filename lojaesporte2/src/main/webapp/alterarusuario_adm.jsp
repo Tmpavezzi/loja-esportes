@@ -1,38 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="alterarusuario.css">
-    <title>Editar Usuário</title>
+    <title>Seja Bem-Vindo</title>
+    <link rel="stylesheet" type="text/css" href="alterarusuario_adm.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>Editar Usuário</h1>
-        <form action="/atualizar_usuario" method="post">
-            <label for="grupo">Grupo:</label>
-            <select name="grupo" id="grupo">
-                <option value="adm">Admin</option>
-                <option value="usuario">Usuário</option>
-            </select>
+    <form action="/atualizar_usuario" method="post">
+        <h1>Editar Usuario</h1>
 
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
+        <label for="grupo">Grupo:</label>
+        <select name="grupo" id="grupo">
+            <option value="">Selecione o Grupo</option>
+            <option value="admin">Administrador</option>
+            <option value="usuario">Usuario</option>
+        </select>
 
-            <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf" required>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
 
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" required>
 
-            <label for="confirmarSenha">Confirmar Senha:</label>
-            <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" required>
 
-            <input type="submit" value="Salvar">
-        </form>
-    </div>
+        <label for="confirmarSenha">Confirmar Senha:</label>
+        <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+
+        <input type="submit" value="Salvar">
+    </form>
 </body>
 
 </html>
