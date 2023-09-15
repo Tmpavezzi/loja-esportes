@@ -6,6 +6,7 @@ body {
     padding: 110px;
     background-image: url(img/fitness.png);
     background-size: cover;
+    color: white;
     background-position: center;
 }
 

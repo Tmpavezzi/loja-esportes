@@ -11,7 +11,12 @@
 </head>
 
 <body>
-    <h1>Lista de Usuários</h1>
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" width="140px" alt="Logo da empresa">
+        </div>
+        <h1>Listas de Usuarios</h1>
+    </header>
      <% String mensagem = request.getParameter("mensagem"); %>
         <% if (mensagem != null && !mensagem.isEmpty()) { %>
             <div class="mensagem">
@@ -25,8 +30,6 @@
             <input type="text" id="search" name="search" placeholder="Digite o nome do usuário">
              </div>
     </form>
-
-
     <table>
         <thead>
             <tr>
@@ -54,20 +57,24 @@
                             <td>${usuario.email}</td>
                             <td>${usuario.grupo}</td>
                             <td>${usuario.situacao}</td>
-                            <td><a href="alterarusuario.jsp">Alterar</a></td>
+                            <td><a href="alterarusuario.jsp" class="button">Alterar</a></td>
                             <td>
                             <form action="/Alteracao-status" method="post">
                               <input type="hidden" name="novaSituacao" value="${usuario.situacao}">
                               <button type="submit" name="usuariocpf" value="${usuario.cpf}" onclick="return confirm('Deseja realmente alterar o status deste usuário?')">Hab/Des</button>
                              </from>
                               </td>
-
                         </tr>
                     </c:forEach>
                 </c:otherwise>
             </c:choose>
         </tbody>
     </table>
+        <div class="paginacao">
+            <button id="prevPage">Anterior</button>
+            <button id="nextPage">Próxima</button>
+            <a href="cadastrodeusuario.jsp" class="botao">+ Adicionar Usuários</a>
+        </div>
 </body>
 
 </html>
