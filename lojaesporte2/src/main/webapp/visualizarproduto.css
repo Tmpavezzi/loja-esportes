@@ -1,12 +1,36 @@
-/* Estilos CSS para a página de detalhes do produto */
 .product-image {
     max-width: 20%;
     height: auto;
 }
-/* Desabilitar o botão de comprar */
+
 .disabled {
     background-color: #ccc;
     color: #999;
     cursor: not-allowed;
+}
+
+header {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+    position: relative;
+}
+
+.rodape {
+    font-size: 14px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
 }
 

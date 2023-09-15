@@ -7,34 +7,41 @@
     <link rel="stylesheet" type="text/css" href="visualizarproduto.css">
 </head>
 <body>
-    <h1>Visualizar Produto</h1>
+<header>
+        <div class="logo">
+            <img src="img/logo.png" width="140px" alt="Logo da empresa">
+        </div>
+    </header>
 
+    <section>
 
-    <div id="image">
-        <img class="product-image" src="camisaDry.jpg">
-        <img class="product-image" src="bermuda.jpg" >
-        <img class="product-image" src="produto3.jpg">
-    </div>
-    
-    <h2>Camiseta Dry Fit</h2>
+        <h1>Visualizar Produto</h1>
 
-    <!-- Avaliação do Produto -->
-    <div class="product-rating">
-        Avaliação: ★★★★☆ 
-    </div>
+        <div id="image">
+            <img class="product-image" src="camisaDry.jpg">
+            <img class="product-image" src="bermuda.jpg" >
+            <img class="product-image" src="produto3.jpg">
+        </div>
 
-    <!-- Descrição do Produto -->
-    <p>Camiseta DryFit, modelo premium, cor verde.</p>
+        <h2>Wheyprotein - Growth</h2>
 
-    <!-- Preço do Produto -->
-    <p>Preço: R$ 39.90</p>
+        <div class="product-rating">
+            Avaliação: *****
+        </div>
 
-    <!-- Botão de Comprar Desabilitado -->
-    <button class="disabled" disabled>Comprar</button>
+        <p>Wheyprotein - Growth</p>
 
-    <!-- Outras informações do produto -->
-    <p>Para você ter um conforto e uma boa atividade física</p>
+        <p>Preço: R$ 139.90</p>
 
-   
+        <button class="disabled" disabled>Comprar</button>
+
+    <section>
+
+   <footer>
+       <div class="rodape">
+           &copy; 2023 Gym C.A.P.S. Todos os direitos reservados.
+       </div>
+   </footer>
+
 </body>
 </html>

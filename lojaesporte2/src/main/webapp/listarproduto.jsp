@@ -33,6 +33,7 @@
                         <th>Valor</th>
                         <th>Status</th>
                         <th>Alterar</th>
+                        <th>Visualizar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,6 +52,7 @@
                                     <td>${listaprodutos.valor}</td>
                                     <td>${listaprodutos.statusformatado}</td>
                                     <td><a href="alterarproduto.jsp" class="button">Alterar</a></td>
+                                    <td><a href="visualizarproduto.jsp" class="button">Visualizar</a></td>
                                 </tr>
                             </c:forEach>
                         </c:otherwise>
