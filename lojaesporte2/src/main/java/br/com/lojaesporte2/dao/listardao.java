@@ -1,6 +1,6 @@
 package br.com.lojaesporte2.dao;
 
-import br.com.lojaesporte2.model.listar;
+
 import br.com.lojaesporte2.model.usuario;
 
 import java.sql.*;
@@ -13,7 +13,7 @@ public class listardao {
 
     public List<usuario> listarUsuarios() {
 
-        String sql = "SELECT nome, cpf, email, grupo, situacao FROM USUARIO ";
+        String sql = "SELECT id,nome, cpf, email, grupo, situacao FROM USUARIO ";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -24,6 +24,7 @@ public class listardao {
             List<usuario> usuarios = new ArrayList<>();
 
             while (resultSet.next()) {
+                int id = resultSet.getInt("id");
                 String nome = resultSet.getString("nome");
                 String cpf = resultSet.getString("cpf");
                 String email = resultSet.getString("email");
@@ -31,6 +32,7 @@ public class listardao {
                 String situacao = resultSet.getString("situacao");
 
                 usuario usuario = new usuario();
+                usuario.setId(id);
                 usuario.setNome(nome);
                 usuario.setCpf(cpf);
                 usuario.setEmail(email);

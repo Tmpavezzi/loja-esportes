@@ -2,6 +2,10 @@ package br.com.lojaesporte2.model;
 
 public class usuario {
 
+
+
+    private int id ;
+
      private String nome ;
     private String  cpf ;
 
@@ -66,5 +70,13 @@ public class usuario {
 
     public void setGrupo(String grupo) {
         this.grupo = grupo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

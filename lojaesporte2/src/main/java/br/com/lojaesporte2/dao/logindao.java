@@ -2,12 +2,12 @@ package br.com.lojaesporte2.dao;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-import java.lang.reflect.Type;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import br.com.lojaesporte2.model.login;
+
 
 public class logindao {
 

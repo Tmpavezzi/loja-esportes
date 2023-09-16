@@ -43,8 +43,8 @@
             <label for="grupo">Grupo/Cargo:</label>
             <select name="role">
                 <option value="">Selecione o Cargo</option>
-                <option value="administrativo">Administrativo</option>
-                <option value="estoquista">Estoquista</option>
+                <option value="adm">Administrativo</option>
+                <option value="estoque">Estoquista</option>
             </select>
         </p>
         <p>

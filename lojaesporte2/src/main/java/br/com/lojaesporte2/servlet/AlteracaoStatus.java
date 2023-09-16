@@ -9,10 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import  javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/Alteracao-status")
-public class AlteracaoStatus  extends HttpServlet{
+@WebServlet("/Alteracaostatus")
+public class AlteracaoStatus  extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String cpf = request.getParameter("usuariocpf");
         System.out.println(cpf);
@@ -20,20 +20,27 @@ public class AlteracaoStatus  extends HttpServlet{
         System.out.println("Nova Situação: " + situacaoAtual);
         listardao dao = new listardao();
 
+
         String novaSituacao;
         if ("ativo".equals(situacaoAtual)) {
             novaSituacao = "inativo";
-        } else {
-            novaSituacao = "ativo";
+        } else if ("inativo".equals(situacaoAtual)) {
+            novaSituacao="ativo";
+
+        }else{
+            novaSituacao = situacaoAtual;
         }
 
-        System.out.println("Nova Situação: " + novaSituacao);
-        boolean sucesso = dao.atulizarstatus(cpf,novaSituacao);
 
-        if(sucesso){
-            request.getRequestDispatcher("listarusuario.jsp").forward(request,response);
-        }else{
-            request.getRequestDispatcher("listarusuario.jsp").forward(request,response);
+
+
+            boolean sucesso = dao.atulizarstatus(cpf, novaSituacao);
+
+            if (sucesso) {
+                request.getRequestDispatcher("listarusuario.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("listarusuario.jsp").forward(request, response);
+            }
         }
     }
-}
+
