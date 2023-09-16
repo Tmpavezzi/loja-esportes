@@ -50,7 +50,7 @@
                             <td>${listaprodutos.quantidade}</td>
                             <td>${listaprodutos.valor}</td>
                             <td>${listaprodutos.statusformatado}</td>
-                            <td><a href="cadastrodeproduto.jsp">Alterar</a></td>
+                            <td><a href="alterarproduto.jsp">Alterar</a></td>
                         </tr>
                     </c:forEach>
                 </c:otherwise>

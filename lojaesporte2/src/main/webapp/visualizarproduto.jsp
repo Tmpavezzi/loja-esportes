@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizar um produto como é vendido na loja</title>
     <link rel="stylesheet" type="text/css" href="visualizarproduto.css">
 </head>
+
 <body>
-    <h1>Visualizar Produto</h1>
-
-
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" width="140px" alt="Logo da empresa">
+        </div>
+        <h1>Visualizar Produto</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Comprar Produtos</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+            </ul>
+        </nav>
+    </header>
     <div id="image">
-        <img class="product-image" src="camisaDry.jpg">
-        <img class="product-image" src="bermuda.jpg" >
-        <img class="product-image" src="produto3.jpg">
+        <img class="product-image" src="img/whey.jpg">
     </div>
-    
-    <h2>Camiseta Dry Fit</h2>
 
-    <!-- Avaliação do Produto -->
+    <h2>My Whey</h2><br />
+
     <div class="product-rating">
-        Avaliação: ★★★★☆ 
-    </div>
+        Avaliação: ★★★★☆
+    </div><br />
 
-    <!-- Descrição do Produto -->
-    <p>Camiseta DryFit, modelo premium, cor verde.</p>
+    <p>Whey IntegralMédica de sabor Baunilha</p><br />
 
-    <!-- Preço do Produto -->
-    <p>Preço: R$ 39.90</p>
+    <p>Preço: R$ 99,90</p><br />
 
-    <!-- Botão de Comprar Desabilitado -->
-    <button class="disabled" disabled>Comprar</button>
+    <p>Para substituir proteínas, de uma forma mais saborosa.</p><br />
 
-    <!-- Outras informações do produto -->
-    <p>Para você ter um conforto e uma boa atividade física</p>
+    <button class="disabled">Comprar</button>
 
-   
+    <footer>
+        <div class="rodape">
+            &copy; 2023 Gym C.A.P.S. Todos os direitos reservados.
+        </div>
+    </footer>
 </body>
+
 </html>

@@ -1,12 +1,114 @@
-/* Estilos CSS para a página de detalhes do produto */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e9e9e9;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100vh;
+}
+
+header {
+    background-color: black;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
+    position: relative;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.rodape {
+    font-size: 14px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    border-radius: 2px;
+    margin-left: 5px;
+    margin-right: 20px;
+    transition-duration: .5s;
+}
+
+nav ul li a:hover {
+    background-color: #e9e9e9;
+    color: black;
+}
+
+.user a:hover {
+    background-color: #e9e9e9;
+    color: black;
+}
+
+.user a {
+    transition-duration: .5s;
+    margin-right: 35px;
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+h1,
+p,
+h2 {
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+}
+
+p {
+    font-size: 20px;
+}
+
+
+.product-rating {
+    color: black;
+}
+
 .product-image {
     max-width: 20%;
     height: auto;
 }
-/* Desabilitar o botão de comprar */
+
 .disabled {
-    background-color: #ccc;
-    color: #999;
-    cursor: not-allowed;
+    background-color: #7a808b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
+.disabled:hover {
+    background-color: #4c4e50;
+}
