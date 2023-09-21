@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body {
     font-family: Arial, sans-serif;
     background-color: #e9e9e9;
@@ -95,8 +94,6 @@ p {
     color: black;
 }
 
-=======
->>>>>>> a18ead334c309dd40e7921e22227ccee369f4683
 .product-image {
     max-width: 20%;
     height: auto;
@@ -112,11 +109,10 @@ p {
     border-radius: 5px;
 }
 
-<<<<<<< HEAD
 .disabled:hover {
     background-color: #4c4e50;
 }
-=======
+
 header {
     background-color: black;
     display: flex;
@@ -141,5 +137,3 @@ footer {
     width: 100%;
     font-family: Arial, sans-serif;
 }
-
->>>>>>> a18ead334c309dd40e7921e22227ccee369f4683
