@@ -101,11 +101,11 @@ nav ul li a:hover {
 
 .product-carousel {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    gap: 120px; 
-    max-width: 100%; 
+    gap: 250px;
+    max-width: 100%;
 }
 
 .product-card {

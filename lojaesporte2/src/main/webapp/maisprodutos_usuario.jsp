@@ -28,7 +28,7 @@
     </header>
     <main>
         <section class="product-carousel" id="product-list">
-            
+
         </section>
         <div id="pagination">
             
@@ -40,38 +40,41 @@
         </div>
     </footer>
     <script>
+    var val = 19.99
         // Suponha que você tenha um array de produtos
         const produtos = [
-            { nome: "Produto 1", preco: 19.99 },
-            { nome: "Produto 2", preco: 29.99 },
-            { nome: "Produto 3", preco: 39.99 },
-            { nome: "Produto 4", preco: 49.99 },
-            { nome: "Produto 5", preco: 59.99 },
-            { nome: "Produto 6", preco: 69.99 },
-            { nome: "Produto 7", preco: 79.99 },
-            { nome: "Produto 8", preco: 89.99 },
-            { nome: "Produto 9", preco: 99.99 },
-            { nome: "Produto 10", preco: 109.99 },
-            { nome: "Produto 11", preco: 119.99 },
-            { nome: "Produto 12", preco: 129.99 },
-            { nome: "Produto 1", preco: 19.99 },
-            { nome: "Produto 2", preco: 29.99 },
-            { nome: "Produto 3", preco: 39.99 },
-            { nome: "Produto 4", preco: 49.99 },
-            { nome: "Produto 5", preco: 59.99 },
-            { nome: "Produto 6", preco: 69.99 },
-            { nome: "Produto 7", preco: 79.99 },
-            { nome: "Produto 8", preco: 89.99 },
-            { nome: "Produto 9", preco: 99.99 },
-            { nome: "Produto 10", preco: 109.99 },
-            { nome: "Produto 11", preco: 119.99 },
-            { nome: "Produto 12", preco: 129.99 },
-            { nome: "Produto 1", preco: 19.99 },
-            { nome: "Produto 2", preco: 29.99 },
-            { nome: "Produto 3", preco: 39.99 },
-            { nome: "Produto 4", preco: 49.99 },
-            { nome: "Produto 5", preco: 59.99 },
-            { nome: "Produto 6", preco: 69.99 },
+            { nome: "Produto 1", preco: "R$ " + val, imagem: "img/produto1.jpg", url: "visualizarproduto.jsp" },
+            { nome: "Produto 2", preco: "R$ " + val, imagem: "img/imagem1.jpg"},
+            { nome: "Produto 3", preco: "R$ " + val, imagem: "img/imagem2.jpg"},
+            { nome: "Produto 4", preco: "R$ " + val, imagem: "img/fitness.png"},
+            { nome: "Produto 5", preco: "R$ " + val, imagem: "img/imagem3.jpg"},
+            { nome: "Produto 6", preco: "R$ " + val, imagem: "img/whey.jpg"},
+            { nome: "Produto 7", preco: "R$ " + val, imagem: "img/whey2.png"},
+            { nome: "Produto 8", preco: "R$ " + val, imagem: "img/imagem4.png"},
+            { nome: "Produto 9", preco: "R$ " + val, imagem: "img/imagem4.png"},
+            { nome: "Produto 10", preco: "R$ " + val, imagem: "img/halter.jpg"},
+            { nome: "Produto 11", preco: "R$ " + val, imagem: "img/imagem4.png"},
+            { nome: "Produto 12", preco: "R$ " + val, imagem: "img/produto1.jpg"},
+            { nome: "Produto 1", preco: "R$ " + val , imagem: "img/imagem2.jpg"},
+            { nome: "Produto 2", preco: "R$ " + val , imagem: "img/fitness.png"},
+            { nome: "Produto 3", preco: "R$ " + val , imagem: "img/imagem3.jpg"},
+            { nome: "Produto 4", preco: "R$ " + val, imagem: "img/imagem3.jpg"},
+            { nome: "Produto 5", preco: "R$ " + val, imagem: "img/imagem3.jpg"},
+            { nome: "Produto 6", preco: "R$ " + val, imagem: "img/produto1.jpg"},
+            { nome: "Produto 7", preco: "R$ " + val, imagem: "img/imagem3.jpg"},
+            { nome: "Produto 8", preco: "R$ " + val, imagem: "img/produto1.jpg"},
+            { nome: "Produto 9", preco: "R$ " + val, imagem: "img/produto1.jpg"},
+            { nome: "Produto 10", preco: "R$ " + val, imagem: "img/fitness.png"},
+            { nome: "Produto 11", preco: "R$ " + val, imagem: "img/produto1.jpg"},
+            { nome: "Produto 12", preco: "R$ " + val, imagem: "img/fitness.png"},
+            { nome: "Produto 1", preco: "R$ " + val, imagem: "img/produto1.jpg" },
+            { nome: "Produto 2", preco: "R$ " + val, imagem: "img/imagem3.jpg" },
+            { nome: "Produto 3", preco: "R$ " + val, imagem: "img/imagem4.png" },
+            { nome: "Produto 4", preco: "R$ " + val, imagem: "img/imagem4.png" },
+            { nome: "Produto 5", preco: "R$ " + val, imagem: "img/whey.jpg" },
+            { nome: "Produto 6", preco: "R$ " + val, imagem: "img/fitness.png" },
+            { nome: "Produto 7", preco: "R$ " + val, imagem: "img/produto1.jpg" },
+            { nome: "Produto 8", preco: "R$ " + val, imagem: "img/imagem3.jpg" },
             // Adicione mais produtos aqui
         ];
 
@@ -85,15 +88,32 @@
 
             for (let i = startIndex; i < endIndex && i < produtos.length; i++) {
                 const product = produtos[i];
-                const productElement = document.createElement("div");
-                productElement.className = "product";
-                productElement.innerHTML = `<h3>${product.nome}</h3><p>Preço: R$ ${product.preco.toFixed(2)}</p>`;
-                productList.appendChild(productElement);
+                const productSection = document.createElement("section");
+                const nomeProduto = document.createElement("h2");
+                const precoProduto = document.createElement("p");
+                const imagemProduto = document.createElement("img");
+                const linkProduto = document.createElement("a");
+
+                linkProduto.href = product.url;
+                nomeProduto.textContent = product.nome;
+                precoProduto.textContent = product.preco;
+                imagemProduto.src = product.imagem;
+
+                imagemProduto.style.width = "150px";
+                imagemProduto.style.height = "150px";
+
+
+                productSection.appendChild(imagemProduto);
+                productSection.appendChild(nomeProduto);
+                productSection.appendChild(precoProduto);
+                productSection.appendChild(linkProduto);
+                productList.appendChild(productSection);
+
             }
         }
 
         // Chamada inicial para exibir a primeira página com 5 produtos
-        exibirProdutos(1, 30);
+        exibirProdutos(1, 20);
 
         // Função para criar links de paginação
         function criarLinksDePaginacao(totalProdutos, pageSize) {
@@ -114,7 +134,7 @@
         }
 
         // Chamada inicial para criar links de paginação
-        criarLinksDePaginacao(produtos.length, 30);
+        criarLinksDePaginacao(produtos.length, 20);
     </script>
 </body>
 </html>

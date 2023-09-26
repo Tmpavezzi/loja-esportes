@@ -24,11 +24,8 @@
     <url-pattern>/console/*</url-pattern>
   </servlet-mapping>
 
-
-
-
-
-
-
+  <welcome-file-list>
+    <welcome-file>telaprincipal_usuario.jsp</welcome-file>
+  </welcome-file-list>
 
 </web-app>

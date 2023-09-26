@@ -16,8 +16,8 @@
         <h1>Visualizar Produto</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Comprar Produtos</a></li>
+                <li><a href="telaprincipal_usuario.jsp">Home</a></li>
+                <li><a href="maisprodutos_usuario.jsp">Mais Produtos</a></li>
                 <li><a href="#">Sobre Nós</a></li>
             </ul>
         </nav>
