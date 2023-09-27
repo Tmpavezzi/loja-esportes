@@ -41,7 +41,6 @@ select {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    color: white;
     border-radius: 5px;
 }
 
@@ -76,7 +75,7 @@ button:hover {
 
 input[type="submit"] {
     background-color: #1600db;
-    color: #fff;
+    color: #000000;
     padding: 10px 20px;
     border: none;
     border-radius: 12px;
