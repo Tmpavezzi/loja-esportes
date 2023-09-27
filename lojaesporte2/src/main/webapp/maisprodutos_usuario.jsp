@@ -102,11 +102,18 @@
                 imagemProduto.style.width = "150px";
                 imagemProduto.style.height = "150px";
 
+                const botaoDetalhes = document.createElement("button");
+                botaoDetalhes.textContent = "Detalhes";
+
+                botaoDetalhes.addEventListener("click", () => {
+                window.location.href = product.url;
+                });
 
                 productSection.appendChild(imagemProduto);
                 productSection.appendChild(nomeProduto);
                 productSection.appendChild(precoProduto);
                 productSection.appendChild(linkProduto);
+                linkProduto.appendChild(botaoDetalhes);
                 productList.appendChild(productSection);
 
             }
