@@ -12,12 +12,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="alterarusuario.css">
-        <title>Editar Usuário</title>
+        <title>Editar Usuá&aacute;io</title>
     </head>
 
     <body>
         <div class="container">
-            <h1>Editar Usuário</h1>
+            <h1>Editar Usu&aacute;rio</h1>
             <form action="/atualizarUsuario" method="post">
             <input type="hidden" name="usuarioId" value="<%= usuarioId %>">
                 <label for="grupo">Grupo:</label>

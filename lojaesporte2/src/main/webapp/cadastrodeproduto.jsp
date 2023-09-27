@@ -12,16 +12,16 @@
     <div class="container">
         <h1>Cadastrar Produto Novo</h1>
         <form action="#" method="POST" enctype="multipart/form-data">
-            <label for="NomeProduto">Nome do Produto (até 200 caracteres):</label>
+            <label for="NomeProduto">Nome do Produto (at&eacute; 200 caracteres):</label>
             <input type="text" id="NomeProduto" name="NomeProduto" maxlength="200" required>
 
-            <label for="AvaliacaoProduto">Avaliação (de 1 a 5 em incrementos de 0,5):</label>
+            <label for="AvaliacaoProduto">Avalia&ccedil;&atilde;o (de 1 a 5 em incrementos de 0,5):</label>
             <input type="number" id="AvaliacaoProduto" name="AvaliacaoProduto" max="5" step="0.5" required>
 
-            <label for="DescricaoProduto">Descrição Detalhada (até 2000 caracteres):</label>
+            <label for="DescricaoProduto">Descri&ccedil;&atilde;o Detalhada (at&eacute; 2000 caracteres):</label>
             <textarea id="DescricaoProduto" name="DescricaoProduto" rows="5" maxlength="2000" required></textarea>
 
-            <label for="PrecoProduto">Preço do Produto (2 casas decimais):</label>
+            <label for="PrecoProduto">Pre&ccedil;o do Produto (2 casas decimais):</label>
             <input type="number" id="PrecoProduto" name="PrecoProduto" min="0" step="0.01" required>
 
             <label for="QuantidadeEstoque">Quantidade em Estoque (valor inteiro):</label>
@@ -30,7 +30,7 @@
             <label for="ImagemProduto">Imagens:</label>
             <input type="file" id="ImagemProduto" name="ImagemProduto" accept="image/*" multiple required>
 
-            <label for="defaultImage">Imagem Padrão:</label>
+            <label for="defaultImage">Imagem de Capa:</label>
             <select id="defaultImage" name="defaultImage" required>
 
                 <input type="submit" value="Salvar">

@@ -30,11 +30,11 @@
             <ul>
                 <li><a href="telaprincipal_usuario.jsp">Home</a></li>
                 <li><a href="maisprodutos_usuario.jsp">Mais Produtos</a></li>
-                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="#">Sobre N&oacute;s</a></li>
             </ul>
         </nav>
         <div class="user">
-            <a href="index.jsp">Faça Login</a>
+            <a href="index.jsp">Fa&ccedil;a Login</a>
             <a href="cadastrodeusuario.jsp">Crie Seu Login</a>
         </div>
         <div class="cart-icon">
@@ -52,7 +52,7 @@
     <section class="product-carousel">
         <div class="product-card">
             <img src="img/produto1.jpg" alt="Produto 1">
-            <h2>KIT IntegralMédica</h2>
+            <h2>KIT IntegralM&eacute;dica</h2>
             <h3>02 Wheys Concentrados 907kg + 02 Creatinas 150g + 02 Coqueteleiras</h3>
             <h4>R$ 350,00</h4>
             <a href="#" class="detail-button">Detalhes</a>
@@ -60,7 +60,7 @@
 
         <div class="product-card">
             <img src="img/whey.jpg" alt="Produto 2">
-            <h2>Whey - MyWhey IntegralMédica</h2>
+            <h2>Whey - MyWhey IntegralM&eacute;dica</h2>
             <h3>Sabor Baunilha</h3>
             <h4>R$ 135,00</h4>
             <a href="#" class="detail-button">Detalhes</a>

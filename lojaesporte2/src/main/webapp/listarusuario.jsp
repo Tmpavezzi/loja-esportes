@@ -21,7 +21,7 @@
 
     <form action="/listar" method="post">
         <div class="search-container">
-            <label for="search">Buscar usuário:</label>
+            <label for="search">Buscar usu&aacute;rio:</label>
             <input type="text" id="search" name="search" placeholder="Digite o nome do usuário">
              </div>
     </form>
@@ -43,7 +43,7 @@
             <c:choose>
                 <c:when test="${empty usuarios}">
                     <tr>
-                        <td colspan="7">Nenhum usuário encontrado.</td>
+                        <td colspan="7">Nenhum usu&aacute;rio encontrado.</td>
                     </tr>
                 </c:when>
                 <c:otherwise>
