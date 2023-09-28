@@ -32,11 +32,43 @@
 
             <label for="defaultImage">Imagem de Capa:</label>
             <select id="defaultImage" name="defaultImage" required>
+                <option value="" disabled selected>Selecione uma imagem de capa</option>
+            </select>
 
                 <input type="submit" value="Salvar">
                 <a href="listarproduto.jsp" class="botao">Cancelar</a>
         </form>
     </div>
+
+    <script>
+        // Selecione o elemento <select> e o elemento <input> de imagens
+        const selectElement = document.getElementById("defaultImage");
+        const inputElement = document.getElementById("ImagemProduto");
+
+        // Adicione um ouvinte de eventos para detectar quando as imagens são carregadas
+        inputElement.addEventListener("change", () => {
+            // Limpe todas as opções existentes no elemento <select>
+            selectElement.innerHTML = "";
+
+            // Adicione uma opção padrão
+            const defaultOption = document.createElement("option");
+            defaultOption.value = "";
+            defaultOption.textContent = "Selecione uma imagem de capa";
+            defaultOption.disabled = true;
+            defaultOption.selected = true;
+            selectElement.appendChild(defaultOption);
+
+            // Adicione uma opção para cada imagem carregada
+            for (let i = 0; i < inputElement.files.length; i++) {
+                const imageFile = inputElement.files[i];
+                const option = document.createElement("option");
+                option.value = imageFile.name;
+                option.textContent = imageFile.name;
+                selectElement.appendChild(option);
+            }
+        });
+    </script>
+
 </body>
 
 </html>
