@@ -54,6 +54,40 @@
             .product-card button:hover {
                 background-color: rgb(55, 0, 255);
             }
+
+            #pagination {
+                 text-align: center;
+                 margin-top: 20px;
+            }
+
+            #pagination a {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    margin: 0 5px;
+                    border: 1px solid #ccc;
+                    background-color: black;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 4px;
+                }
+
+                #pagination a:hover {
+                    background-color: blue;
+                }
+                #prev-page-button, #next-page-button {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    margin: 0 5px;
+                    background-color: #1600db;
+                    color: #fff;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+
+                #prev-page-button:hover, #next-page-button:hover {
+                    background-color: rgb(55, 0, 255);
+                }
         </style>
 </head>
 <body>
@@ -81,7 +115,9 @@
 
         </section>
         <div id="pagination">
-            
+           <button id="prev-page-button">Página Anterior</button>
+           <!-- Links de página gerados dinamicamente -->
+           <button id="next-page-button">Próxima Página</button>
         </div>
     </main>
     <footer>
