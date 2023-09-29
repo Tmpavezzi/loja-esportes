@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhe do Produto</title>
     <link rel="stylesheet" type="text/css" href="visualizarproduto.css">
-    <link rel="stylesheet" href="descricaoproduto_usuario.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
@@ -18,42 +17,15 @@
         <div class="logo">
             <img src="img/logo.png" width="140px" alt="Logo da empresa">
         </div>
-        <h1>Visualizar Produto</h1>
         <nav>
             <ul>
                 <li><a href="telaprincipal_usuario.jsp">Home</a></li>
                 <li><a href="maisprodutos_usuario.jsp">Mais Produtos</a></li>
-                <li><a href="#">Sobre Nós</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div id="image">
-        <img class="product-image" src="img/whey.jpg">
-    </div>
-
-    <h2>My Whey</h2><br />
-
-    <div class="product-rating">
-        Avaliação: ★★★★☆
-    </div><br />
-
-    <p>Whey IntegralMédica de sabor Baunilha</p><br />
-
-    <p>Preço: R$ 99,90</p><br />
-
-    <p>Para substituir proteínas, de uma forma mais saborosa.</p><br />
-
-    <button class="disabled">Comprar</button>
-
-        <nav>
-            <ul>
-                <li><a href="telaprincipal_usuario.jsp">Home</a></li>
-                <li><a href="#">Mais Produtos</a></li>
-                <li><a href="#">Sobre Nós</a></li>
+                <li><a href="#">Sobre N&oacute;s</a></li>
             </ul>
         </nav>
         <div class="user">
-            <a href="index.jsp">Faça Login</a>
+            <a href="index.jsp">Fa&ccedil;a Login</a>
             <a href="cadastrodeusuario.jsp">Crie Seu Login</a>
         </div>
         <div class="cart-icon">
@@ -68,10 +40,10 @@
             </div>
         </div>
         <div class="product-info">
-            <h1>Whey IntegralMédica Sabor Baunilha</h1>
-            <p>Para substituir proteínas, de uma forma mais saborosa.</p>
-            <p><strong>Preço:</strong> R$ 139,99</p>
-            <p><strong>Avaliação:</strong> ★★★★☆</p>
+            <h1>Whey IntegralM&eacute;dica Sabor Baunilha</h1>
+            <p>Para substituir prote&iacute;nas, de uma forma mais saborosa.</p>
+            <p><strong>Pre&ccedil;o:</strong> R$ 139,99</p>
+            <p><strong>Avalia&ccedil;&atilde;o:</strong> &#9733;&#9733;&#9733;&#9733;&#9734;</p>
             <button id="comprar-btn" disabled>Comprar</button>
         </div>
     </div>
