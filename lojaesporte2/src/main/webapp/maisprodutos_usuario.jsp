@@ -13,12 +13,13 @@
                 box-shadow: 0px 4px 6px rgb(17, 0, 255);
                 padding: 20px;
                 margin: 55px;
+                display: inline-block;
+                flex-wrap: wrap;
+                justify-content: space-between;
                 text-align: center;
                 transition: transform 0.2s ease;
-                display: inline-block;
                 vertical-align: top;
             }
-
             .product-card:hover {
                 transform: translateY(-5px);
                 box-shadow: 5px 10px 30px 10px rgb(17, 0, 255);
