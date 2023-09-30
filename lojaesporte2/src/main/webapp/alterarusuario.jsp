@@ -11,7 +11,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="alterarusuario.css">
+        <link rel="stylesheet" href="alterarproduto.css">
         <title>Editar Usuá&aacute;io</title>
     </head>
 

@@ -41,6 +41,7 @@ select {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
+    color: #831818;
     border-radius: 5px;
     color: #0000ff;
 }
@@ -91,4 +92,4 @@ input[type="submit"]:hover {
 
 #defaultImage {
     width: 100%;
-}
+}S

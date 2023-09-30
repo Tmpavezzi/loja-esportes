@@ -1,7 +1,8 @@
 package br.com.lojaesporte2.servlet;
 
-import br.com.lojaesporte2.dao.listaprodutosdao;
-import br.com.lojaesporte2.model.listaprodutos;
+import br.com.lojaesporte2.dao.listardao;
+import br.com.lojaesporte2.model.ImagenProduto;
+import br.com.lojaesporte2.model.produto;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,32 +10,49 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import  javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 @WebServlet("/listarprodutos")
 public class listarprodutosservlet extends  HttpServlet {
 
+
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Servlet de lisatgem foi acessada");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String nomePorduto = request.getParameter("nomeProduto");
 
-        String filtro = request.getParameter("search");
+        listardao dao = new listardao();
+        List<produto> produtos = dao.listarProdutoPorNome(nomePorduto);
 
-        listaprodutosdao dao = new listaprodutosdao();
-        List<listaprodutos> produtos = dao.listarProdutos();
+        List<produto> produtosComImagens = new ArrayList<>();
 
-        if (filtro != null && !filtro.isEmpty()) {
+        for(produto produto : produtos){
+            List<ImagenProduto> imagens = produto.getImagens();
+            if(imagens!=null){
+                for(ImagenProduto imagem : imagens){
+                    int imagenId = imagem.getImagenId();
 
-            produtos = dao.listarProdutosFiltrados(filtro);
-        } else {
+                    if(imagenId>0){
+                        byte[] imagemBytes = dao.recuperarImagemPorId(imagem.getImagenId());
+                        if(imagemBytes!=null){
+                            String imagemBases64 = Base64.getEncoder().encodeToString(imagemBytes);
+                            produto.setImagemBase64(imagemBases64);
+                    }
 
-            produtos = dao.listarProdutos();
+                    }
+                }
+            }
+            produtosComImagens.add(produto);
         }
+         request.setAttribute("produtos",produtosComImagens);
 
-        request.setAttribute("produtos", produtos);
-        request.getRequestDispatcher("listarproduto.jsp").forward(request, response);
+        request.getRequestDispatcher("listarproduto.jsp").forward(request,response);
+
+
+
+
     }
 
 }

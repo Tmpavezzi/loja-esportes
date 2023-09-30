@@ -18,47 +18,48 @@
                 <h1>Listas de Produtos</h1>
             </header>
 
-            <form action="/listarprodutos" method="post">
-                <div class="search">
-                    <label for="search">Buscar produto:</label>
-                    <input type="text" id="search" name="search" placeholder="Digite o nome do produto">
-                </div>
-            </form>
             <table>
                 <thead>
-                    <tr>
-                        <th>Código</th>
-                        <th>Nome do Produto</th>
-                        <th>Quantidade</th>
-                        <th>Valor</th>
-                        <th>Status</th>
-                        <th>Alterar</th>
-                        <th>Visualizar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:choose>
-                        <c:when test="${empty produtos}">
-                            <tr>
-                                <td colspan="7">Nenhum produto encontrado.</td>
-                            </tr>
-                        </c:when>
-                        <c:otherwise>
-                            <c:forEach var="listaprodutos" items="${produtos}">
-                                <tr>
-                                    <td>${listaprodutos.id}</td>
-                                    <td>${listaprodutos.desc}</td>
-                                    <td>${listaprodutos.quantidade}</td>
-                                    <td>${listaprodutos.valor}</td>
-                                    <td>${listaprodutos.statusformatado}</td>
-                                    <td><a href="alterarproduto.jsp" class="button">Alterar</a></td>
-                                    <td><a href="visualizarproduto.jsp" class="button">Visualizar</a></td>
-                                </tr>
-                            </c:forEach>
-                        </c:otherwise>
-                    </c:choose>
-                </tbody>
-            </table>
+
+                <form action="/listarprodutos" method="get" class="search-form">
+                        <input type="text" name="nomeProduto" placeholder="Pesquisar por nome...">
+                        <button type="submit">Pesquisar</button>
+                    </form>
+                   <table>
+                          <thead>
+                              <tr>
+                                  <th>Código</th>
+                                  <th>Nome do Produto</th>
+                                  <th>Quantidade</th>
+                                  <th>Valor</th>
+                                  <th>Status</th>
+                                  <th>Alterar</th>
+                                  <th>Visualizar</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <c:choose>
+                                  <c:when test="${empty produtos}">
+                                      <tr>
+                                          <td colspan="7">Nenhum produto encontrado.</td>
+                                      </tr>
+                                  </c:when>
+                                  <c:otherwise>
+                                      <c:forEach var="listaprodutos" items="${produtos}">
+                                          <tr>
+                                              <td>${listaprodutos.ID}</td>
+                                              <td>${listaprodutos.nome}</td>
+                                              <td>${listaprodutos.estoque}</td>
+                                              <td>${listaprodutos.preco}</td>
+                                              <td><img src="data:image/jpeg;base64,${listaprodutos.imagemBase64}" alt="Imagem do Produto"></td>
+                                              <td><a href="alterarproduto.jsp" class="button">Alterar</a></td>
+                                              <td><a href="visualizarproduto.jsp" class="button">Visualizar</a></td>
+                                          </tr>
+                                      </c:forEach>
+                                  </c:otherwise>
+                              </c:choose>
+                          </tbody>
+                      </table>
 
             <div class="paginacao">
                 <button id="prevPage">Anterior</button>
