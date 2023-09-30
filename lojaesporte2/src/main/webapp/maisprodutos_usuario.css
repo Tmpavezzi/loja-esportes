@@ -104,17 +104,17 @@ nav ul li a:hover {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    gap: 250px;
+    gap: 10px;
     max-width: 100%;
 }
 
 .product-card {
-    flex-basis: calc(25% - 20px); /* Defina a largura base de cada item */
+    flex-basis: calc(25% - 20px);
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
-    box-sizing: border-box; /* Inclui borda no cálculo da largura */
-    margin-bottom: 20px; /* Espaço inferior entre os produtos */
+    box-sizing: border-box;
+    margin-bottom: 20px;
 }
 
 .product-card:hover {

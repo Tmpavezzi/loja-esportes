@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="telaprincipal_usuario.css">
-    <title>seja Bem-Vindo</title>
+    <title>Seja Bem-Vindo</title>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const bannerImages = document.querySelectorAll(".banner img");

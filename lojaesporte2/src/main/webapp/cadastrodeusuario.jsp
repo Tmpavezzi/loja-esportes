@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cadastrodeusuario.css">
-    <title>Escolha dos módulos</title>
+    <title>Cadastrar-se</title>
 </head>
 
 <body>
@@ -41,7 +41,7 @@
         </p>
         <p>
             <label for="grupo">Grupo/Cargo:</label>
-            <select name="role">
+            <select name="role" disabled>
                 <option value="">Selecione o Cargo</option>
                 <option value="adm">Administrativo</option>
                 <option value="estoque">Estoquista</option>
@@ -49,10 +49,10 @@
         </p>
         <p>
             <label for="status">Status:</label>
-            <input type="radio" id="statusAtivar" name="status" value="ATIVO">
-            <label for="statusAtivar">Ativar</label>
-            <input type="radio" id="statusDesativar" name="status" value="INATIVO">
-            <label for="statusDesativar">Desativar</label>
+            <input type="radio" id="statusAtivar" name="status" value="ATIVO" disabled>
+            <label for="statusAtivar" style="color: white;">Ativar</label>
+            <input type="radio" id="statusDesativar" name="status" value="INATIVO" disabled>
+            <label for="statusDesativar" style="color: white;">Desativar</label>
         </p>
         <input type="submit" value="Cadastrar">
     </form>
