@@ -6,10 +6,7 @@ import br.com.lojaesporte2.model.produto;
 import br.com.lojaesporte2.model.usuario;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 
 public class listardao {
@@ -198,5 +195,41 @@ public class listardao {
           return produtos;
 
 
+    }
+
+    public usuario buscarUusuarioPorId(int usuarioId){
+        String sql = "SELECT id, nome, cpf, email, grupo, situacao FROM USUARIO WHERE id = ?";
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,usuarioId);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()){
+                int id = resultSet.getInt("id");
+                String nome = resultSet.getString("nome");
+                String cpf = resultSet.getString("cpf");
+                String email = resultSet.getString("email");
+                String grupo = resultSet.getString("grupo");
+                String situacao = resultSet.getString("situacao");
+
+                usuario usuario = new usuario();
+                usuario.setId(id);
+                usuario.setNome(nome);
+                usuario.setCpf(cpf);
+                usuario.setEmail(email);
+                usuario.setGrupo(grupo);
+                usuario.setSituacao(situacao);
+
+                connection.close();
+
+                return usuario;
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return  null;
     }
 }

@@ -54,7 +54,7 @@
                             <td>${usuario.email}</td>
                             <td>${usuario.grupo}</td>
                             <td>${usuario.situacao}</td>
-                            <td><a href="alterarusuario.jsp?usuarioId=${usuario.id}">Alterar</a></td>
+                            <td><a href="alterarusuario.jsp?usuarioId=${usuario.id}&nome=${usuario.nome}&cpf=${usuario.cpf}&email=${usuario.email}&grupo=${usuario.grupo}&situacao=${usuario.situacao}">Alterar</a></td>
                             <td>
                             <form action="/Alteracaostatus" method="post">
                             <input type="hidden" name="usuarioID" value="${usuario.id}">
