@@ -7,20 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class listaprodutosdao {
-
-    //CREATE TABLE produtos (
-    //    idprod INT AUTO_INCREMENT PRIMARY KEY,
-    //    nome VARCHAR(200),
-    //    avaliacao DECIMAL(2, 1),
-    //    descprod VARCHAR(2000),
-    //    quantprod VARCHAR(100),
-    //    val DECIMAL(5,2),
-    //    status BOOLEAN DEFAULT TRUE
-    //);
-
-    //INSERT INTO produtos (nome, avaliacao, descprod, quantprod, val, status)
-    //VALUES ('Wheyprotein - MyWhey', '4.0', 'Proteina do leite, sabor baunilha', '50', '129.99', TRUE);
+public class MaisProdutosUsuariodao {
 
     public List<listaprodutos> listarProdutos() {
 
