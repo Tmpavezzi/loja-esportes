@@ -1,46 +1,53 @@
-    <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%
-        String usuarioId = request.getParameter("usuarioId");
-        if (usuarioId == null || usuarioId.isEmpty()) {
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-        }
-    %>
-    <!DOCTYPE html>
-    <html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="alterarusuario.css">
-        <title>Editar Usuá&aacute;io</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="alterarproduto.css">
+    <title>Editar Usuário</title>
+</head>
 
-    <body>
-        <div class="container">
-            <h1>Editar Usu&aacute;rio</h1>
-            <form action="/atualizarUsuario" method="post">
-            <input type="hidden" name="usuarioId" value="<%= usuarioId %>">
-                <label for="grupo">Grupo:</label>
-                <select name="grupo" id="grupo">
-                    <option value="adm">Admin</option>
-                    <option value="estoque">estoque</option>
-                </select>
+<body>
+    <div class="container">
+        <h1>Editar Usuário</h1>
+        <form action="/atualizarUsuario" method="post">
+            <input type="hidden" name="usuarioId" value="${param.usuarioId}">
 
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required>
 
-                <label for="cpf">CPF:</label>
-                <input type="text" id="cpf" name="cpf" required>
+            <label for="grupo">Grupo:</label>
+            <select name="grupo" id="grupo">
+                            <option value="adm" ${"adm".equals(param.grupo) ? 'selected="selected"' : ''}>Admin</option>
+                            <option value="estoque" ${"estoque".equals(param.grupo) ? 'selected="selected"' : ''}>Estoque</option>
+                        </select>
 
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" name="senha" required>
+            <!-- Campo para o nome do usuário -->
+             <label for="nome">Nome:</label>
+                        <input type="text" id="nome" name="nome" required value="${param.nome}">
 
-                <label for="confirmarSenha">Confirmar Senha:</label>
-                <input type="password" id="confirmarSenha" name="confirmarSenha" required>
+                        <!-- Campo para o CPF do usuário -->
+                        <label for="cpf">CPF:</label>
+                        <input type="text" id="cpf" name="cpf" required value="${param.cpf}">
 
-                <input type="submit" value="Salvar">
-            </form>
-        </div>
-    </body>
+                        <!-- Campo para a senha do usuário -->
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" required value="${param.senha}">
 
-    </html>
+                        <!-- Campo para confirmar a senha -->
+                        <label for="confirmarSenha">Confirmar Senha:</label>
+                        <input type="password" id="confirmarSenha" name="confirmarSenha" required value="${param.senha}">
+
+                        <!-- Exibir mensagens de erro, se houver -->
+                        <% if (request.getAttribute("message") != null) { %>
+                            <p class="error-message"><%= request.getAttribute("message") %></p>
+                        <% } %>
+
+                        <!-- Botão de envio do formulário -->
+                        <input type="submit" value="Salvar">
+                    </form>
+                </div>
+            </body>
+
+            </html>

@@ -5,6 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Produtos</title>
     <link rel="stylesheet" href="maisprodutos_usuario.css">
+    <style>
+            .product-card {
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                box-shadow: 0px 4px 6px rgb(17, 0, 255);
+                padding: 20px;
+                margin: 55px;
+                display: inline-block;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                text-align: center;
+                transition: transform 0.2s ease;
+                vertical-align: top;
+            }
+            .product-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 5px 10px 30px 10px rgb(17, 0, 255);
+            }
+
+            .product-card img {
+                max-width: 150px;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .product-card h2 {
+                font-size: 1.5rem;
+                margin: 10px 0;
+            }
+
+            .product-card p {
+                font-size: 1.2rem;
+                color: black;
+                margin-bottom: 15px;
+            }
+
+            .product-card button {
+                background-color: #1600db;
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                font-size: 1rem;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            .product-card button:hover {
+                background-color: rgb(55, 0, 255);
+            }
+
+            #pagination {
+                 text-align: center;
+                 margin-top: 20px;
+            }
+
+            #pagination a {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    margin: 0 5px;
+                    border: 1px solid #ccc;
+                    background-color: black;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 4px;
+                }
+
+                #pagination a:hover {
+                    background-color: blue;
+                }
+                #prev-page-button, #next-page-button {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    margin: 0 5px;
+                    background-color: #1600db;
+                    color: #fff;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
+
+                #prev-page-button:hover, #next-page-button:hover {
+                    background-color: rgb(55, 0, 255);
+                }
+        </style>
 </head>
 <body>
     <header>
@@ -31,7 +116,9 @@
 
         </section>
         <div id="pagination">
-            
+           <button id="prev-page-button">Página Anterior</button>
+           <!-- Links de página gerados dinamicamente -->
+           <button id="next-page-button">Próxima Página</button>
         </div>
     </main>
     <footer>
@@ -89,6 +176,8 @@
             for (let i = startIndex; i < endIndex && i < produtos.length; i++) {
                 const product = produtos[i];
                 const productSection = document.createElement("section");
+                const cardContainer = document.createElement("div");
+                cardContainer.classList.add("product-card");
                 const nomeProduto = document.createElement("h2");
                 const precoProduto = document.createElement("p");
                 const imagemProduto = document.createElement("img");
@@ -109,11 +198,12 @@
                 window.location.href = product.url;
                 });
 
-                productSection.appendChild(imagemProduto);
-                productSection.appendChild(nomeProduto);
-                productSection.appendChild(precoProduto);
-                productSection.appendChild(linkProduto);
+                cardContainer.appendChild(imagemProduto);
+                cardContainer.appendChild(nomeProduto);
+                cardContainer.appendChild(precoProduto);
+                cardContainer.appendChild(linkProduto);
                 linkProduto.appendChild(botaoDetalhes);
+                productSection.appendChild(cardContainer);
                 productList.appendChild(productSection);
 
             }
