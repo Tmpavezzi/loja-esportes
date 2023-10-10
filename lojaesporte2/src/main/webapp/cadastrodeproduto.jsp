@@ -35,7 +35,7 @@
             </select>
 
             <input type="submit" value="Salvar">
-            <a href="listaDeProdutos.jsp" class="botao">Cancelar</a>
+            <a href="listarproduto.jsp" class="botao">Cancelar</a>
         </form>
     </div>
 

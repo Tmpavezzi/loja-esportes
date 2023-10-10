@@ -100,12 +100,12 @@
             <ul>
                 <li><a href="telaprincipal_usuario.jsp">Home</a></li>
                 <li><a href="maisprodutos_usuario.jsp">Mais Produtos</a></li>
-                <li><a href="#">Sobre N&oacute;s</a></li>
+                <li><a href="#">Acompanhar Pedidos</a></li>
             </ul>
         </nav>
         <div class="user">
             <a href="index.jsp">Fa&ccedil;a Login</a>
-            <a href="cadastrodeusuario.jsp">Crie Seu Login</a>
+            <a href="cadastrocliente.jsp">Crie Seu Login</a>
         </div>
         <div class="cart-icon">
             <img src="img/cart-icon.png" alt="Ícone de Carrinho">
@@ -130,7 +130,7 @@
     var val = 19.99
         // Suponha que você tenha um array de produtos
         const produtos = [
-            { nome: "Produto 1", preco: "R$ " + val, imagem: "img/produto1.jpg", url: "visualizarproduto.jsp" },
+            { nome: "Produto 1", preco: "R$ " + val, imagem: "img/produto1.jpg", url: "descricaoproduto_usuario.jsp" },
             { nome: "Produto 2", preco: "R$ " + val, imagem: "img/imagem1.jpg"},
             { nome: "Produto 3", preco: "R$ " + val, imagem: "img/imagem2.jpg"},
             { nome: "Produto 4", preco: "R$ " + val, imagem: "img/fitness.png"},

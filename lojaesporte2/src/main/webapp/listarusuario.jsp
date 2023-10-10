@@ -11,7 +11,12 @@
 </head>
 
 <body>
-    <h1>Lista de Usuários</h1>
+       <header>
+            <div class="logo">
+                <img src="img/logo.png" width="140px" alt="Logo da empresa">
+            </div>
+               <h1>Listas de Usuários</h1>
+       </header>
      <% String mensagem = request.getParameter("mensagem"); %>
         <% if (mensagem != null && !mensagem.isEmpty()) { %>
             <div class="mensagem">

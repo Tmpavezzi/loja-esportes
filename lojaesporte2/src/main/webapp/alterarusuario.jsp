@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="alterarproduto.css">
+    <link rel="stylesheet" href="alterarusuario.css">
     <title>Editar Usuário</title>
 </head>
 
@@ -15,8 +15,6 @@
         <h1>Editar Usuário</h1>
         <form action="/atualizarUsuario" method="post">
             <input type="hidden" name="usuarioId" value="${param.usuarioId}">
-
-
             <label for="grupo">Grupo:</label>
             <select name="grupo" id="grupo">
                             <option value="adm" ${"adm".equals(param.grupo) ? 'selected="selected"' : ''}>Admin</option>

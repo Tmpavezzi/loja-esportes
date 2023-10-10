@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhe do Produto</title>
-    <link rel="stylesheet" type="text/css" href="visualizarproduto.css">
+    <link rel="stylesheet" type="text/css" href="descricaoproduto_usuario.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
@@ -21,12 +21,12 @@
             <ul>
                 <li><a href="telaprincipal_usuario.jsp">Home</a></li>
                 <li><a href="maisprodutos_usuario.jsp">Mais Produtos</a></li>
-                <li><a href="#">Sobre N&oacute;s</a></li>
+                <li><a href="#">Acompanhar Pedidos</a></li>
             </ul>
         </nav>
         <div class="user">
             <a href="index.jsp">Fa&ccedil;a Login</a>
-            <a href="cadastrodeusuario.jsp">Crie Seu Login</a>
+            <a href="cadastrocliente.jsp">Crie Seu Login</a>
         </div>
         <div class="cart-icon">
             <img src="img/cart-icon.png" alt="Ícone de Carrinho">

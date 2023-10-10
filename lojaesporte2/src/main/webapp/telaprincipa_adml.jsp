@@ -26,11 +26,6 @@
             </p>
         </div>
     </section>
-        <footer>
-            <div class="rodape">
-                &copy; 2023 Gym C.A.P.S. Todos os direitos reservados.
-            </div>
-        </footer>
 </body>
 
 </html>

@@ -30,12 +30,12 @@
             <ul>
                 <li><a href="telaprincipal_usuario.jsp">Home</a></li>
                 <li><a href="maisprodutos_usuario.jsp">Mais Produtos</a></li>
-                <li><a href="#">Sobre N&oacute;s</a></li>
+                <li><a href="#">Acompanhar Pedidos</a></li>
             </ul>
         </nav>
         <div class="user">
             <a href="index.jsp">Fa&ccedil;a Login</a>
-            <a href="cadastrodeusuario.jsp">Crie Seu Login</a>
+            <a href="cadastrocliente.jsp">Crie Seu Login</a>
         </div>
         <div class="cart-icon">
             <img src="img/cart-icon.png" alt="Ícone de Carrinho">

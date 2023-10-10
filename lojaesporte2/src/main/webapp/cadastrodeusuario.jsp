@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cadastrodeusuario.css">
-    <title>Cadastrar-se</title>
+    <title>Cadastrar Usuario</title>
 </head>
 
 <body>
