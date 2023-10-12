@@ -89,6 +89,30 @@
                 #prev-page-button:hover, #next-page-button:hover {
                     background-color: rgb(55, 0, 255);
                 }
+                .user-dropdown {
+                    position: relative;
+                    display: inline-block;
+                }
+
+                .dropdown-options {
+                    display: none;
+                    position: absolute;
+                    background-color: black;
+                    min-width: 160px;
+                    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.8);
+                    z-index: 1;
+                }
+
+                .dropdown-options li {
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                    color: white;
+                }
+
+                .dropdown-options li:hover {
+                    background-color: black;
+                }
         </style>
 </head>
 <body>
@@ -106,6 +130,20 @@
         <div class="user">
             <a href="index.jsp">Fa&ccedil;a Login</a>
             <a href="cadastrocliente.jsp">Crie Seu Login</a>
+        </div>
+       <div class="user-dropdown">
+            <img src="img/usuario.png" width="30px" height="30px" alt="Ícone do Usuário" id="user-icon">
+            <ul class="dropdown-options">
+                <li><a href="#" style="color: white;">Ver Perfil</a></li>
+                <li><a href="cadastrocliente.jsp" id="edit-data-link" style="color: white;">Editar Perfil</a></li>
+                    <ul class="sub-options" id="edit-data-options" style="display: none;">
+                    <li><a href="cadastrocliente.jsp" style="color: white;">Editar Endere&ccedil;o de Entrega</a></li>
+                    <li><a href="cadastrocliente.jsp" style="color: white;">Alterar Dados</a></li>
+                    <li><a href="cadastrocliente.jsp" style="color: white;">Adicionar Endere&ccedil;o de Entrega</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" style="color: red;">Deslogar</a></li>
+            </ul>
         </div>
         <div class="cart-icon">
             <img src="img/cart-icon.png" alt="Ícone de Carrinho">
@@ -233,5 +271,19 @@
         // Chamada inicial para criar links de paginação
         criarLinksDePaginacao(produtos.length, 20);
     </script>
+    <script>$(document).ready(function () {
+                $(".product-carousel").slick({
+                    infinite: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    prevArrow: "<button class='slick-prev'>&#10094;</button>",
+                    nextArrow: "<button class='slick-next'>&#10095;</button>",
+                });
+            });
+        </script>
+        <script src="perfil.js"></script>
+        <div class="footer">
+            <p>&copy; 2023 GYM C.A.P.S. Todos os direitos reservados.</p>
+        </div>
 </body>
 </html>

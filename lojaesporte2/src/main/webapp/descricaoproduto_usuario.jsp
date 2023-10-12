@@ -7,8 +7,7 @@
     <title>Detalhe do Produto</title>
     <link rel="stylesheet" type="text/css" href="descricaoproduto_usuario.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
     <title>Detalhes do Produto</title>
 </head>
 
@@ -27,6 +26,20 @@
         <div class="user">
             <a href="index.jsp">Fa&ccedil;a Login</a>
             <a href="cadastrocliente.jsp">Crie Seu Login</a>
+        </div>
+        <div class="user-dropdown">
+            <img src="img/usuario.png" width="30px" height="30px" alt="Ícone do Usuário" id="user-icon">
+            <ul class="dropdown-options">
+                <li><a href="#" style="color: white;">Ver Perfil</a></li>
+                <li><a href="cadastrocliente.jsp" id="edit-data-link" style="color: white;">Editar Perfil</a></li>
+                    <ul class="sub-options" id="edit-data-options" style="display: none;">
+                    <li><a href="cadastrocliente.jsp" style="color: white;">Editar Endere&ccedil;o de Entrega</a></li>
+                    <li><a href="cadastrocliente.jsp" style="color: white;">Alterar Dados</a></li>
+                    <li><a href="cadastrocliente.jsp" style="color: white;">Adicionar Endere&ccedil;o de Entrega</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" style="color: red;">Deslogar</a></li>
+            </ul>
         </div>
         <div class="cart-icon">
             <img src="img/cart-icon.png" alt="Ícone de Carrinho">
@@ -66,6 +79,17 @@
             });
         });
     </script>
+    <script>$(document).ready(function () {
+                $(".product-carousel").slick({
+                    infinite: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    prevArrow: "<button class='slick-prev'>&#10094;</button>",
+                    nextArrow: "<button class='slick-next'>&#10095;</button>",
+                });
+            });
+        </script>
+        <script src="perfil.js"></script>
     <footer>
         <div class="rodape">
             &copy; 2023 Gym C.A.P.S. Todos os direitos reservados.

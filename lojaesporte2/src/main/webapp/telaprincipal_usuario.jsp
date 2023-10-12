@@ -37,6 +37,20 @@
             <a href="index.jsp">Fa&ccedil;a Login</a>
             <a href="cadastrocliente.jsp">Crie Seu Login</a>
         </div>
+        <div class="user-dropdown">
+            <img src="img/usuario.png" width="30px" height="30px" alt="Ícone do Usuário" id="user-icon">
+            <ul class="dropdown-options">
+                <li><a href="#" style="color: white;">Ver Perfil</a></li>
+                <li><a href="cadastrocliente.jsp" id="edit-data-link" style="color: white;">Editar Perfil</a></li>
+                    <ul class="sub-options" id="edit-data-options" style="display: none;">
+                    <li><a href="cadastrocliente.jsp" style="color: white;">Editar Endere&ccedil;o de Entrega</a></li>
+                    <li><a href="cadastrocliente.jsp" style="color: white;">Alterar Dados</a></li>
+                    <li><a href="cadastrocliente.jsp" style="color: white;">Adicionar Endere&ccedil;o de Entrega</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" style="color: red;">Deslogar</a></li>
+            </ul>
+        </div>
         <div class="cart-icon">
             <img src="img/cart-icon.png" alt="Ícone de Carrinho">
         </div>
@@ -76,11 +90,10 @@
             });
         });
     </script>
-
+    <script src="perfil.js"></script>
     <div class="footer">
         <p>&copy; 2023 GYM C.A.P.S. Todos os direitos reservados.</p>
     </div>
-
 </body>
 
 </html>
