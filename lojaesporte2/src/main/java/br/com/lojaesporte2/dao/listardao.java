@@ -197,39 +197,28 @@ public class listardao {
 
     }
 
-    public usuario buscarUusuarioPorId(int usuarioId){
-        String sql = "SELECT id, nome, cpf, email, grupo, situacao FROM USUARIO WHERE id = ?";
+    public produto recuperarProdutoPorId(int produtoId) {
+        String sql = "SELECT NOME, DESCRICAO, PRECO, AVALIACAO FROM PRODUTO WHERE ID = ?";
 
-        try{
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1,usuarioId);
-
+        try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setInt(1, produtoId);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            if(resultSet.next()){
-                int id = resultSet.getInt("id");
-                String nome = resultSet.getString("nome");
-                String cpf = resultSet.getString("cpf");
-                String email = resultSet.getString("email");
-                String grupo = resultSet.getString("grupo");
-                String situacao = resultSet.getString("situacao");
-
-                usuario usuario = new usuario();
-                usuario.setId(id);
-                usuario.setNome(nome);
-                usuario.setCpf(cpf);
-                usuario.setEmail(email);
-                usuario.setGrupo(grupo);
-                usuario.setSituacao(situacao);
-
-                connection.close();
-
-                return usuario;
+            if (resultSet.next()) {
+                produto produto = new produto();
+                produto.setNome(resultSet.getString("NOME"));
+                produto.setDescricao(resultSet.getString("DESCRICAO"));
+                produto.setPreco(resultSet.getDouble("PRECO"));
+                produto.setAvaliacao(resultSet.getDouble("AVALIACAO"));
+                return produto;
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-        return  null;
+        return null;
     }
+
+
+
 }

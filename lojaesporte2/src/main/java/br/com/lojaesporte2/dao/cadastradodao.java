@@ -72,7 +72,7 @@ public class cadastradodao {
 
     public int CadastadorProduto(produto produto) {
 
-        String sql = "INSERT INTO PRODUTO  (nome, avaliacao, descricao, preco, estoque) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO PRODUTO  (nome, avaliacao, descricao, preco, estoque,status) VALUES (?, ?, ?, ?, ?,?)";
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -85,6 +85,7 @@ public class cadastradodao {
             preparedStatement.setString(3, produto.getDescricao());
             preparedStatement.setDouble(4, produto.getPreco());
             preparedStatement.setInt(5, produto.getEstoque());
+            preparedStatement.setString(6,produto.getStatus());
 
             int affectedRows = preparedStatement.executeUpdate();
 

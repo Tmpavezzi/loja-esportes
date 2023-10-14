@@ -34,6 +34,8 @@ public class Cadastroprodservlet extends HttpServlet {
         String descricao = request.getParameter("descricao");
         double preco = Double.parseDouble(request.getParameter("preco"));
         int estoque = Integer.parseInt(request.getParameter("estoque"));
+        String status = request.getParameter("status");
+
 
         // Crie um objeto de produto
         produto produto = new produto();
@@ -42,6 +44,7 @@ public class Cadastroprodservlet extends HttpServlet {
         produto.setDescricao(descricao);
         produto.setPreco(preco);
         produto.setEstoque(estoque);
+        produto.setStatus(status);
 
         // Capturar a imagem principal selecionada pelo usuário
         String imagemPrincipal = request.getParameter("defaultImage");

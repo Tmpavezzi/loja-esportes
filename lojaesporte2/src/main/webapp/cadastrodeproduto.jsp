@@ -34,6 +34,12 @@
                 <option value="" disabled selected>Selecione uma imagem de capa</option>
             </select>
 
+            <label for="StatusProduto">Status do Produto:</label>
+            <input type="radio" id="statusAtivo" name="status" value="true" required>
+            <label for="statusAtivo">Ativo</label>
+            <input type="radio" id="statusInativo" name="status" value="false" required>
+            <label for="statusInativo">Inativo</label>
+
             <input type="submit" value="Salvar">
             <a href="listarproduto.jsp" class="botao">Cancelar</a>
         </form>

@@ -10,6 +10,8 @@ public class produto {
     private String descricao;
     private double preco;
     private int estoque;
+
+    private String  status;
     private List<ImagenProduto> imagens;
     private String imagemPrincipal;
 
@@ -24,6 +26,14 @@ public class produto {
 
     public void setImagemBase64(String imagemBase64) {
         this.imagemBase64 = imagemBase64;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getID() {
