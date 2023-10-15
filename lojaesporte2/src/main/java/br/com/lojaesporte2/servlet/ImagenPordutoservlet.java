@@ -32,9 +32,9 @@ public class ImagenPordutoservlet   extends  HttpServlet{
             request.setAttribute("imagemBase64", dao.recuperarImagemPorId(produtoId));
 
 
-            request.getRequestDispatcher("/visualizarproduto.jsp").forward(request, response);
+            request.getRequestDispatcher("descricaoproduto_usuario.jsp").forward(request, response);
         } else {
-            request.getRequestDispatcher("/visualizarproduto.jsp").forward(request, response);
+            request.getRequestDispatcher("descricaoproduto_usuario.jsp").forward(request, response);
         }
     }
 }
