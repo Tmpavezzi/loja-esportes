@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -33,7 +34,7 @@
         <div class="carousel-container">
             <div class="carousel">
                 <div class="carousel-slide">
-                    <img src="data:image/jpeg;base64, ${imagemBytes}" alt="Imagem do Produto">
+                    <img src="imagem?id=${produto.ID}" alt="Imagem do Produto">
                 </div>
                 <!-- Adicione mais imagens se necessário -->
             </div>

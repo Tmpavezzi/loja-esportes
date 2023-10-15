@@ -52,7 +52,7 @@
                                               <td>${listaprodutos.estoque}</td>
                                               <td>${listaprodutos.preco}</td>
                                               <td>${listaprodutos.status}</td>
-                                           <!--   <td><img src="data:image/jpeg;base64,${listaprodutos.imagemBase64}" alt="Imagem do Produto"></td> -->
+                                         < !--    <td><img src="data:image/jpeg;base64,${listaprodutos.imagemBase64}" alt="Imagem do Produto"></td> -->
                                            <td><a href="alterarproduto.jsp" class="button">Alterar</a></td>
                                           <td><a href="imagem?id=${listaprodutos.ID}">Visualizar</a></td>
                                           </tr>
