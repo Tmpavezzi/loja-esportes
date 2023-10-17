@@ -1,34 +1,23 @@
 package br.com.lojaesporte2.model;
 
 public class usuario {
-
-
-
     private int id ;
-
      private String nome ;
     private String  cpf ;
-
     private String email;
-
     private String senha;
-
     private String grupo;
     private String situacao;
-
     public String getSituacao() {
         return situacao;
     }
-
     public void setSituacao(String situacao) {
         this.situacao = situacao;
     }
-
     public usuario(String cpf, String email) {
         this.cpf = cpf;
         this.email = email;
     }
-
     public usuario() {
     }
 

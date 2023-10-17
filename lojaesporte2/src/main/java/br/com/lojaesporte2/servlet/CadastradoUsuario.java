@@ -23,9 +23,6 @@ public class CadastradoUsuario extends HttpServlet{
         String grupo = request.getParameter("role");
         String situacao = request.getParameter("status");
 
-
-
-
         if(!senha.equals(confirmasenha)){
             request.setAttribute("message","Senha não são iguais");
             request.getRequestDispatcher("cadastrodeusuario.jsp").forward(request,response);
@@ -47,12 +44,6 @@ public class CadastradoUsuario extends HttpServlet{
             return;
         }
         dao.cerateusuario(usuario);
-
-
         request.getRequestDispatcher("cadastrodeusuario.jsp").forward(request,response);
-
-
-
-
     }
 }

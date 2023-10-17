@@ -1,6 +1,4 @@
 package br.com.lojaesporte2.dao;
-
-
 import br.com.lojaesporte2.model.produto;
 import br.com.lojaesporte2.model.usuario;
 
@@ -13,7 +11,6 @@ public class cadastradodao {
 
     public void cerateusuario(usuario usuario) {
         String SQL = "INSERT INTO USUARIO (NOME,CPF,EMAIL,SENHA,GRUPO,SITUACAO) VALUES (?,?,?,?,?,?)";
-
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
@@ -47,7 +44,6 @@ public class cadastradodao {
         String senhaCriptografada = BCrypt.hashpw(Senha, salt);
         return senhaCriptografada;
     }
-
 
     public boolean verificacpf(String cpf) {
         String SQL = "SELECT COUNT(*) FROM USUARIO WHERE CPF = ?";
@@ -121,9 +117,6 @@ public class cadastradodao {
         //    ESTOQUE INT
         //);
     }
-
-
-
 
     public void inserirImagemNoBancoDeDados(int produtoID, String nomeImagem, byte[] imagemBytes, boolean imagemPrincipal) {
         String sql = "INSERT INTO  IMAGEM (PRODUTO_ID, NOME_IMAGEM, IMAGEM, PRINCIPAL) VALUES (?, ?, ?, ?)";

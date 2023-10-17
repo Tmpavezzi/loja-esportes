@@ -7,11 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-
 public class logindao {
-
-
 
     public boolean verifyCreddential(String Email, String Senha ){
         String SQL = "SELECT * FROM USUARIO  WHERE EMAIL=?";
@@ -20,18 +16,13 @@ public class logindao {
             Connection connection = DriverManager.getConnection("jdbc:h2:~/test","sa","sa");
             System.out.println("Sucesso in connection");
 
-
             PreparedStatement preparedStatement= connection.prepareStatement(SQL);
 
             preparedStatement.setString(1,Email);
             System.out.println("email usando"+ Email);
 
-
-
-
             ResultSet rs=preparedStatement.executeQuery();
             System.out.println("Sucesso in select email");
-
 
             while (rs.next()){
                 String senhaHash =rs.getString("senha");
@@ -59,7 +50,6 @@ public class logindao {
             return  false ;
         }
     }
-
     public String getUserType(String Email){
         String SQL = "SELECT GRUPO FROM USUARIO WHERE EMAIL=?";
 
