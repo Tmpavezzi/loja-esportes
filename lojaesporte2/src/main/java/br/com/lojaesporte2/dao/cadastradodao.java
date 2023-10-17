@@ -115,6 +115,7 @@ public class cadastradodao {
         //    DESCRICAO TEXT,
         //    PRECO DECIMAL(10, 2),
         //    ESTOQUE INT
+        //    STATUS VARCHAR(10)
         //);
     }
 
