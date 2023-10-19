@@ -52,6 +52,15 @@
                                               <td>${listaprodutos.estoque}</td>
                                               <td>${listaprodutos.preco}</td>
                                               <td>${listaprodutos.status}</td>
+                                              <td>
+                                             <td>
+                                                <form action="/alteraStatusPorduto" method="post">
+                                                    <input type="hidden" name="id" value="${listaprodutos.ID}">
+                                                    <input type="hidden" name="novaStatus" value="${listaprodutos.status}">
+                                                    <button type="submit">Alterar Status</button>
+                                                </form>
+                                                </td>
+                                            </td>
                                       <!--   <td><img src="data:image/jpeg;base64,${listaprodutos.imagemBase64}" alt="Imagem do Produto"></td> -->
                                           <td><a href="alterarproduto.jsp?id=${listaprodutos.ID}&nome=${listaprodutos.nome}&Quantidade=${listaprodutos.estoque}&AvaliacaoProduto=${listaprodutos.avaliacao}&DescricaoProduto=${listaprodutos.descricao}&preco=${listaprodutos.preco}">Alterar</a></td>
                                           <td><a href="imagem?id=${listaprodutos.ID}">Visualizar</a></td>

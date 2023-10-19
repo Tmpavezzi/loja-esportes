@@ -15,7 +15,7 @@ import java.io.InputStream;
 
 @WebServlet("/atualizarProduto")
 @MultipartConfig
-public class AtualizarProduto extends HttpServlet {
+public class AlteraStatusUsuario extends HttpServlet {
 
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
             String idProduto = request.getParameter("id");
