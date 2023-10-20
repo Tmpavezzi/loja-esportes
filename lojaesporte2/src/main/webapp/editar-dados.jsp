@@ -48,15 +48,13 @@
         <p>
             <label for="enderecoFaturamento">Endereço de Faturamento:</label>
             <div id="enderecoFaturamentoContainer">
-                    <input type="text" class="enderecoFaturamento" name="enderecoFaturamento" required>
-                    <button type="button" class="addEnderecoFaturamento">Outras Informações</button>
+                    <input type="text" class="enderecoFaturamento" name="enderecoFaturamento" disabled>
              </div>
         </p>
         <p>
             <label for="enderecoEntrega">Endereço(s) de Entrega:</label>
              <div id="enderecoEntregaContainer">
-                    <input type="text" class="enderecoEntrega" name="enderecoEntrega" required>
-                    <button type="button" class="addEnderecoEntrega">Adicionar Mais um Endereço de Entrega</button>
+                    <input type="text" class="enderecoEntrega" name="enderecoEntrega" disabled>
              </div>
         </p>
         <p>
@@ -69,7 +67,6 @@
         </p>
         <input type="submit" value="Cadastrar">
     </form>
-    <script src="editar-endereco.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const enderecoFaturamentoContainer = document.getElementById('enderecoFaturamentoContainer');

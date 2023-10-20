@@ -54,10 +54,10 @@
                                               <td>${listaprodutos.status}</td>
                                               <td>
                                              <td>
-                                                <form action="/alteraStatusPorduto" method="post">
+                                                <form action="/alteraStatusPorduto" method="post" id="formAlterarStatus${listaprodutos.ID}">
                                                     <input type="hidden" name="id" value="${listaprodutos.ID}">
                                                     <input type="hidden" name="novaStatus" value="${listaprodutos.status}">
-                                                    <button type="submit">Alterar Status</button>
+                                                    <button type="submit" onclick="confirmarAlteracao(${listaprodutos.ID})">Alterar Status</button>
                                                 </form>
                                                 </td>
                                             </td>
@@ -76,6 +76,14 @@
                 <button id="nextPage">Próxima</button>
                 <a href="cadastrodeproduto.jsp" class="botao">+ Adicionar Produtos</a>
             </div>
+            <script>
+                function confirmarAlteracao(id) {
+                    if (confirm('Deseja realmente alterar o status deste produto?')) {
+                          document.getElementById(`formAlterarStatus${id}`).submit();
+                    } else {
+                    }
+                }
+            </script>
         </body>
 
         </html>

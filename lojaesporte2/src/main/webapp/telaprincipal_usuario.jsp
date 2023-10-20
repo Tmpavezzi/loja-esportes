@@ -60,9 +60,9 @@
                 <li><a href="#" style="color: white;">Ver Perfil</a></li>
                 <li><a href="cadastrocliente.jsp" id="edit-data-link" style="color: white;">Editar Perfil</a></li>
                     <ul class="sub-options" id="edit-data-options" style="display: none;">
-                    <li><a href="cadastrocliente.jsp" style="color: white;">Editar Endere&ccedil;o de Entrega</a></li>
-                    <li><a href="cadastrocliente.jsp" style="color: white;">Alterar Dados</a></li>
-                    <li><a href="cadastrocliente.jsp" style="color: white;">Adicionar Endere&ccedil;o de Entrega</a></li>
+                    <li><a href="cadastrocliente.jsp" id="edit-address-link" style="color: white;">Editar Endere&ccedil;o de Entrega</a></li>
+                    <li><a href="editar-dados.jsp" id="edit-data-link" style="color: white;">Alterar Dados</a></li>
+                    <li><a href="cadastrocliente.jsp" id="add-address-link" style="color: white;">Adicionar Endere&ccedil;o de Entrega</a></li>
                     </ul>
                 </li>
                 <li><a href="#" style="color: red;">Deslogar</a></li>
@@ -96,6 +96,7 @@
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="editar-endereco.js"></script>
         <script>
             $(document).ready(function () {
                 const $carousel = $('#carousel');
