@@ -114,7 +114,11 @@ public class cadastradodao {
         //    AVALIACAO DECIMAL(5, 2),
         //    DESCRICAO TEXT,
         //    PRECO DECIMAL(10, 2),
+<<<<<<< HEAD
+        //    ESTOQUE INT,
+=======
         //    ESTOQUE INT
+>>>>>>> 4835e0a4c8cedb6ca39c46a6983045b5125315dc
         //    STATUS VARCHAR(10)
         //);
     }

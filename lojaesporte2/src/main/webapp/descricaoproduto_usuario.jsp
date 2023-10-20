@@ -11,6 +11,7 @@
 
 <body>
     <header>
+<<<<<<< HEAD
         <div class="logo">
             <img src="img/logo.png" width="140px" alt="Logo da empresa">
         </div>
@@ -42,35 +43,64 @@
         <div class="cart-icon">
             <img src="img/cart-icon.png" alt="Ícone de Carrinho">
         </div>
+=======
+        <!-- Your header content here -->
+>>>>>>> fbf0757cb55df3881edc901bb45a006af5046e17
     </header>
 
     <div class="product-details">
         <div class="carousel-container">
             <div class="carousel">
                 <div class="carousel-slide">
-                    <img src="imagem?id=${produto.ID}" alt="Imagem do Produto">
+                    <!-- Image displayed here -->
+                    <img id="productImage" alt="Imagem do Produto">
                 </div>
-                <!-- Adicione mais imagens se necessário -->
             </div>
         </div>
 
         <div class="product-info">
             <h1>${nomeProduto}</h1>
-                   <p><strong>Avaliação: <%
-                            double avaliacaoDouble = Double.parseDouble(request.getAttribute("avaliacao").toString());
-                            int estrelas = (int) Math.round(avaliacaoDouble); // Arredonde a avaliação para o inteiro mais próximo
-                            for (int i = 0; i < estrelas; i++) {
-                        %>
-                            &#9733; <!-- Caractere da estrela (★) -->
-                        <%
-                            }
-                        %>
-                        </p>
-                    <p><strong>Preço:</strong> R$ ${preco}</p>
-                    <p><strong>Descrição:</strong> ${descricao}</p>
+            <p><strong>Avaliação:
+                <%
+                double avaliacaoDouble = Double.parseDouble(request.getAttribute("avaliacao").toString());
+                int estrelas = (int) Math.round(avaliacaoDouble); // Arredonde a avaliação para o inteiro mais próximo
+                for (int i = 0; i < estrelas; i++) {
+                %>
+                    &#9733; <!-- Caractere da estrela (★) -->
+                <%
+                }
+                %>
+            </p>
+            <p><strong>Preço:</strong> R$ ${preco}</p>
+            <p><strong>Descrição:</strong> ${descricao}</p>
             <button id="comprar-btn" disabled>Comprar</button>
         </div>
     </div>
+
+  <script>
+      var produtoId = <%= request.getAttribute("produtoId") %>; // Obtenha o ID do produto do atributo de solicitação
+
+      // Construa a URL do servlet com o produtoId como parâmetro
+      var servletURL = "imagem-servlet?produtoId=" + produtoId;
+
+      // Requisição AJAX para o servlet que recupera a imagem
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", servletURL, true);
+
+      xhr.onload = function() {
+          if (xhr.status === 200) {
+              var imageURL = xhr.responseText; // A resposta do servlet é a URL da imagem
+              var productImage = document.getElementById("productImage");
+              productImage.src = imageURL;
+          } else {
+              console.error("Erro ao buscar a imagem.");
+          }
+      };
+
+      xhr.send();
+  </script>
+
+
 
     <footer>
         <div class="rodape">

@@ -52,6 +52,11 @@
                                               <td>${listaprodutos.estoque}</td>
                                               <td>${listaprodutos.preco}</td>
                                               <td>${listaprodutos.status}</td>
+<<<<<<< HEAD
+                                         <%--   <td><img src="data:image/jpeg;base64,${listaprodutos.imagemBase64}" alt="Imagem do Produto"></td> --%>
+                                           <td><a href="alterarproduto.jsp" class="button">Alterar</a></td>
+                                          <td><a href="imagem?id=${listaprodutos.ID}" class="button">Visualizar</a></td>
+=======
                                               <td>
                                              <td>
                                                 <form action="/alteraStatusPorduto" method="post" id="formAlterarStatus${listaprodutos.ID}">
@@ -64,6 +69,7 @@
                                       <!--   <td><img src="data:image/jpeg;base64,${listaprodutos.imagemBase64}" alt="Imagem do Produto"></td> -->
                                           <td><a href="alterarproduto.jsp?id=${listaprodutos.ID}&nome=${listaprodutos.nome}&Quantidade=${listaprodutos.estoque}&AvaliacaoProduto=${listaprodutos.avaliacao}&DescricaoProduto=${listaprodutos.descricao}&preco=${listaprodutos.preco}">Alterar</a></td>
                                           <td><a href="imagem?id=${listaprodutos.ID}">Visualizar</a></td>
+>>>>>>> 4835e0a4c8cedb6ca39c46a6983045b5125315dc
                                           </tr>
                                       </c:forEach>
                                   </c:otherwise>
