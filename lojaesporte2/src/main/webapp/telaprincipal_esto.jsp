@@ -22,7 +22,7 @@
                     <a href="#">Lista de Pedidos</a><br>
                 </p>
                 <p>
-                    <a href="listarproduto_esto.jsp">Lista de Produtos</a><br>
+                    <a href="listarproduto.jsp">Lista de Produtos</a><br>
                 </p>
 
                 <p>
@@ -30,11 +30,6 @@
                 </p>
             </div>
         </section>
-        <footer>
-            <div class="rodape">
-                &copy; 2023 Gym C.A.P.S. Todos os direitos reservados.
-            </div>
-        </footer>
     </body>
 
     </html>

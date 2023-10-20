@@ -148,7 +148,7 @@ public class listardao {
 
     public List<produto>listarProdutoPorNome(String nome){
         List<produto> produtos = new ArrayList<>();
-        String SQL = "SELECT p.ID, p.NOME, p.AVALIACAO, p.DESCRICAO, p.PRECO, p.ESTOQUE, i.IMAGEM_ID, i.NOME_IMAGEM, i.IMAGEM, i.PRINCIPAL " +
+        String SQL = "SELECT p.ID, p.NOME, p.AVALIACAO, p.DESCRICAO, p.PRECO, p.ESTOQUE, p.STATUS, i.IMAGEM_ID, i.NOME_IMAGEM, i.IMAGEM, i.PRINCIPAL " +
                 "FROM PRODUTO p " +
                 "LEFT JOIN IMAGEM i ON p.ID = i.PRODUTO_ID " +
                 "WHERE p.NOME LIKE ?";
@@ -168,6 +168,7 @@ public class listardao {
                   String descricao = resultSet.getString("DESCRICAO");
                   double preco = resultSet.getDouble("PRECO");
                   int estoque = resultSet.getInt("ESTOQUE");
+                  String status  = resultSet.getString("STATUS");
 
 
                   produto produto = new produto();
@@ -177,6 +178,7 @@ public class listardao {
                   produto.setDescricao(descricao);
                   produto.setPreco(preco);
                   produto.setEstoque(estoque);
+                  produto.setStatus(status);
 
                   produtos.add(produto);
 
@@ -218,6 +220,32 @@ public class listardao {
         }
         return null;
     }
+
+        public boolean atualizarStatusPorduto (int id,String novaStatus ){
+            String SQL = "UPDATE PRODUTO SET STATUS = ? WHERE ID=?";
+
+            try{
+                Connection connection = DriverManager.getConnection("jdbc:h2:~/test","sa","sa");
+                PreparedStatement preparedStatement = connection.prepareStatement(SQL);
+                System.out.println("Sucesso na Conexão");
+
+                preparedStatement.setString(1,novaStatus);
+                preparedStatement.setInt(2,id);
+
+                int linhasAfetadas = preparedStatement.executeUpdate();
+
+                if(linhasAfetadas>0){
+                    System.out.println("Produto atualizado com sucesso");
+                    return true;
+                }else{
+                    System.out.println("Nenhum produto atualizado");
+                    return false;
+                }
+            }catch (SQLException e){
+                System.out.println("Falha na atualização" + e.getMessage());
+                return false;
+            }
+        }
 
 
 

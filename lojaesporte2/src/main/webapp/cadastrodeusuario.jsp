@@ -41,7 +41,7 @@
         </p>
         <p>
             <label for="grupo">Grupo/Cargo:</label>
-            <select name="role" disabled>
+            <select name="role">
                 <option value="">Selecione o Cargo</option>
                 <option value="adm">Administrativo</option>
                 <option value="estoque">Estoquista</option>

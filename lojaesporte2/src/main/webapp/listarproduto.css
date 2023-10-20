@@ -110,6 +110,22 @@ button#nextPage {
     margin: 0 10px;
 }
 
+.alterar-status {
+    background-color: #007bff; /* Cor de fundo padrão */
+    color: white; /* Cor do texto padrão */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Estilo para o botão quando o status estiver inativo */
+.alterar-status.inativo {
+    background-color: #ccc; /* Cor de fundo para status inativo */
+    color: #333; /* Cor do texto para status inativo */
+}
+
 button#prevPage:hover,
 button#nextPage:hover,
 button#searchButton:hover {

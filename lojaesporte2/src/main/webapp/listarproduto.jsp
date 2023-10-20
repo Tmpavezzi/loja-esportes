@@ -52,9 +52,24 @@
                                               <td>${listaprodutos.estoque}</td>
                                               <td>${listaprodutos.preco}</td>
                                               <td>${listaprodutos.status}</td>
+<<<<<<< HEAD
                                          <%--   <td><img src="data:image/jpeg;base64,${listaprodutos.imagemBase64}" alt="Imagem do Produto"></td> --%>
                                            <td><a href="alterarproduto.jsp" class="button">Alterar</a></td>
                                           <td><a href="imagem?id=${listaprodutos.ID}" class="button">Visualizar</a></td>
+=======
+                                              <td>
+                                             <td>
+                                                <form action="/alteraStatusPorduto" method="post" id="formAlterarStatus${listaprodutos.ID}">
+                                                    <input type="hidden" name="id" value="${listaprodutos.ID}">
+                                                    <input type="hidden" name="novaStatus" value="${listaprodutos.status}">
+                                                    <button type="submit" onclick="confirmarAlteracao(${listaprodutos.ID})">Alterar Status</button>
+                                                </form>
+                                                </td>
+                                            </td>
+                                      <!--   <td><img src="data:image/jpeg;base64,${listaprodutos.imagemBase64}" alt="Imagem do Produto"></td> -->
+                                          <td><a href="alterarproduto.jsp?id=${listaprodutos.ID}&nome=${listaprodutos.nome}&Quantidade=${listaprodutos.estoque}&AvaliacaoProduto=${listaprodutos.avaliacao}&DescricaoProduto=${listaprodutos.descricao}&preco=${listaprodutos.preco}">Alterar</a></td>
+                                          <td><a href="imagem?id=${listaprodutos.ID}">Visualizar</a></td>
+>>>>>>> 4835e0a4c8cedb6ca39c46a6983045b5125315dc
                                           </tr>
                                       </c:forEach>
                                   </c:otherwise>
@@ -67,6 +82,14 @@
                 <button id="nextPage">Próxima</button>
                 <a href="cadastrodeproduto.jsp" class="botao">+ Adicionar Produtos</a>
             </div>
+            <script>
+                function confirmarAlteracao(id) {
+                    if (confirm('Deseja realmente alterar o status deste produto?')) {
+                          document.getElementById(`formAlterarStatus${id}`).submit();
+                    } else {
+                    }
+                }
+            </script>
         </body>
 
         </html>
