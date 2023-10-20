@@ -50,9 +50,6 @@ public class listarprodutosservlet extends  HttpServlet {
 
         request.getRequestDispatcher("listarproduto.jsp").forward(request,response);
 
-
-
-
     }
 
 }
