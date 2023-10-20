@@ -12,11 +12,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cadastrocliente.css">
-    <title>Cadastre-se</title>
+    <title>Alterar Dados</title>
 </head>
 <body>
     <form action="/cadastrado-usuario" method="post">
-        <h1>Cadastre-se Agora!</h1>
+        <h1>Alteração de Dados</h1>
         <p>
             <label for="nome">Nome Completo:</label>
             <input type="text" class="nome" name="nome" required pattern="^\w+\s\w+\s*$">
@@ -48,7 +48,8 @@
         <p>
             <label for="enderecoFaturamento">Endereço de Faturamento:</label>
             <div id="enderecoFaturamentoContainer">
-                    <input type="text" class="enderecoFaturamento" name="enderecoFaturamento" disabled>
+                    <input type="text" class="enderecoFaturamento" name="enderecoFaturamento" required>
+                    <button type="button" class="addEnderecoFaturamento">Outras Informações</button>
              </div>
         </p>
         <p>

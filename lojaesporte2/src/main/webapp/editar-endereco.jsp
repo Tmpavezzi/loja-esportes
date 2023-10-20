@@ -12,11 +12,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cadastrocliente.css">
-    <title>Cadastre-se</title>
+    <title>Editar Endereço de Entrega</title>
 </head>
 <body>
     <form action="/cadastrado-usuario" method="post">
-        <h1>Cadastre-se Agora!</h1>
+        <h1>Edite Seu Endereço de Entrega</h1>
         <p>
             <label for="nome">Nome Completo:</label>
             <input type="text" class="nome" name="nome" required pattern="^\w+\s\w+\s*$">
@@ -49,7 +49,6 @@
             <label for="enderecoFaturamento">Endereço de Faturamento:</label>
             <div id="enderecoFaturamentoContainer">
                     <input type="text" class="enderecoFaturamento" name="enderecoFaturamento" required>
-                    <button type="button" class="addEnderecoFaturamento">Outras Informações</button>
              </div>
         </p>
         <p>
@@ -69,25 +68,7 @@
         </p>
         <input type="submit" value="Cadastrar">
     </form>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const enderecoFaturamentoContainer = document.getElementById('enderecoFaturamentoContainer');
-
-                function criarCampoEnderecoFaturamento() {
-                    const novoCampoEnderecoFaturamento = document.createElement('div');
-                    novoCampoEnderecoFaturamento.innerHTML = `
-                        <input type="text" class="enderecoFaturamento" name="enderecoFaturamento" required></textarea>
-                        <button type="button" class="removerEnderecoFaturamento">Remover</button>
-                    `;
-                    enderecoFaturamentoContainer.appendChild(novoCampoEnderecoFaturamento);
-
-                    novoCampoEnderecoFaturamento.querySelector('.removerEnderecoFaturamento').addEventListener('click', function () {
-                        enderecoFaturamentoContainer.removeChild(novoCampoEnderecoFaturamento);
-                    });
-                }
-                document.querySelector('.addEnderecoFaturamento').addEventListener('click', criarCampoEnderecoFaturamento);
-            });
-        </script>
+    <script src="editar-endereco.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const enderecoEntregaContainer = document.getElementById('enderecoEntregaContainer');
