@@ -11,7 +11,6 @@
 
 <body>
     <header>
-<<<<<<< HEAD
         <div class="logo">
             <img src="img/logo.png" width="140px" alt="Logo da empresa">
         </div>
@@ -41,18 +40,16 @@
             </ul>
         </div>
         <div class="cart-icon">
+                <a href="carrinho.jsp">
             <img src="img/cart-icon.png" alt="Ícone de Carrinho">
+                </a>
         </div>
-=======
-        <!-- Your header content here -->
->>>>>>> fbf0757cb55df3881edc901bb45a006af5046e17
     </header>
 
     <div class="product-details">
         <div class="carousel-container">
             <div class="carousel">
                 <div class="carousel-slide">
-                    <!-- Image displayed here -->
                     <img id="productImage" alt="Imagem do Produto">
                 </div>
             </div>

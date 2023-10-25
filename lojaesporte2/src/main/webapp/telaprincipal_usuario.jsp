@@ -69,7 +69,9 @@
             </ul>
         </div>
         <div class="cart-icon">
+                <a href="carrinho.jsp">
             <img src="img/cart-icon.png" alt="Ícone de Carrinho">
+                </a>
         </div>
     </header>
         <div id="carousel-container">

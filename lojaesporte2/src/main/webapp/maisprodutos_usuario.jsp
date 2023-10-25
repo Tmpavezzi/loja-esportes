@@ -1,120 +1,127 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Produtos</title>
     <link rel="stylesheet" href="maisprodutos_usuario.css">
     <style>
-            .product-card {
-                background-color: #fff;
-                border: 1px solid #ddd;
-                border-radius: 5px;
-                box-shadow: 0px 4px 6px rgb(17, 0, 255);
-                padding: 20px;
-                margin: 55px;
-                display: inline-block;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                text-align: center;
-                transition: transform 0.2s ease;
-                vertical-align: top;
-            }
-            .product-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 5px 10px 30px 10px rgb(17, 0, 255);
-            }
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgb(17, 0, 255);
+            padding: 20px;
+            margin: 55px;
+            display: inline-block;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            text-align: center;
+            transition: transform 0.2s ease;
+            vertical-align: top;
+        }
 
-            .product-card img {
-                max-width: 150px;
-                height: auto;
-                margin-bottom: 10px;
-            }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 5px 10px 30px 10px rgb(17, 0, 255);
+        }
 
-            .product-card h2 {
-                font-size: 1.5rem;
-                margin: 10px 0;
-            }
+        .product-card img {
+            max-width: 150px;
+            height: auto;
+            margin-bottom: 10px;
+        }
 
-            .product-card p {
-                font-size: 1.2rem;
-                color: black;
-                margin-bottom: 15px;
-            }
+        .product-card h2 {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
 
-            .product-card button {
-                background-color: #1600db;
-                color: #fff;
-                border: none;
-                padding: 10px 20px;
-                font-size: 1rem;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
+        .product-card p {
+            font-size: 1.2rem;
+            color: black;
+            margin-bottom: 15px;
+        }
 
-            .product-card button:hover {
-                background-color: rgb(55, 0, 255);
-            }
+        .product-card button {
+            background-color: #1600db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-            #pagination {
-                 text-align: center;
-                 margin-top: 20px;
-            }
+        .product-card button:hover {
+            background-color: rgb(55, 0, 255);
+        }
 
-            #pagination a {
-                    display: inline-block;
-                    padding: 5px 10px;
-                    margin: 0 5px;
-                    border: 1px solid #ccc;
-                    background-color: black;
-                    color: white;
-                    text-decoration: none;
-                    border-radius: 4px;
-                }
+        #pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
 
-                #pagination a:hover {
-                    background-color: blue;
-                }
-                #prev-page-button, #next-page-button {
-                    display: inline-block;
-                    padding: 5px 10px;
-                    margin: 0 5px;
-                    background-color: #1600db;
-                    color: #fff;
-                    border: none;
-                    border-radius: 4px;
-                    cursor: pointer;
-                }
+        #pagination a {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            background-color: black;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
 
-                #prev-page-button:hover, #next-page-button:hover {
-                    background-color: rgb(55, 0, 255);
-                }
-                .user-dropdown {
-                    position: relative;
-                    display: inline-block;
-                }
+        #pagination a:hover {
+            background-color: blue;
+        }
 
-                .dropdown-options {
-                    display: none;
-                    position: absolute;
-                    background-color: black;
-                    min-width: 160px;
-                    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.8);
-                    z-index: 1;
-                }
+        #prev-page-button,
+        #next-page-button {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 0 5px;
+            background-color: #1600db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-                .dropdown-options li {
-                    padding: 12px 16px;
-                    text-decoration: none;
-                    display: block;
-                    color: white;
-                }
+        #prev-page-button:hover,
+        #next-page-button:hover {
+            background-color: rgb(55, 0, 255);
+        }
 
-                .dropdown-options li:hover {
-                    background-color: black;
-                }
-        </style>
+        .user-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-options {
+            display: none;
+            position: absolute;
+            background-color: black;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.8);
+            z-index: 1;
+        }
+
+        .dropdown-options li {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: white;
+        }
+
+        .dropdown-options li:hover {
+            background-color: black;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -131,22 +138,26 @@
             <a href="index.jsp">Fa&ccedil;a Login</a>
             <a href="cadastrocliente.jsp">Crie Seu Login</a>
         </div>
-       <div class="user-dropdown">
+        <div class="user-dropdown">
             <img src="img/usuario.png" width="30px" height="30px" alt="Ícone do Usuário" id="user-icon">
             <ul class="dropdown-options">
                 <li><a href="#" style="color: white;">Ver Perfil</a></li>
                 <li><a href="cadastrocliente.jsp" id="edit-data-link" style="color: white;">Editar Perfil</a></li>
-                    <ul class="sub-options" id="edit-data-options" style="display: none;">
-                    <li><a href="editar-endereco.jsp" id="edit-address-link" style="color: white;">Editar Endere&ccedil;o de Entrega</a></li>
+                <ul class="sub-options" id="edit-data-options" style="display: none;">
+                    <li><a href="editar-endereco.jsp" id="edit-address-link" style="color: white;">Editar
+                            Endere&ccedil;o de Entrega</a></li>
                     <li><a href="editar-dados.jsp" id="edit-data-link" style="color: white;">Alterar Dados</a></li>
-                    <li><a href="editar-endereco.jsp" id="add-address-link" style="color: white;">Adicionar Endere&ccedil;o de Entrega</a></li>
-                    </ul>
+                    <li><a href="editar-endereco.jsp" id="add-address-link" style="color: white;">Adicionar
+                            Endere&ccedil;o de Entrega</a></li>
+                </ul>
                 </li>
                 <li><a href="#" style="color: red;">Deslogar</a></li>
             </ul>
         </div>
         <div class="cart-icon">
+                <a href="carrinho.jsp">
             <img src="img/cart-icon.png" alt="Ícone de Carrinho">
+                </a>
         </div>
     </header>
     <main>
@@ -154,44 +165,40 @@
 
         </section>
         <div id="pagination">
-           <button id="prev-page-button">Página Anterior</button>
-           <!-- Links de página gerados dinamicamente -->
-           <button id="next-page-button">Próxima Página</button>
+            <button id="prev-page-button">Página Anterior</button>
+            <!-- Links de página gerados dinamicamente -->
+            <button id="next-page-button">Próxima Página</button>
         </div>
     </main>
-    <footer>
-        <div class="footer">
-            <p>&copy; 2023 GYM C.A.P.S. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+
     <script>
-    var val = 19.99
+        var val = 19.99
         // Suponha que você tenha um array de produtos
         const produtos = [
             { nome: "Produto 1", preco: "R$ " + val, imagem: "img/produto1.jpg", url: "descricaoproduto_usuario.jsp" },
-            { nome: "Produto 2", preco: "R$ " + val, imagem: "img/imagem1.jpg"},
-            { nome: "Produto 3", preco: "R$ " + val, imagem: "img/imagem2.jpg"},
-            { nome: "Produto 4", preco: "R$ " + val, imagem: "img/fitness.png"},
-            { nome: "Produto 5", preco: "R$ " + val, imagem: "img/imagem3.jpg"},
-            { nome: "Produto 6", preco: "R$ " + val, imagem: "img/whey.jpg"},
-            { nome: "Produto 7", preco: "R$ " + val, imagem: "img/whey2.png"},
-            { nome: "Produto 8", preco: "R$ " + val, imagem: "img/imagem4.png"},
-            { nome: "Produto 9", preco: "R$ " + val, imagem: "img/imagem4.png"},
-            { nome: "Produto 10", preco: "R$ " + val, imagem: "img/halter.jpg"},
-            { nome: "Produto 11", preco: "R$ " + val, imagem: "img/imagem4.png"},
-            { nome: "Produto 12", preco: "R$ " + val, imagem: "img/produto1.jpg"},
-            { nome: "Produto 1", preco: "R$ " + val , imagem: "img/imagem2.jpg"},
-            { nome: "Produto 2", preco: "R$ " + val , imagem: "img/fitness.png"},
-            { nome: "Produto 3", preco: "R$ " + val , imagem: "img/imagem3.jpg"},
-            { nome: "Produto 4", preco: "R$ " + val, imagem: "img/imagem3.jpg"},
-            { nome: "Produto 5", preco: "R$ " + val, imagem: "img/imagem3.jpg"},
-            { nome: "Produto 6", preco: "R$ " + val, imagem: "img/produto1.jpg"},
-            { nome: "Produto 7", preco: "R$ " + val, imagem: "img/imagem3.jpg"},
-            { nome: "Produto 8", preco: "R$ " + val, imagem: "img/produto1.jpg"},
-            { nome: "Produto 9", preco: "R$ " + val, imagem: "img/produto1.jpg"},
-            { nome: "Produto 10", preco: "R$ " + val, imagem: "img/fitness.png"},
-            { nome: "Produto 11", preco: "R$ " + val, imagem: "img/produto1.jpg"},
-            { nome: "Produto 12", preco: "R$ " + val, imagem: "img/fitness.png"},
+            { nome: "Produto 2", preco: "R$ " + val, imagem: "img/imagem1.jpg" },
+            { nome: "Produto 3", preco: "R$ " + val, imagem: "img/imagem2.jpg" },
+            { nome: "Produto 4", preco: "R$ " + val, imagem: "img/fitness.png" },
+            { nome: "Produto 5", preco: "R$ " + val, imagem: "img/imagem3.jpg" },
+            { nome: "Produto 6", preco: "R$ " + val, imagem: "img/whey.jpg" },
+            { nome: "Produto 7", preco: "R$ " + val, imagem: "img/whey2.png" },
+            { nome: "Produto 8", preco: "R$ " + val, imagem: "img/imagem4.png" },
+            { nome: "Produto 9", preco: "R$ " + val, imagem: "img/imagem4.png" },
+            { nome: "Produto 10", preco: "R$ " + val, imagem: "img/halter.jpg" },
+            { nome: "Produto 11", preco: "R$ " + val, imagem: "img/imagem4.png" },
+            { nome: "Produto 12", preco: "R$ " + val, imagem: "img/produto1.jpg" },
+            { nome: "Produto 1", preco: "R$ " + val, imagem: "img/imagem2.jpg" },
+            { nome: "Produto 2", preco: "R$ " + val, imagem: "img/fitness.png" },
+            { nome: "Produto 3", preco: "R$ " + val, imagem: "img/imagem3.jpg" },
+            { nome: "Produto 4", preco: "R$ " + val, imagem: "img/imagem3.jpg" },
+            { nome: "Produto 5", preco: "R$ " + val, imagem: "img/imagem3.jpg" },
+            { nome: "Produto 6", preco: "R$ " + val, imagem: "img/produto1.jpg" },
+            { nome: "Produto 7", preco: "R$ " + val, imagem: "img/imagem3.jpg" },
+            { nome: "Produto 8", preco: "R$ " + val, imagem: "img/produto1.jpg" },
+            { nome: "Produto 9", preco: "R$ " + val, imagem: "img/produto1.jpg" },
+            { nome: "Produto 10", preco: "R$ " + val, imagem: "img/fitness.png" },
+            { nome: "Produto 11", preco: "R$ " + val, imagem: "img/produto1.jpg" },
+            { nome: "Produto 12", preco: "R$ " + val, imagem: "img/fitness.png" },
             { nome: "Produto 1", preco: "R$ " + val, imagem: "img/produto1.jpg" },
             { nome: "Produto 2", preco: "R$ " + val, imagem: "img/imagem3.jpg" },
             { nome: "Produto 3", preco: "R$ " + val, imagem: "img/imagem4.png" },
@@ -233,8 +240,9 @@
                 botaoDetalhes.textContent = "Detalhes";
 
                 botaoDetalhes.addEventListener("click", () => {
-                window.location.href = product.url;
+                    window.location.href = product.url;
                 });
+
 
                 cardContainer.appendChild(imagemProduto);
                 cardContainer.appendChild(nomeProduto);
@@ -271,19 +279,21 @@
         // Chamada inicial para criar links de paginação
         criarLinksDePaginacao(produtos.length, 20);
     </script>
-    <script>$(document).ready(function () {
-                $(".product-carousel").slick({
-                    infinite: true,
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    prevArrow: "<button class='slick-prev'>&#10094;</button>",
-                    nextArrow: "<button class='slick-next'>&#10095;</button>",
-                });
+    <script>
+    $(document).ready(function () {
+            $(".product-carousel").slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                prevArrow: "<button class='slick-prev'>&#10094;</button>",
+                nextArrow: "<button class='slick-next'>&#10095;</button>",
             });
-        </script>
-        <script src="perfil.js"></script>
-        <div class="footer">
-            <p>&copy; 2023 GYM C.A.P.S. Todos os direitos reservados.</p>
-        </div>
+        });
+    </script>
+    <script src="perfil.js"></script>
+    <div class="footer">
+        <p>&copy; 2023 GYM C.A.P.S. Todos os direitos reservados.</p>
+    </div>
 </body>
+
 </html>
