@@ -126,11 +126,6 @@ button#comprar-btn {
     transition: background-color 0.3s ease;
 }
 
-button#comprar-btn:disabled {
-    background-color: #1600db;
-    cursor: not-allowed;
-}
-
 .carousel-container {
     max-width: 700px;
     margin: 0 auto;

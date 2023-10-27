@@ -1,48 +1,56 @@
-        const productCards = document.querySelectorAll('.product-card');
+const products = document.querySelectorAll('.product-card');
+let subtotal = 0;
+let shipping = 5.00;
 
-        productCards.forEach((productCard) => {
-            const addButton = productCard.querySelector('.add');
-            const removeButton = productCard.querySelector('.remove');
-            const deleteButton = productCard.querySelector('.delete');
-            const quantityElement = productCard.querySelector('.product-quantity');
+// Função para calcular e exibir os valores dinamicamente
+function updateValues() {
+    subtotal = 0;
+    products.forEach((product) => {
+        const quantityElement = product.querySelector('.product-quantity');
+        const priceElement = product.querySelector('.price');
+        const productQuantity = parseInt(quantityElement.textContent);
+        const productPrice = parseFloat(priceElement.textContent);
+        subtotal += productQuantity * productPrice;
+    });
 
-            let quantity = parseInt(quantityElement.textContent);
+    const totalElement = document.querySelector('.grand-total');
+    const total = subtotal + shipping;
 
-            addButton.addEventListener('click', () => {
-                quantity++;
-                quantityElement.textContent = quantity;
-                updateTotalPrice();
-            });
+    totalElement.textContent = total.toFixed(2);
 
-            removeButton.addEventListener('click', () => {
-                if (quantity > 0) {
-                    quantity--;
-                    quantityElement.textContent = quantity;
-                    updateTotalPrice();
-                }
-            });
+    const subtotalElement = document.querySelector('.subtotal');
+    subtotalElement.textContent = subtotal.toFixed(2);
 
-            deleteButton.addEventListener('click', () => {
-                productCard.remove();
-                updateTotalPrice();
-            });
-        });
+    const shippingElement = document.querySelector('.shipping');
+    shippingElement.textContent = shipping.toFixed(2);
+}
 
-function updateTotalPrice() {
-            const productPrices = document.querySelectorAll('.product-price');
-            const productQuantities = document.querySelectorAll('.product-quantity');
-            let totalPrice = 0;
+products.forEach((product) => {
+    const addButton = product.querySelector('.add');
+    const removeButton = product.querySelector('.remove');
+    const quantityElement = product.querySelector('.product-quantity');
+    const deleteButton = product.querySelector('.delete');
 
-            for (let i = 0; i < productPrices.length; i++) {
-                const price = parseFloat(productPrices[i].textContent.replace('R$', '').trim());
-                const quantity = parseInt(productQuantities[i].textContent);
-                totalPrice += price * quantity;
-            }
+    addButton.addEventListener('click', () => {
+        let quantity = parseInt(quantityElement.textContent);
+        quantity++;
+        quantityElement.textContent = quantity;
+        updateValues();
+    });
 
-            // Atualize o elemento que mostra o preço total
-            const totalPriceElement = document.getElementById('total-price');
-            totalPriceElement.textContent = `Total: R$ ${totalPrice.toFixed(2)}`;
+    removeButton.addEventListener('click', () => {
+        let quantity = parseInt(quantityElement.textContent);
+        if (quantity > 1) {
+            quantity--;
+            quantityElement.textContent = quantity;
+            updateValues();
         }
+    });
 
-        // Chame a função para calcular o preço total inicial
-        updateTotalPrice();
+    deleteButton.addEventListener('click', () => {
+        product.remove();
+        updateValues();
+    });
+});
+
+updateValues();

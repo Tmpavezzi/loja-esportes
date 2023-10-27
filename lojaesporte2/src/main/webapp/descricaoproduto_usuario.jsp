@@ -10,41 +10,43 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="img/logo.png" width="140px" alt="Logo da empresa">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="telaprincipal_usuario.jsp">Home</a></li>
-                <li><a href="maisprodutos_usuario.jsp">Mais Produtos</a></li>
-                <li><a href="#">Acompanhar Pedidos</a></li>
-            </ul>
-        </nav>
-        <div class="user">
-            <a href="index.jsp">Fa&ccedil; Login</a>
-            <a href="cadastrodeusuario.jsp">Crie Seu Login</a>
-        </div>
-        <div class="user-dropdown">
-            <img src="img/usuario.png" width="30px" height="30px" alt="Ícone do Usuário" id="user-icon">
-            <ul class="dropdown-options">
-                <li><a href="#" style="color: white;">Ver Perfil</a></li>
-                <li><a href="cadastrocliente.jsp" id="edit-data-link" style="color: white;">Editar Perfil</a></li>
+        <header>
+            <div class="logo">
+                <img src="img/logo.png" width="140px" alt="Logo da empresa">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="telaprincipal_usuario.jsp">Home</a></li>
+                    <li><a href="maisprodutos_usuario.jsp">Mais Produtos</a></li>
+                    <li><a href="#">Acompanhar Pedidos</a></li>
+                </ul>
+            </nav>
+            <div class="user">
+                <a href="index.jsp">Fa&ccedil;a Login</a>
+                <a href="cadastrocliente.jsp">Crie Seu Login</a>
+            </div>
+            <div class="user-dropdown">
+                <img src="img/usuario.png" width="30px" height="30px" alt="Ícone do Usuário" id="user-icon">
+                <ul class="dropdown-options">
+                    <li><a href="#" style="color: white;">Ver Perfil</a></li>
+                    <li><a href="cadastrocliente.jsp" id="edit-data-link" style="color: white;">Editar Perfil</a></li>
                     <ul class="sub-options" id="edit-data-options" style="display: none;">
-                    <li><a href="editar-endereco.jsp" id="edit-address-link" style="color: white;">Editar Endere&ccedil;o de Entrega</a></li>
-                    <li><a href="editar-dados.jsp" id="edit-data-link" style="color: white;">Alterar Dados</a></li>
-                    <li><a href="editar-endereco.jsp" id="add-address-link" style="color: white;">Adicionar Endere&ccedil;o de Entrega</a></li>
+                        <li><a href="editar-endereco.jsp" id="edit-address-link" style="color: white;">Editar
+                                Endere&ccedil;o de Entrega</a></li>
+                        <li><a href="editar-dados.jsp" id="edit-data-link" style="color: white;">Alterar Dados</a></li>
+                        <li><a href="editar-endereco.jsp" id="add-address-link" style="color: white;">Adicionar
+                                Endere&ccedil;o de Entrega</a></li>
                     </ul>
-                </li>
-                <li><a href="#" style="color: red;">Deslogar</a></li>
-            </ul>
-        </div>
-        <div class="cart-icon">
+                    </li>
+                    <li><a href="#" style="color: red;">Deslogar</a></li>
+                </ul>
+            </div>
+            <div class="cart-icon">
                 <a href="carrinho.jsp">
-            <img src="img/cart-icon.png" alt="Ícone de Carrinho">
+                    <img src="img/cart-icon.png" alt="Ícone de Carrinho">
                 </a>
-        </div>
-    </header>
+            </div>
+        </header>
 
     <div class="product-details">
         <div class="carousel-container">
@@ -70,7 +72,9 @@
             </p>
             <p><strong>Preço:</strong> R$ ${preco}</p>
             <p><strong>Descrição:</strong> ${descricao}</p>
-            <button id="comprar-btn" disabled>Comprar</button>
+            <button id="comprar-btn">
+                <a href="carrinho.jsp" style="text-decoration: none; color: inherit;">Comprar
+            </button>
         </div>
     </div>
 
@@ -96,9 +100,6 @@
 
       xhr.send();
   </script>
-
-
-
     <footer>
         <div class="rodape">
             &copy; 2023 Gym C.A.P.S. Todos os direitos reservados.

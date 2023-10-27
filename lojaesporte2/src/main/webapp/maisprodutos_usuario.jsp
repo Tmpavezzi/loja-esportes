@@ -155,9 +155,9 @@
             </ul>
         </div>
         <div class="cart-icon">
-                <a href="carrinho.jsp">
-            <img src="img/cart-icon.png" alt="Ícone de Carrinho">
-                </a>
+            <a href="carrinho.jsp">
+                <img src="img/cart-icon.png" alt="Ícone de Carrinho">
+            </a>
         </div>
     </header>
     <main>
@@ -176,7 +176,7 @@
         // Suponha que você tenha um array de produtos
         const produtos = [
             { nome: "Produto 1", preco: "R$ " + val, imagem: "img/produto1.jpg", url: "descricaoproduto_usuario.jsp" },
-            { nome: "Produto 2", preco: "R$ " + val, imagem: "img/imagem1.jpg" },
+            { nome: "Produto 2", preco: "R$ " + val, imagem: "img/imagem1.jpg", url: "descricaoproduto_usuario.jsp" },
             { nome: "Produto 3", preco: "R$ " + val, imagem: "img/imagem2.jpg" },
             { nome: "Produto 4", preco: "R$ " + val, imagem: "img/fitness.png" },
             { nome: "Produto 5", preco: "R$ " + val, imagem: "img/imagem3.jpg" },
@@ -280,7 +280,7 @@
         criarLinksDePaginacao(produtos.length, 20);
     </script>
     <script>
-    $(document).ready(function () {
+        $(document).ready(function () {
             $(".product-carousel").slick({
                 infinite: true,
                 slidesToShow: 3,
