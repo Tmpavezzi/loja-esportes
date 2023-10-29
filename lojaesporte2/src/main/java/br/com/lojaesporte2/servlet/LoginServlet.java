@@ -25,6 +25,7 @@ public class LoginServlet extends  HttpServlet {
     String senha = request.getParameter("senha");
 
     String userType = null;
+    boolean userLoggeIn = false;
 
     if (email.endsWith("@casp.com.br")) {
 
@@ -35,7 +36,11 @@ public class LoginServlet extends  HttpServlet {
 
         if (new logindao().verifyClienteCredntial(email, senha)) {
             userType = "cliente";
+            userLoggeIn=true;
         }
+    }
+    if(userLoggeIn){
+        request.getSession().setAttribute("userLoggedIn",true);
     }
 
     switch (userType) {
@@ -49,7 +54,7 @@ public class LoginServlet extends  HttpServlet {
             break;
         case "cliente":
             request.getSession().setAttribute("usergroup", userType);
-            request.getRequestDispatcher("telapaginacliente.jsp").forward(request, response);
+            request.getRequestDispatcher("tela_principalcliente.jsp").forward(request, response);
             break;
         default:
             request.setAttribute("message", "Credenciais inválidas");
