@@ -15,11 +15,11 @@
     <title>Cadastre-se</title>
 </head>
 <body>
-    <form action="/cadastrado-usuario" method="post">
+    <form action="/cadatradocliente" method="post">
         <h1>Cadastre-se Agora!</h1>
         <p>
             <label for="nome">Nome Completo:</label>
-            <input type="text" class="nome" name="nome" required pattern="^\w+\s\w+\s*$">
+            <input type="text" class="nome" name="nome"  >
         </p>
         <p>
             <label for="cpf">CPF:</label>
@@ -41,10 +41,10 @@
             <label for="email">E-mail:</label>
             <input type="email" class="email" name="email" required>
         </p>
-        <p>
+       <!-- <p>
             <label for="cep">CEP:</label>
             <input type="text" class="cep" name="cep" required pattern="\d{5}-\d{3}">
-        </p>
+        </p>  -->
         <p>
             <label for="enderecoFaturamento">Endereço de Faturamento:</label>
             <div id="enderecoFaturamentoContainer">
@@ -54,10 +54,17 @@
         </p>
         <p>
             <label for="enderecoEntrega">Endereço(s) de Entrega:</label>
-             <div id="enderecoEntregaContainer">
-                    <input type="text" class="enderecoEntrega" name="enderecoEntrega" required>
-                    <button type="button" class="addEnderecoEntrega">Adicionar Mais um Endereço de Entrega</button>
-             </div>
+            <div id="enderecoEntregaContainer">
+            <div class="enderecoEntregaItem">
+             <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].cep" required>
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].logradouto" required>
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].numero" required>
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].complemento">
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].bairro" required>
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].cidade" required>
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].uf" required>
+            </div>
+            <button type="button" class="addEnderecoEntrega">Adicionar Mais um Entregar</button>
         </p>
         <p>
             <label for="senha">Senha:</label>
