@@ -54,17 +54,39 @@
         </p>
         <p>
             <label for="enderecoEntrega">Endereço(s) de Entrega:</label>
-            <div id="enderecoEntregaContainer">
-            <div class="enderecoEntregaItem">
-             <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].cep" required>
-                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].logradouto" required>
-                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].numero" required>
-                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].complemento">
-                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].bairro" required>
-                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].cidade" required>
-                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].uf" required>
-            </div>
-            <button type="button" class="addEnderecoEntrega">Adicionar Mais um Entregar</button>
+        <div id="enderecoEntregaContainer">
+            <input type="text" class="enderecoEntrega" name="enderecoEntrega" required>
+            <button type="button" class="addEnderecoEntrega">Adicionar Mais Endereço de Entrega</button>
+        </div>
+        </p>
+
+        <p>
+            <label for="enderecoEntrega">CEP:</label>
+            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].cep" required>
+        </p>
+        <p>
+            <label for="enderecoEntrega">Logradouro:</label>
+            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].logradouto" required>
+        </p>
+        <p>
+            <label for="enderecoEntrega">Número:</label>
+            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].numero" required>
+        </p>
+        <p>
+            <label for="enderecoEntrega">Complemento:</label>
+            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].complemento">
+        </p>
+        <p>
+            <label for="enderecoEntrega">Bairro:</label>
+            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].bairro" required>
+        </p>
+        <p>
+            <label for="enderecoEntrega">Cidade:</label>
+            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].cidade" required>
+        </p>
+        <p>
+            <label for="enderecoEntrega">UF:</label>
+            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].uf" required>
         </p>
         <p>
             <label for="senha">Senha:</label>

@@ -11,7 +11,6 @@
 
 <body>
     <header>
-<<<<<<< HEAD
         <div class="logo">
             <img src="img/logo.png" width="140px" alt="Logo da empresa">
         </div>
@@ -43,16 +42,12 @@
         <div class="cart-icon">
             <img src="img/cart-icon.png" alt="Ícone de Carrinho">
         </div>
-=======
-        <!-- Your header content here -->
->>>>>>> fbf0757cb55df3881edc901bb45a006af5046e17
     </header>
 
     <div class="product-details">
         <div class="carousel-container">
             <div class="carousel">
                 <div class="carousel-slide">
-                    <!-- Image displayed here -->
                     <img id="productImage" alt="Imagem do Produto">
                 </div>
             </div>
@@ -99,9 +94,6 @@
 
       xhr.send();
   </script>
-
-
-
     <footer>
         <div class="rodape">
             &copy; 2023 Gym C.A.P.S. Todos os direitos reservados.
