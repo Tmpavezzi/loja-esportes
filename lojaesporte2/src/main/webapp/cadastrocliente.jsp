@@ -41,10 +41,6 @@
             <label for="email">E-mail:</label>
             <input type="email" class="email" name="email" required>
         </p>
-       <!-- <p>
-            <label for="cep">CEP:</label>
-            <input type="text" class="cep" name="cep" required pattern="\d{5}-\d{3}">
-        </p>  -->
         <p>
             <label for="enderecoFaturamento">Endereço de Faturamento:</label>
             <div id="enderecoFaturamentoContainer">
@@ -62,7 +58,7 @@
 
         <p>
             <label for="enderecoEntrega">CEP:</label>
-            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].cep" required>
+            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].cep" required pattern="\d{5}-\d{3}>
         </p>
         <p>
             <label for="enderecoEntrega">Logradouro:</label>
