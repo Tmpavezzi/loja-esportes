@@ -27,7 +27,7 @@ public class LoginServlet extends  HttpServlet {
     String userType = null;
     boolean userLoggeIn = false;
 
-    if (email.endsWith("@casp.com.br")) {
+    if (email.endsWith("@caps.com.br")) {
 
         if (new logindao().verifyCreddential(email, senha)) {
             userType = new logindao().getUserType(email);
