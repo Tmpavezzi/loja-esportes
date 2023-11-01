@@ -10,6 +10,6 @@ public class Logoutservlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
   request.getSession().invalidate();
    request.setAttribute("messagen","Sucessor on logout");
-  request.getRequestDispatcher("index.jsp".formatted(request,response));
+  request.getRequestDispatcher("telaprincipal_usuario.jsp").forward(request,response);
 }
 }

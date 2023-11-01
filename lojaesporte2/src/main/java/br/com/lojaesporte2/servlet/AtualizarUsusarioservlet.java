@@ -1,9 +1,7 @@
 package br.com.lojaesporte2.servlet;
 
 import br.com.lojaesporte2.dao.Alteracao;
-import br.com.lojaesporte2.dao.cadastradodao;
-import br.com.lojaesporte2.dao.listardao;
-import br.com.lojaesporte2.model.usuario;
+
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

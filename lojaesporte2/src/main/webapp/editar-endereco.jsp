@@ -13,12 +13,12 @@
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <link rel="stylesheet" href="cadastrocliente.css">
-                    <title>Alterar Dados</title>
+                    <title>Editar Endereço de Entrega</title>
                 </head>
 
                 <body>
                     <form action="/cadastrado-usuario" method="post">
-                        <h1>Alteração de Dados</h1>
+                        <h1>Edite Seu Endereço de Entrega</h1>
                         <p>
                             <label for="nome">Nome Completo:</label>
                             <input type="text" class="nome" name="nome" required pattern="^\w+\s\w+\s*$">
@@ -43,22 +43,49 @@
                             <label for="email">E-mail:</label>
                             <input type="email" class="email" name="email" required>
                         </p>
-                        <p>
-                            <label for="cep">CEP:</label>
-                            <input type="text" class="cep" name="cep" required pattern="\d{5}-\d{3}">
-                        </p>
+
                         <p>
                             <label for="enderecoFaturamento">Endereço de Faturamento:</label>
                         <div id="enderecoFaturamentoContainer">
                             <input type="text" class="enderecoFaturamento" name="enderecoFaturamento" required>
-                            <button type="button" class="addEnderecoFaturamento">Outras Informações</button>
                         </div>
                         </p>
                         <p>
                             <label for="enderecoEntrega">Endereço(s) de Entrega:</label>
                         <div id="enderecoEntregaContainer">
-                            <input type="text" class="enderecoEntrega" name="enderecoEntrega" disabled>
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega" required>
+                            <button type="button" class="addEnderecoEntrega">Adicionar Mais um Endereço de
+                                Entrega</button>
                         </div>
+                        </p>
+                        <p>
+                            <label for="enderecoEntrega">CEP:</label>
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].cep" required
+                                pattern="\d{5}-\d{3}">
+                        </p>
+                        <p>
+                            <label for="enderecoEntrega">Logradouro:</label>
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].logradouto" required>
+                        </p>
+                        <p>
+                            <label for="enderecoEntrega">Número:</label>
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].numero" required>
+                        </p>
+                        <p>
+                            <label for="enderecoEntrega">Complemento:</label>
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].complemento">
+                        </p>
+                        <p>
+                            <label for="enderecoEntrega">Bairro:</label>
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].bairro" required>
+                        </p>
+                        <p>
+                            <label for="enderecoEntrega">Cidade:</label>
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].cidade" required>
+                        </p>
+                        <p>
+                            <label for="enderecoEntrega">UF:</label>
+                            <input type="text" class="enderecoEntrega" name="enderecoEntrega[0].uf" required>
                         </p>
                         <p>
                             <label for="senha">Senha:</label>
@@ -70,25 +97,7 @@
                         </p>
                         <input type="submit" value="Cadastrar">
                     </form>
-                    <script>
-                        document.addEventListener('DOMContentLoaded', function () {
-                            const enderecoFaturamentoContainer = document.getElementById('enderecoFaturamentoContainer');
-
-                            function criarCampoEnderecoFaturamento() {
-                                const novoCampoEnderecoFaturamento = document.createElement('div');
-                                novoCampoEnderecoFaturamento.innerHTML = `
-                        <input type="text" class="enderecoFaturamento" name="enderecoFaturamento" required></textarea>
-                        <button type="button" class="removerEnderecoFaturamento">Remover</button>
-                    `;
-                                enderecoFaturamentoContainer.appendChild(novoCampoEnderecoFaturamento);
-
-                                novoCampoEnderecoFaturamento.querySelector('.removerEnderecoFaturamento').addEventListener('click', function () {
-                                    enderecoFaturamentoContainer.removeChild(novoCampoEnderecoFaturamento);
-                                });
-                            }
-                            document.querySelector('.addEnderecoFaturamento').addEventListener('click', criarCampoEnderecoFaturamento);
-                        });
-                    </script>
+                    <script src="editar-endereco.js"></script>
                     <script>
                         document.addEventListener('DOMContentLoaded', function () {
                             const enderecoEntregaContainer = document.getElementById('enderecoEntregaContainer');

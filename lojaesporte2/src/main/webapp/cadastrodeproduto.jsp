@@ -35,9 +35,9 @@
             </select>
 
             <label for="StatusProduto">Status do Produto:</label>
-            <input type="radio" id="statusAtivo" name="status" value="true" required>
+            <input type="radio" id="statusAtivo" name="status" value="ativo" required>
             <label for="statusAtivo">Ativo</label>
-            <input type="radio" id="statusInativo" name="status" value="false" required>
+            <input type="radio" id="statusInativo" name="status" value="inativo" required>
             <label for="statusInativo">Inativo</label>
 
             <input type="submit" value="Salvar">

@@ -4,6 +4,7 @@
   <groupId>br.com.lojaesporte</groupId>
   <artifactId>lojaesporte2</artifactId>
   <packaging>war</packaging>
+
   <properties>
     <maven.compiler.source>20</maven.compiler.source>
     <maven.compiler.target>20</maven.compiler.target>
@@ -38,6 +39,11 @@
       <groupId>org.mindrot</groupId>
       <artifactId>jbcrypt</artifactId>
       <version>0.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.5.13</version>
     </dependency>
 
   </dependencies>
@@ -74,4 +80,5 @@
       </plugin>
     </plugins>
   </build>
+
 </project>
