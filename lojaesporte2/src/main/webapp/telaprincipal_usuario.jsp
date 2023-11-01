@@ -46,7 +46,7 @@
         <nav>
             <ul>
                 <li><a href="telaprincipal_usuario.jsp">Home</a></li>
-                <li><a href="maisprodutos_usuario.jsp">Mais Produtos</a></li>
+                <li><a href="maisprodutos_usuarios.jsp">Mais Produtos</a></li>
                 <li><a href="#">Acompanhar Pedidos</a></li>
             </ul>
         </nav>

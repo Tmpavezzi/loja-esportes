@@ -11,7 +11,37 @@
 
 <body>
     <header>
-        <!-- Your header content here -->
+        <div class="logo">
+                    <img src="img/logo.png" width="140px" alt="Logo da empresa">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="telaprincipal_usuario.jsp">Home</a></li>
+                        <li><a href="maisprodutos_usuario.jsp">Mais Produtos</a></li>
+                        <li><a href="#">Acompanhar Pedidos</a></li>
+                    </ul>
+                </nav>
+                <div class="user">
+                    <a href="index.jsp">Fa&ccedil;a Login</a>
+                    <a href="cadastrocliente.jsp">Crie Seu Login</a>
+                </div>
+                <div class="user-dropdown">
+                    <img src="img/usuario.png" width="30px" height="30px" alt="Ícone do Usuário" id="user-icon">
+                    <ul class="dropdown-options">
+                        <li><a href="#" style="color: white;">Ver Perfil</a></li>
+                        <li><a href="cadastrocliente.jsp" id="edit-data-link" style="color: white;">Editar Perfil</a></li>
+                            <ul class="sub-options" id="edit-data-options" style="display: none;">
+                            <li><a href="cadastrocliente.jsp" id="edit-address-link" style="color: white;">Editar Endere&ccedil;o de Entrega</a></li>
+                            <li><a href="editar-dados.jsp" id="edit-data-link" style="color: white;">Alterar Dados</a></li>
+                            <li><a href="cadastrocliente.jsp" id="add-address-link" style="color: white;">Adicionar Endere&ccedil;o de Entrega</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" style="color: red;">Deslogar</a></li>
+                    </ul>
+                </div>
+                <div class="cart-icon">
+                    <img src="img/cart-icon.png" alt="Ícone de Carrinho">
+                </div>
     </header>
 
     <div class="product-details">
@@ -46,24 +76,24 @@
   <script>
       var produtoId = <%= request.getAttribute("produtoId") %>; // Obtenha o ID do produto do atributo de solicitação
 
-      // Construa a URL do servlet com o produtoId como parâmetro
-      var servletURL = "imagem-servlet?produtoId=" + produtoId;
+        // Construa a URL do servlet com o produtoId como parâmetro
+        var servletURL = "imagem-servlet?produtoId=" + produtoId;
 
-      // Requisição AJAX para o servlet que recupera a imagem
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", servletURL, true);
+        // Requisição AJAX para o servlet que recupera a imagem
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", servletURL, true);
 
-      xhr.onload = function() {
-          if (xhr.status === 200) {
-              var imageURL = xhr.responseText; // A resposta do servlet é a URL da imagem
-              var productImage = document.getElementById("productImage");
-              productImage.src = imageURL;
-          } else {
-              console.error("Erro ao buscar a imagem.");
-          }
-      };
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var imageURL = xhr.responseText; // A resposta do servlet é a URL da imagem
+                var productImage = document.getElementById("productImage");
+                productImage.src = imageURL;
+            } else {
+                console.error("Erro ao buscar a imagem.");
+            }
+        };
 
-      xhr.send();
+        xhr.send();
   </script>
 
 
