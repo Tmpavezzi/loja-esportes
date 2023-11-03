@@ -9,27 +9,31 @@
 </head>
 
 <body>
- <header>
+    <header>
         <div class="logo">
-        <a href="telaprincipal_usuario.jsp">
-            <img src="img/logo.png" width="140px" alt="Logo da empresa">
-        </a>
+            <a href="telaprincipal_usuario.jsp">
+                <img src="img/logo.png" width="140px" alt="Logo da empresa">
+            </a>
         </div>
         <nav>
             <ul>
                 <li><a href="telaprincipal_usuario.jsp">Home</a></li>
-                <li><a href="maisprodutos_usuario.jsp">Mais Produtos</a></li>
+                <li><a href="maisprodutos_usuarios.jsp">Mais Produtos</a></li>
                 <li><a href="#">Acompanhar Pedidos</a></li>
             </ul>
         </nav>
         <div class="user">
-            <a href="index.jsp">Fa&ccedil;a Login</a>
-            <a href="cadastrocliente.jsp">Crie Seu Login</a>
+            <c:choose>
+                <c:when test="${empty sessionScope.userLoggedIn}">
+                    <a href="index.jsp">Fa&ccedil;a Login</a>
+                    <a href="cadastrocliente.jsp">Crie Seu Login</a>
+                </c:when>
+                <c:otherwise>
         </div>
         <div class="user-dropdown">
             <img src="img/usuario.png" width="30px" height="30px" alt="Ícone do Usuário" id="user-icon">
             <ul class="dropdown-options">
-                <li><a href="#" style="color: white;">Ver Perfil</a></li>
+                <li><a href="/Logout" style="color: white;">Ver Perfil</a></li>
                 <li><a href="cadastrocliente.jsp" id="edit-data-link" style="color: white;">Editar Perfil</a></li>
                 <ul class="sub-options" id="edit-data-options" style="display: none;">
                     <li><a href="editar-endereco.jsp" id="edit-address-link" style="color: white;">Editar
@@ -38,8 +42,11 @@
                     <li><a href="editar-endereco.jsp" id="add-address-link" style="color: white;">Adicionar
                             Endere&ccedil;o de Entrega</a></li>
                 </ul>
-                <li><a href="#" style="color: red;">Deslogar</a></li>
+                </li>
+                <li><a href="/Logout" style="color: red;">Deslogar</a></li>
             </ul>
+            </c:otherwise>
+            </c:choose>
         </div>
         <div class="cart-icon">
             <a href="carrinho.jsp">
@@ -87,7 +94,7 @@
         <div class="product-shipping">Frete: R$ <span class="shipping">5.00</span></div>
         <div class="total">Total: R$ <span class="grand-total">0.00</span></div>
         <button class="finalizar-pedido">
-            <a href="#" style="text-decoration: none; color: inherit;">Finalizar Compra
+            <a href="finalizarcompra.jsp" style="text-decoration: none; color: inherit;">Finalizar Compra
         </button>
     </div>
     <script src="carrinho.js"></script>
