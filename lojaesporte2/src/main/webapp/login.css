@@ -66,6 +66,28 @@ input[type="submit"]:hover {
     justify-content: center;
     margin-bottom: 20px;
 }
+.register {
+    text-align: center;
+    color: white;
+}
+.register p {
+    color: white;
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 15px;
+}
+.register a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: underline;
+}
+
+.register a:hover {
+    color: #b3b7f
+    text-decoration: none;
+}
 
 .led {
     width: 10px;

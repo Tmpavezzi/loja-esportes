@@ -13,7 +13,9 @@
         <body>
             <header>
                 <div class="logo">
+                <a href="telaprincipal_usuario.jsp">
                     <img src="img/logo.png" width="140px" alt="Logo da empresa">
+                </a>
                 </div>
                 <h1>Listas de Produtos</h1>
             </header>

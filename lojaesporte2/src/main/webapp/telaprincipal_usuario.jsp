@@ -46,7 +46,9 @@
 <body>
     <header>
         <div class="logo">
+        <a href="telaprincipal_usuario.jsp">
             <img src="img/logo.png" width="140px" alt="Logo da empresa">
+        </a>
         </div>
         <nav>
             <ul>
@@ -147,17 +149,16 @@
     </script>
     <section class="product-carousel">
         <div class="product-card">
-            <img src="img/produto1.jpg" alt="Produto 1">
-            <h2>KIT IntegralM&eacute;dica</h2>
-            <h3>02 Wheys Concentrados 907kg + 02 Creatinas 150g + 02 Coqueteleiras</h3>
-            <h4>R$ 350,00</h4>
+            <img src="img/creatina integralmedica.jpg" alt="Produto 1">
+            <h2>Creatina IntegralMedica 300g</h2>
+            <h4>R$ 110,00</h4>
             <a href="#" class="detail-button">Detalhes</a>
         </div>
 
         <div class="product-card">
-            <img src="img/whey.jpg" alt="Produto 2">
-            <h2>Whey - MyWhey IntegralM&eacute;dica</h2>
-            <h3>Sabor Baunilha</h3>
+            <img src="img/pre-treino maxtitanium.jpg" alt="Produto 2">
+            <h2>Pre-Treino MaxTitanium 300g</h2>
+            <h3>Sabor Limao</h3>
             <h4>R$ 135,00</h4>
             <a href="#" class="detail-button">Detalhes</a>
         </div>

@@ -6,7 +6,6 @@
         <title>Editar Produto</title>
         <link rel="stylesheet" type="text/css" href="alterarproduto.css">
     </head>
-
     <body>
         <form action="/atualizarProduto" method="post" enctype="multipart/form-data">
             <h1>Editar Produto</h1>

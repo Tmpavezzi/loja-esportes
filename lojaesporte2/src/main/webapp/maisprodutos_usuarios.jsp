@@ -136,7 +136,9 @@
 <body>
     <header>
         <div class="logo">
+        <a href="telaprincipal_usuario.jsp">
             <img src="img/logo.png" width="140px" alt="Logo da empresa">
+        </a>
         </div>
         <nav>
             <ul>
@@ -164,7 +166,9 @@
             </ul>
         </div>
         <div class="cart-icon">
+            <a href="carrinho.jsp">
             <img src="img/cart-icon.png" alt="Ícone de Carrinho">
+          </a>
         </div>
     </header>
     <main>
@@ -190,6 +194,7 @@
                             <p>${maisprodutosusers.nome}</p>
                             <p>R$ ${maisprodutosusers.preco}</p>
                             <a href="imagem?id=${listaprodutos.ID}"><button>Comprar</button></a>
+                            <a href="#"><button>Adicionar ao Carrinho</button></a>
                         </section>
                     </c:forEach>
                 </section>

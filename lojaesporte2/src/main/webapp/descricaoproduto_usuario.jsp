@@ -12,8 +12,9 @@
 <body>
     <header>
         <div class="logo">
-<<<<<<< HEAD
+            <a href="telaprincipal_usuario.jsp">
                     <img src="img/logo.png" width="140px" alt="Logo da empresa">
+            </a>
                 </div>
                 <nav>
                     <ul>
@@ -43,7 +44,6 @@
                 <div class="cart-icon">
                     <img src="img/cart-icon.png" alt="Ícone de Carrinho">
                 </div>
-=======
             <img src="img/logo.png" width="140px" alt="Logo da empresa">
         </div>
         <nav>
@@ -74,7 +74,6 @@
         <div class="cart-icon">
             <img src="img/cart-icon.png" alt="Ícone de Carrinho">
         </div>
->>>>>>> c2f5124723ade5f6af9f9bcd681a8ca48808df98
     </header>
 
     <div class="product-details">
