@@ -94,7 +94,7 @@
         <div class="product-shipping">Frete: R$ <span class="shipping">5.00</span></div>
         <div class="total">Total: R$ <span class="grand-total">0.00</span></div>
         <button class="finalizar-pedido">
-            <a href="finalizarcompra.jsp" style="text-decoration: none; color: inherit;">Finalizar Compra
+            <a href="finalizarcompra.jsp" style="text-decoration: none; color: inherit;">Próxima Etapa
         </button>
     </div>
     <script src="carrinho.js"></script>

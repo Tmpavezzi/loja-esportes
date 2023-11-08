@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="finalizarcompra.css">
-    <title>Finalização da Compra</title>
+    <title>Finaliza&ccedil;&atilde;o da Compra</title>
 </head>
 <header>
     <div class="logo">
@@ -55,7 +55,7 @@
 
 <body>
     <div class="checkout-container">
-        <h1>Finalização da Compra:</h1>
+        <h1>Finaliza&ccedil;&atilde;o da Compra:</h1>
         <div class="checkout-form">
             <!-- Se o cliente não estiver logado, redirecionar para a tela de login -->
 
@@ -65,31 +65,31 @@
             <label for="email">E-mail:</label>
             <input type="email" id="email" name="email">
 
-            <label for="endereco">Endereço de Entrega:</label>
+            <label for="endereco">Endere&ccedil;o de Entrega:</label>
             <select id="endereco" name="endereco">
-                <option value="">Selecione um endereço</option>
-                <option value="endereco1">Endereço 1</option>
-                <option value="endereco2">Endereço 2</option>
-                <option value="endereco3">Endereço 3</option>
+                <option value="">Selecione um endere&ccedil;o</option>
+                <option value="endereco1">Endere&ccedil;o 1</option>
+                <option value="endereco2">Endere&ccedil;o 2</option>
+                <option value="endereco3">Endere&ccedil;o 3</option>
             </select>
 
             <label for="formaPagamento">Forma de Pagamento:</label>
             <select id="formaPagamento" name="formaPagamento" disabled>
                 <option value="#">Selecione a forma de pagamento</option>
-                <option value="cartao">Cartão de Crédito</option>
-                <option value="boleto">Boleto Bancário</option>
+                <option value="cartao">Cart&atilde;o de Cr&eacute;dito</option>
+                <option value="boleto">Boleto Banc&aacute;rio</option>
                 <option value="deposito">PIX</option>
-                <option value="deposito">Depósito Bancário</option>
+                <option value="deposito">De&oacute;sito Banc&aacute;rio</option>
             </select>
 
             <div id="cartaoCampos" style="display: none;">
-                <label for="numeroCartao">Número do Cartão:</label>
+                <label for="numeroCartao">N&uacute;mero do Cart&atilde;o:</label>
                 <input type="text" id="numeroCartao" name="numeroCartao" placeholder="XXXX XXXX XXXX XXXX">
 
-                <label for="codigoVerificador">Código Verificador:</label>
+                <label for="codigoVerificador">C&oacute;digo Verificador:</label>
                 <input type="text" id="codigoVerificador" name="codigoVerificador" placeholder="CVV">
 
-                <label for="nomeCompleto">Nome Completo no Cartão:</label>
+                <label for="nomeCompleto">Nome Completo no Cart&atilde;o:</label>
                 <input type="text" id="nomeCompleto" name="nomeCompleto">
 
                 <label for="dataVencimento">Data de Vencimento:</label>
@@ -98,9 +98,12 @@
                 <label for="parcelas">Quantidade de Parcelas:</label>
                 <input type="number" id="parcelas" name="parcelas">
             </div>
-            <button id="prosseguirCompra">Finalizar Pedido</button>
+            <button id="prosseguirCompra">
+            <a href="checkout.jsp" style="text-decoration: none; color: inherit;">Finalizar Pedido
+            </button>
         </div>
     </div>
+    <script src="finalizarcompra.js"></script>
     <script>
         var formaPagamento = document.getElementById("formaPagamento");
         var cartaoCampos = document.getElementById("cartaoCampos");

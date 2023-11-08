@@ -61,7 +61,7 @@
                 <thead>
                     <tr>
                         <th>Produto</th>
-                        <th>Valor Unitário</th>
+                        <th>Valor Unit&aacute;rio</th>
                         <th>Quantidade</th>
                         <th>Valor Total</th>
                     </tr>
@@ -73,8 +73,8 @@
 
             <p>Frete: R$ 10.00</p>
             <p>Total Geral: R$ 150.00</p>
-            <p>Endereço de Entrega: Endereço 1</p>
-            <p>Forma de Pagamento: Cartão de Crédito</p>
+            <p>Endere&ccedil;o de Entrega: Endere&ccedil;o 1</p>
+            <p>Forma de Pagamento: Cart&atilde;o de Cr&eacute;dito</p>
         </div>
 
         <button id="concluirCompra">Concluir Compra</button>
