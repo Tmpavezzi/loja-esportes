@@ -14,7 +14,7 @@
     import java.util.Base64;
     import java.util.List;
 
-    @WebServlet("/imagem-servlet")
+    @WebServlet("/imagemservlet")
     public class ImagemServlet extends HttpServlet {
         private Connection connection;
 
@@ -35,6 +35,7 @@
 
                     // Converta os bytes da imagem em uma URL com o prefixo 'data:image/jpeg;base64,'
                     String imagemURL = "data:image/jpeg;base64," + Base64.getEncoder().encodeToString(imagemBytes);
+                    System.out.println(imagemURL);
 
                     response.getWriter().write(imagemURL);
                 }

@@ -71,11 +71,13 @@
                 <div class="product-info">
                     <h1>${nomeProduto}</h1>
                     <p><strong>Avaliação:
-                            <% double avaliacaoDouble=Double.parseDouble(request.getAttribute("avaliacao").toString());
-                                int estrelas=(int) Math.round(avaliacaoDouble); // Arredonde a avaliação para o inteiro
-                                mais próximo for (int i=0; i < estrelas; i++) { %>
-                                &#9733; <!-- Caractere da estrela (★) -->
-                                <% } %>
+                        <%
+                            double avaliacaoDouble = Double.parseDouble(request.getAttribute("avaliacao").toString());
+                            int estrelas = (int) Math.round(avaliacaoDouble); // Arredonde a avaliação para o inteiro
+                            for (int i = 0; i < estrelas; i++) {
+                        %>
+                            &#9733; <!-- Caractere da estrela (★) -->
+                        <% } %>
                     </p>
                     <p><strong>Preço:</strong> R$ ${preco}</p>
                     <p><strong>Descrição:</strong> ${descricao}</p>
@@ -84,18 +86,16 @@
             </div>
 
             <script>
-                var produtoId = <%= request.getAttribute("produtoId") %>; // Obtenha o ID do produto do atributo de solicitação
+                var produtoId = <%= request.getAttribute("produtoId") %>;
 
-                // Construa a URL do servlet com o produtoId como parâmetro
-                var servletURL = "imagem-servlet?produtoId=" + produtoId;
+                var servletURL = "imagemservlet?produtoId=" + produtoId;
 
-                // Requisição AJAX para o servlet que recupera a imagem
                 var xhr = new XMLHttpRequest();
                 xhr.open("GET", servletURL, true);
 
                 xhr.onload = function () {
                     if (xhr.status === 200) {
-                        var imageURL = xhr.responseText; // A resposta do servlet é a URL da imagem
+                        var imageURL = xhr.responseText;
                         var productImage = document.getElementById("productImage");
                         productImage.src = imageURL;
                     } else {

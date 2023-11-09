@@ -193,7 +193,7 @@
                             <img src="data:image/jpeg;base64,${maisprodutosusers.imagemBase64}" alt="Imagem do Produto">
                             <p>${maisprodutosusers.nome}</p>
                             <p>R$ ${maisprodutosusers.preco}</p>
-                            <a href="imagem?id=${listaprodutos.ID}"><button>Comprar</button></a>
+                            <a href="maisprodutosusers?idProduto=${maisprodutosusers.ID}"><button>Comprar</button></a>
                             <a href="#"><button>Adicionar ao Carrinho</button></a>
                         </section>
                     </c:forEach>

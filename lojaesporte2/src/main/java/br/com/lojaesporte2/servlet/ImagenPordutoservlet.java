@@ -31,9 +31,6 @@ public class ImagenPordutoservlet   extends  HttpServlet{
 
         if (produto != null) {
 
-
-
-
             request.setAttribute("produto", produto);
             request.setAttribute("nomeProduto", produto.getNome());
             request.setAttribute("avaliacao", produto.getAvaliacao());
