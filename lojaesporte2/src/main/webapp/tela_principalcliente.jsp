@@ -71,9 +71,9 @@
                             <li><a href="/Logout" style="color: white;">Ver Perfil</a></li>
                             <li><a href="cadastrocliente.jsp" id="edit-data-link" style="color: white;">Editar Perfil</a></li>
                             <ul class="sub-options" id="edit-data-options" style="display: none;">
-                                <li><a href="editar-endereco.jsp" id="edit-address-link" style="color: white;">Editar Endereço de Entrega</a></li>
-                                <li><a href="editar-dados.jsp" id="edit-data-link" style="color: white;">Alterar Dados</a></li>
-                                <li><a href="editar-endereco.jsp" id="add-address-link" style="color: white;">Adicionar Endere&ccedil;o de Entrega</a></li>
+                            <li><a href="editar-endereco-entrega" id="edit-address-link" style="color: white;">Editar Endereço de Entrega</a></li>
+                             <li><a href="/editar-dados?clientId=${clientId}" id="edit-data-link" style="color: white;">Alterar Dados</a></li>
+                              <li><a href="adiciona-enderco.jsp?clientId=${clientId}" id="add-address-link" style="color: white;">Adicionar Endereço de Entrega</a></li>
                             </ul>
                             </li>
                             <li><a href="/Logout" style="color: red;">Deslogar</a></li>
@@ -111,6 +111,8 @@
             </div>
         </div>
     </div>
+
+    <input type="hidden" name="clientId" id="clientId" value="${clientId}" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="editar-endereco.js"></script>
     <script>

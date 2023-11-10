@@ -66,6 +66,8 @@ public class cadastradodao {
     }
 
 
+
+
     public int CadastadorProduto(produto produto) {
 
         String sql = "INSERT INTO PRODUTO  (nome, avaliacao, descricao, preco, estoque,status) VALUES (?, ?, ?, ?, ?,?)";
@@ -114,7 +116,15 @@ public class cadastradodao {
         //    AVALIACAO DECIMAL(5, 2),
         //    DESCRICAO TEXT,
         //    PRECO DECIMAL(10, 2),
+
         //    ESTOQUE INT,
+
+
+        //    ESTOQUE INT,
+
+        //    ESTOQUE INT
+
+
         //    STATUS VARCHAR(10)
         //);
     }

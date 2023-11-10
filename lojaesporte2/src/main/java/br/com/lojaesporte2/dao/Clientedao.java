@@ -6,6 +6,7 @@ import br.com.lojaesporte2.model.enderecofaturamento;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Clientedao {
@@ -135,6 +136,10 @@ public class Clientedao {
             return false;
         }
 
+
+
+
+
     }
 
     private String criptografarSenha(String senha){
@@ -143,15 +148,150 @@ public class Clientedao {
         return senhaCriptografa;
     }
 
+    public cliente obterClientePorId(int clienteId) {
+        cliente cliente = null;
+        String sql = "SELECT genero, nome_completo, data_nascimento FROM Cliente WHERE id = ?";
+
+        try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setInt(1, clienteId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                String genero = resultSet.getString("genero");
+                String nomeCompleto = resultSet.getString("nome_completo");
+                String dataNascimento = resultSet.getString("data_nascimento");
+
+                cliente = new cliente();
+                cliente.setId(clienteId);
+                cliente.setGenero(genero);
+                cliente.setNome_completo(nomeCompleto);
+                cliente.setNascimento(dataNascimento);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return cliente;
+    }
+
+    public void atualizarCliente(cliente cliente){
+        String sql = "UPDATE CLIENTE SET genero = ?, nome_completo = ?, data_nascimento = ?, senha = ? WHERE id = ?";
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test","sa","sa");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement .setString(1, cliente.getGenero());
+            preparedStatement.setString(2,cliente.getNome_completo());
+            preparedStatement.setString(3,cliente.getNascimento());
+
+            String senhaCriptografada = criptografarSenha(cliente.getSenha());
+            preparedStatement.setString(4,senhaCriptografada);
+
+            preparedStatement.setInt(5,cliente.getId());
+
+            preparedStatement.executeUpdate();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());;
+        }
+    }
+
+    public enderecoentrega obteEnderecoEntregaPorClienteId(int clienteId){
+        enderecoentrega enderecoentrega = null;
+        String sql = "SELECT cep, logradouro, numero, complemento, bairro, cidade, uf FROM EnderecoEntrega WHERE cliente_id = ?";
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            PreparedStatement preparedStatement= connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1,clienteId);
+            ResultSet resultSet= preparedStatement.executeQuery();
+
+            if(resultSet.next()){
+                String cep = resultSet.getString("cep");
+                String logradouro = resultSet.getString("logradouro");
+                String numero = resultSet.getString("numero");
+                String complemento = resultSet.getString("complemento");
+                String bairro = resultSet.getString("bairro");
+                String cidade = resultSet.getString("cidade");
+                String uf = resultSet.getString("uf");
+
+                enderecoentrega = new enderecoentrega();
+                enderecoentrega.setCep(cep);
+                enderecoentrega.setLogradouto(logradouro);
+                enderecoentrega.setNumero(numero);
+                enderecoentrega.setComplemento(complemento);
+                enderecoentrega.setBairro(bairro);
+                enderecoentrega.setCidade(cidade);
+                enderecoentrega.setUf(uf);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return enderecoentrega;
+    }
+
+    public void atualizarEnderecoEntrega(enderecoentrega enderecoentrega,int clienteId){
+        String sql = "UPDATE EnderecoEntrega SET cep = ?, logradouro = ?, numero = ?, complemento = ?, bairro = ?, cidade = ?, uf = ? WHERE cliente_id = ?";
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setString(1,enderecoentrega.getCep());
+            preparedStatement.setString(2,enderecoentrega.getLogradouto());
+            preparedStatement.setString(3,enderecoentrega.getNumero());
+            preparedStatement.setString(4,enderecoentrega.getComplemento());
+            preparedStatement.setString(5,enderecoentrega.getBairro());
+            preparedStatement.setString(6,enderecoentrega.getCidade());
+            preparedStatement.setString(7,enderecoentrega.getUf());
+            preparedStatement.setInt(8,clienteId);
+
+            preparedStatement.executeUpdate();
+        }catch (SQLException e){
+            System.out.println(e.getMessage());;
+        }
+    }
+
+    public boolean adicionarEnderecoEntrega(enderecoentrega enderecoEntrega, int clienteId) {
+        String sql = "INSERT INTO EnderecoEntrega (cliente_id, cep, logradouro, numero, complemento, bairro, cidade, uf) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setInt(1, clienteId);
+            preparedStatement.setString(2, enderecoEntrega.getCep());
+            preparedStatement.setString(3, enderecoEntrega.getLogradouto());
+            preparedStatement.setString(4, enderecoEntrega.getNumero());
+            preparedStatement.setString(5, enderecoEntrega.getComplemento());
+            preparedStatement.setString(6, enderecoEntrega.getBairro());
+            preparedStatement.setString(7, enderecoEntrega.getCidade());
+            preparedStatement.setString(8, enderecoEntrega.getUf());
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            return rowsAffected > 0;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());;
+            return false;
+        }
+    }
 
 
+
+
+
+
+}
 //    CREATE TABLE Cliente (
 //            id INT AUTO_INCREMENT PRIMARY KEY,
 //            email VARCHAR(255) UNIQUE NOT NULL,
 //    cpf VARCHAR(14) UNIQUE NOT NULL,
 //    nome_completo VARCHAR(255) NOT NULL,
 //    data_nascimento DATE NOT NULL,
-//    genero CHAR(8),
+//    genero CHAR(10),
 //    senha VARCHAR(255) NOT NULL
 //);
 
@@ -182,7 +322,3 @@ public class Clientedao {
 //    uf CHAR(2) NOT NULL,
 //    FOREIGN KEY (cliente_id) REFERENCES Cliente(id)
 //            );
-
-
-
-}

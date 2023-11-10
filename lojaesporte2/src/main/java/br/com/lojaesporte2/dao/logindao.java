@@ -3,10 +3,8 @@ package br.com.lojaesporte2.dao;
 import org.mindrot.jbcrypt.BCrypt;
 
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
+
 public class logindao {
 
     public boolean verifyCreddential(String Email, String Senha ){
@@ -114,6 +112,28 @@ public class logindao {
             System.out.println(e.getMessage());
             return false;
         }
+    }
+
+    public int getClientId(String email) {
+        String sql = "SELECT id FROM Cliente WHERE email = ?";
+        int clientId = 0;
+
+        try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+             PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+
+            preparedStatement.setString(1, email);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                clientId = resultSet.getInt("id");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return clientId;
     }
 
 }

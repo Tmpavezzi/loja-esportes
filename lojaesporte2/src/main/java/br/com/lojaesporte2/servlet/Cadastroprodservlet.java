@@ -28,7 +28,7 @@ public class Cadastroprodservlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // Capturar os parâmetros do formulário
+
         String nome = request.getParameter("nome");
         double avaliacao = Double.parseDouble(request.getParameter("avaliacao"));
         String descricao = request.getParameter("descricao");
@@ -37,7 +37,7 @@ public class Cadastroprodservlet extends HttpServlet {
         String status = request.getParameter("status");
 
 
-        // Crie um objeto de produto
+
         produto produto = new produto();
         produto.setNome(nome);
         produto.setAvaliacao(avaliacao);

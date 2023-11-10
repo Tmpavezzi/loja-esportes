@@ -26,6 +26,7 @@ public class LoginServlet extends  HttpServlet {
 
     String userType = null;
     boolean userLoggeIn = false;
+    int clientId = 0;
 
     if (email.endsWith("@caps.com.br")) {
 
@@ -37,11 +38,14 @@ public class LoginServlet extends  HttpServlet {
         if (new logindao().verifyClienteCredntial(email, senha)) {
             userType = "cliente";
             userLoggeIn=true;
+            clientId = new logindao().getClientId(email);
         }
     }
     if(userLoggeIn){
         request.getSession().setAttribute("userLoggedIn",true);
     }
+
+    request.getSession().setAttribute("clientId",clientId);
 
     switch (userType) {
         case "adm":
