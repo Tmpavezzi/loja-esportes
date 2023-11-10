@@ -19,7 +19,7 @@
             <ul>
                 <li><a href="telaprincipal_usuario.jsp">Home</a></li>
                 <li><a href="maisprodutos_usuarios.jsp">Mais Produtos</a></li>
-                <li><a href="#">Acompanhar Pedidos</a></li>
+                <li><a href="pedidos.jsp">Acompanhar Pedidos</a></li>
             </ul>
         </nav>
         <div class="user">
@@ -94,7 +94,7 @@
         <div class="product-shipping">Frete: R$ <span class="shipping">5.00</span></div>
         <div class="total">Total: R$ <span class="grand-total">0.00</span></div>
         <button class="finalizar-pedido">
-            <a href="finalizarcompra.jsp" style="text-decoration: none; color: inherit;">Próxima Etapa
+            <a href="finalizarcompra.jsp" style="text-decoration: none; color: inherit;">Pr&oacute;xima Etapa
         </button>
     </div>
     <script src="carrinho.js"></script>
