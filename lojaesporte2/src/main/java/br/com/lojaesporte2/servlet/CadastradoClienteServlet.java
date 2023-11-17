@@ -11,26 +11,24 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import br.com.lojaesporte2.dao.Clientedao;
+import br.com.lojaesporte2.model.ViaCEPResposponse;
 import br.com.lojaesporte2.model.cliente;
 import br.com.lojaesporte2.model.enderecofaturamento;
 import br.com.lojaesporte2.model.enderecoentrega;
-import org.apache.taglibs.standard.tag.common.core.UrlSupport;
-
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebServlet("/cadatradocliente")
-public class CadastradoClineteServlte  extends HttpServlet{
+public class CadastradoClienteServlet extends HttpServlet {
 
-    protected  void     doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
-
-        String  Validaçãoemail = request.getParameter("email");
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String validacaoEmail = request.getParameter("email");
 
         Clientedao dao = new Clientedao();
 
-        if(dao.verificaEmail(Validaçãoemail)){
-            request.setAttribute("erro","O email ja esta casdatrado");
-            request.getRequestDispatcher("tela_de_login.jsp").forward(request,response);
+        if (dao.verificaEmail(validacaoEmail)) {
+            request.setAttribute("erro", "O email já está cadastrado");
+            request.getRequestDispatcher("tela_de_login.jsp").forward(request, response);
         }
-
 
         String email = request.getParameter("email");
         String cpf = request.getParameter("cpf");
@@ -40,18 +38,14 @@ public class CadastradoClineteServlte  extends HttpServlet{
         String senha = request.getParameter("senha");
 
 
-        String[] faturamentoArray = request.getParameterValues("enderecoFaturamento");
-
-
-
         enderecofaturamento faturamento = new enderecofaturamento(
-                faturamentoArray[0],
-                faturamentoArray[1],
-                faturamentoArray[2],
-                faturamentoArray[3],
-                faturamentoArray[4],
-                faturamentoArray[5],
-                faturamentoArray[6]
+                request.getParameter("enderecoFaturamento.cep"),
+                request.getParameter("enderecoFaturamento.logradouro"),
+                request.getParameter("enderecoFaturamento.numero"),
+                request.getParameter("enderecoFaturamento.complemento"),
+                request.getParameter("enderecoFaturamento.bairro"),
+                request.getParameter("enderecoFaturamento.cidade"),
+                request.getParameter("enderecoFaturamento.uf")
         );
 
         List<enderecoentrega> enderecoEntregas = new ArrayList<>();
@@ -60,8 +54,7 @@ public class CadastradoClineteServlte  extends HttpServlet{
         while (request.getParameter("enderecoEntrega[" + i + "].cep") != null) {
             String cep = request.getParameter("enderecoEntrega[" + i + "].cep");
 
-
-            if (validarCEP(cep)) {
+            if (validarCEP(cep,request)) {
                 enderecoentrega entrega = new enderecoentrega();
                 entrega.setCep(cep);
                 entrega.setLogradouto(request.getParameter("enderecoEntrega[" + i + "].logradouto"));
@@ -72,10 +65,9 @@ public class CadastradoClineteServlte  extends HttpServlet{
                 entrega.setUf(request.getParameter("enderecoEntrega[" + i + "].uf"));
                 enderecoEntregas.add(entrega);
             } else {
-                // Trate o CEP inválido, você pode redirecionar de volta ao formulário ou exibir uma mensagem de erro
                 request.setAttribute("erro", "CEP inválido: " + cep);
                 request.getRequestDispatcher("tela_de_cadastro.jsp").forward(request, response);
-                return; // Saia do método se o CEP for inválido
+                return;
             }
             i++;
         }
@@ -88,33 +80,39 @@ public class CadastradoClineteServlte  extends HttpServlet{
         cliente.setGenero(genero);
         cliente.setSenha(senha);
 
-
         Clientedao clienteDao = new Clientedao();
         boolean sucesso = clienteDao.cadastrarCliente(cliente, faturamento, enderecoEntregas);
 
         if (sucesso) {
-
             response.sendRedirect("tela_de_login.jsp");
         } else {
-
             request.setAttribute("erro", "Ocorreu um erro no cadastro.");
             request.getRequestDispatcher("tela_de_login.jsp").forward(request, response);
         }
-
     }
-    private boolean validarCEP(String cep){
-        try{
-            URL url = new URL("https://viacep.com.br/ws/" + cep + "/json/" );
+
+    private boolean validarCEP(String cep, HttpServletRequest request) {
+        try {
+            URL url = new URL("https://viacep.com.br/ws/" + cep + "/json/");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
 
             int responseCode = conn.getResponseCode();
 
-            if(responseCode ==200){
+            if (responseCode == 200) {
+
+                ObjectMapper objectMapper = new ObjectMapper();
+                ViaCEPResposponse viaCEPResponse = objectMapper.readValue(conn.getInputStream(), ViaCEPResposponse.class);
+
+                request.setAttribute("logradouro", viaCEPResponse.getLogradouro());
+                request.setAttribute("complemento", viaCEPResponse.getComplemento());
+                request.setAttribute("bairro", viaCEPResponse.getBairro());
+                request.setAttribute("cidade", viaCEPResponse.getLocalidade());
+                request.setAttribute("uf", viaCEPResponse.getUf());
+
                 return true;
             }
-
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
