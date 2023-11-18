@@ -113,7 +113,7 @@
         </p>
         <p>
             <label for="enderecoFaturamento">Cidade:</label>
-            <input type="text" class="enderecoFaturamento" id="cidade_faturamento" name="enderecoFaturamento[0].cidade" required>
+            <input type="text" class="enderecoFaturamento" id="localidade_faturamento" name="enderecoFaturamento[0].localidade" required>
         </p>
         <p>
             <label for="enderecoFaturamento">UF:</label>
@@ -141,7 +141,7 @@
         </p>
         <p>
             <label for="enderecoEntrega">Cidade:</label>
-            <input type="text" class="enderecoEntrega" name="enderecoEntrega[1].cidade" required>
+            <input type="text" class="enderecoEntrega" name="enderecoEntrega[1].localidade" required>
         </p>
         <p>
             <label for="enderecoEntrega">UF:</label>

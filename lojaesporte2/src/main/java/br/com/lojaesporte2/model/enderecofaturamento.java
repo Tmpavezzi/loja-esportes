@@ -11,14 +11,7 @@ public class enderecofaturamento {
     private String cidade;
     private String uf ;
 
-    public enderecofaturamento(String cep, String logradouto, String numero, String complemento, String bairro, String cidade, String uf) {
-        this.cep = cep;
-        this.logradouto = logradouto;
-        this.numero = numero;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.uf = uf;
+    public enderecofaturamento() {
     }
 
     public String getIdcliente() {

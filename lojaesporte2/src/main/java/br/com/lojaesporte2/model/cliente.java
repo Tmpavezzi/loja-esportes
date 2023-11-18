@@ -10,6 +10,16 @@ public class cliente {
     private String genero;
     private String senha ;
 
+    public cliente(int id, String email, String cpf, String nome_completo, String nascimento, String genero, String senha) {
+        Id = id;
+        this.email = email;
+        this.cpf = cpf;
+        this.nome_completo = nome_completo;
+        this.nascimento = nascimento;
+        this.genero = genero;
+        this.senha = senha;
+    }
+
     public cliente() {
     }
 

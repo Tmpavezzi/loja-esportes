@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@WebServlet("/adicionar-endereco-entrega")
 public class AdicionarEnderecoEntregaServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Recupere os parâmetros do formulário para criar um objeto enderecoentrega
@@ -21,6 +22,10 @@ public class AdicionarEnderecoEntregaServlet extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String uf = request.getParameter("uf");
 
+        // Obtenha o ID do cliente da URL
+        String clienteIdStr = request.getParameter("clientId");
+        int clienteId = Integer.parseInt(clienteIdStr);
+
         // Crie um objeto enderecoentrega com os dados do formulário
         enderecoentrega enderecoEntrega = new enderecoentrega();
         enderecoEntrega.setCep(cep);
@@ -30,9 +35,6 @@ public class AdicionarEnderecoEntregaServlet extends HttpServlet {
         enderecoEntrega.setBairro(bairro);
         enderecoEntrega.setCidade(cidade);
         enderecoEntrega.setUf(uf);
-
-        // Obtenha o ID do cliente (você pode recuperá-lo de alguma forma, por exemplo, a partir de uma sessão)
-        int clienteId = 1;  // Substitua pelo ID do cliente real
 
         // Chame o método na DAO para adicionar o novo endereço de entrega
         Clientedao enderecoEntregaDao = new Clientedao();
@@ -46,4 +48,5 @@ public class AdicionarEnderecoEntregaServlet extends HttpServlet {
             response.sendRedirect("erro.jsp");
         }
     }
-}
+    }
+

@@ -16,8 +16,7 @@ public class EditarDadosServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Object clienteIdObj = request.getSession().getAttribute("clientId");
-        int clientId = clienteIdObj != null ? (int) clienteIdObj : 0;
+        int clientId = obterClienteIdDaSessao(request);
 
         if (clientId > 0) {
             Clientedao clientedao = new Clientedao();
@@ -32,24 +31,33 @@ public class EditarDadosServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nome = request.getParameter("nome");
-        String cpf = request.getParameter("cpf");
-        String dataNascimento = request.getParameter("dataNascimento");
+        int clientId = obterClienteIdDaSessao(request);
 
-        // Valide e processe os dados conforme necessário
-        // ...
+        if (clientId > 0) {
+            String nome = request.getParameter("nome");
+            String dataNascimento = request.getParameter("dataNascimento");
+            String genero = request.getParameter("genero");
 
-        // Após validar os dados, atualize o objeto cliente
-        cliente cliente = new cliente();
-        cliente.setNome_completo(nome);
-        cliente.setCpf(cpf);
-        cliente.setNascimento(dataNascimento);  // Defina a data de nascimento como uma String
+            // Valide e processe os dados conforme necessário
+            // ...
 
-        // Chame o método para atualizar o cliente no banco de dados
-        Clientedao clientedao = new Clientedao();
-        clientedao.atualizarCliente(cliente);
+            cliente cliente = new cliente();
+            cliente.setId(clientId);
+            cliente.setNome_completo(nome);
+            cliente.setNascimento(dataNascimento);
+            cliente.setGenero(genero);
 
-        // Redirecione para a página de confirmação ou outra ação apropriada
-        response.sendRedirect("confirmacao.jsp");
+            Clientedao clientedao = new Clientedao();
+            clientedao.atualizarCliente(cliente);
+
+            response.sendRedirect("tela_principalcliente.jsp");
+        } else {
+            response.sendRedirect("index.jsp");
+        }
+    }
+
+    private int obterClienteIdDaSessao(HttpServletRequest request) {
+        Object clienteIdObj = request.getSession().getAttribute("clientId");
+        return clienteIdObj != null ? (int) clienteIdObj : 0;
     }
 }

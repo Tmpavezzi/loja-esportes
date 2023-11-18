@@ -286,8 +286,8 @@ public class Clientedao {
 
 }
 //    CREATE TABLE Cliente (
-//            id INT AUTO_INCREMENT PRIMARY KEY,
-//            email VARCHAR(255) UNIQUE NOT NULL,
+//     id INT AUTO_INCREMENT PRIMARY KEY,
+//     email VARCHAR(255) UNIQUE NOT NULL,
 //    cpf VARCHAR(14) UNIQUE NOT NULL,
 //    nome_completo VARCHAR(255) NOT NULL,
 //    data_nascimento DATE NOT NULL,
@@ -297,9 +297,9 @@ public class Clientedao {
 
 
 //    CREATE TABLE EnderecoFaturamento (
-//            id INT AUTO_INCREMENT PRIMARY KEY,
-//            cliente_id INT NOT NULL,
-//            cep VARCHAR(8) NOT NULL,
+//    id INT AUTO_INCREMENT PRIMARY KEY,
+//   cliente_id INT NOT NULL,
+//   cep VARCHAR(9) NOT NULL,
 //    logradouro VARCHAR(255) NOT NULL,
 //    numero VARCHAR(10) NOT NULL,
 //    complemento VARCHAR(255),
@@ -311,9 +311,9 @@ public class Clientedao {
 
 
 //    CREATE TABLE EnderecoEntrega (
-//            id INT AUTO_INCREMENT PRIMARY KEY,
-//            cliente_id INT NOT NULL,
-//            cep VARCHAR(8) NOT NULL,
+//   id INT AUTO_INCREMENT PRIMARY KEY,
+//   cliente_id INT NOT NULL,
+//   cep VARCHAR(9) NOT NULL,
 //    logradouro VARCHAR(255) NOT NULL,
 //    numero VARCHAR(10) NOT NULL,
 //    complemento VARCHAR(255),

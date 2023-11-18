@@ -7,6 +7,8 @@ public class Imagem {
     private byte[] imagem;
     private boolean principal;
 
+
+
     public int getImagemId() {
         return imagemId;
     }
