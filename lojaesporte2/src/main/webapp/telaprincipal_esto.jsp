@@ -21,7 +21,7 @@
         <section class="painel">
             <div class="links">
                 <p>
-                    <a href="#">Lista de Pedidos</a><br>
+                    <a href="listarpedidos.jsp">Lista de Pedidos</a><br>
                 </p>
                 <p>
                     <a href="listarproduto.jsp">Lista de Produtos</a><br>
