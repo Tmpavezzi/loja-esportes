@@ -172,6 +172,9 @@
         </div>
     </header>
     <main>
+     <div class="cart-link">
+                        <a href="carrinho.jsp">Ir para o Carrinho</a>
+                    </div>
 
         <form action="/maisprodutosusers" method="get" class="search-form" style="text-align: center;">
             <input type="text" name="nomeProduto" placeholder="Pesquisar por nome...">
@@ -179,13 +182,11 @@
         </form>
 
         <c:choose>
-
             <c:when test="${empty produtos}">
                 <div class="nprod">
                     <p>Nenhum produto encontrado.</p>
                 </div>
             </c:when>
-
             <c:otherwise>
                 <section class="product-carousel">
                     <c:forEach var="maisprodutosusers" items="${produtos}" varStatus="loop">
@@ -194,12 +195,19 @@
                             <p>${maisprodutosusers.nome}</p>
                             <p>R$ ${maisprodutosusers.preco}</p>
                             <a href="maisprodutosusers?idProduto=${maisprodutosusers.ID}"><button>Comprar</button></a>
-                            <a href="#"><button>Adicionar ao Carrinho</button></a>
+                            <button class="add-to-cart-button"
+                                    data-product-id="${maisprodutosusers.ID}"
+                                    data-product-name="${maisprodutosusers.nome}"
+                                    data-product-price="${maisprodutosusers.preco}"
+                                    data-product-image="${maisprodutosusers.imagemBase64}">
+                                Adicionar ao Carrinho
+                            </button>
                         </section>
                     </c:forEach>
                 </section>
             </c:otherwise>
         </c:choose>
+
 
         <!-- Botões de paginação -->
         <div id="pagination">
@@ -215,50 +223,32 @@
     </footer>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var products = document.querySelectorAll(".product-card");
-            var currentPage = 1;
-            var productsPerPage = 9;
+       document.addEventListener("DOMContentLoaded", function () {
+           var addToCartButtons = document.querySelectorAll(".add-to-cart-button");
 
-            function showPage(page) {
-                var start = (page - 1) * productsPerPage;
-                var end = start + productsPerPage;
-                for (var i = 0; i < products.length; i++) {
-                    products[i].style.display = "none";
-                }
-                for (var i = start; i < end; i++) {
-                    if (products[i]) {
-                        products[i].style.display = "inline-block";
-                    }
-                }
-            }
+           addToCartButtons.forEach(function (button) {
+               button.addEventListener("click", function () {
+                   var productId = button.getAttribute("data-product-id");
+                   var productName = button.getAttribute("data-product-name");
+                   var productPrice = button.getAttribute("data-product-price");
+                   var productImage = button.getAttribute("data-product-image");
 
-            function updatePaginationButtons() {
-                var prevButton = document.getElementById("prev-page-button");
-                var nextButton = document.getElementById("next-page-button");
-                prevButton.disabled = currentPage === 1;
-                nextButton.disabled = currentPage * productsPerPage >= products.length;
-            }
+                   addToCart(productId, productName, productPrice, productImage);
+               });
+           });
 
-            document.getElementById("prev-page-button").addEventListener("click", function () {
-                if (currentPage > 1) {
-                    currentPage--;
-                    showPage(currentPage);
-                    updatePaginationButtons();
-                }
-            });
+           function addToCart(productId, productName, productPrice, productImage) {
+               var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+               cartItems.push({
+                   id: productId,
+                   name: productName,
+                   price: productPrice,
+                   image: productImage
+               });
+               localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-            document.getElementById("next-page-button").addEventListener("click", function () {
-                if (currentPage * productsPerPage < products.length) {
-                    currentPage++;
-                    showPage(currentPage);
-                    updatePaginationButtons();
-                }
-            });
-
-            // Inicialmente, exiba a primeira página
-            showPage(currentPage);
-            updatePaginationButtons();
+               console.log('Produto adicionado ao carrinho:', productName);
+           }
         });
     </script>
 </body>

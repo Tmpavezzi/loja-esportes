@@ -90,7 +90,7 @@
             const pagamentoBemSucedido = true;
 
             if (pagamentoBemSucedido) {
-                window.location.href = "confirmacao_compra.html";
+                window.location.href = "finalizarcompra.jsp";
             } else {
                 alert("O pagamento falhou. Por favor, tente novamente.");
             }
