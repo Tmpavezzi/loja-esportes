@@ -1,255 +1,261 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Produtos</title>
-    <link rel="stylesheet" href="maisprodutos_usuario.css">
-    <style>
-        .product-card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-shadow: 0px 4px 6px rgb(17, 0, 255);
-            padding: 20px;
-            margin: 55px;
-            display: inline-block;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            text-align: center;
-            transition: transform 0.2s ease;
-            vertical-align: top;
-        }
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+        <!DOCTYPE html>
+        <html lang="pt-br">
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 5px 10px 30px 10px rgb(17, 0, 255);
-        }
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Lista de Produtos</title>
+            <link rel="stylesheet" href="maisprodutos_usuario.css">
+            <style>
+                .product-card {
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    box-shadow: 0px 4px 6px rgb(17, 0, 255);
+                    padding: 20px;
+                    margin: 55px;
+                    display: inline-block;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                    text-align: center;
+                    transition: transform 0.2s ease;
+                    vertical-align: top;
+                }
 
-        .product-card img {
-            max-width: 150px;
-            height: auto;
-            margin-bottom: 10px;
-        }
+                .product-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 5px 10px 30px 10px rgb(17, 0, 255);
+                }
 
-        .product-card h2 {
-            font-size: 1.5rem;
-            margin: 10px 0;
-        }
+                .product-card img {
+                    max-width: 150px;
+                    height: auto;
+                    margin-bottom: 10px;
+                }
 
-        .product-card p {
-            font-size: 1.2rem;
-            color: black;
-            margin-bottom: 15px;
-        }
+                .product-card h2 {
+                    font-size: 1.5rem;
+                    margin: 10px 0;
+                }
 
-        .product-card button {
-            background-color: #1600db;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+                .product-card p {
+                    font-size: 1.2rem;
+                    color: black;
+                    margin-bottom: 15px;
+                }
 
-        .product-card button:hover {
-            background-color: rgb(55, 0, 255);
-        }
+                .product-card button {
+                    background-color: #1600db;
+                    color: #fff;
+                    border: none;
+                    padding: 10px 20px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+                }
 
-        #pagination {
-            text-align: center;
-            margin-top: 20px;
-        }
+                .product-card button:hover {
+                    background-color: rgb(55, 0, 255);
+                }
 
-        #pagination button {
-            display: inline-block;
-            padding: 5px 10px;
-            margin: 0 5px;
-            background-color: #1600db;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+                #pagination {
+                    text-align: center;
+                    margin-top: 20px;
+                }
 
-        .user-dropdown {
-            position: relative;
-            display: inline-block;
-        }
+                #pagination button {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    margin: 0 5px;
+                    background-color: #1600db;
+                    color: #fff;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                }
 
-        .dropdown-options {
-            display: none;
-            position: absolute;
-            background-color: black;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.8);
-            z-index: 1;
-        }
+                .user-dropdown {
+                    position: relative;
+                    display: inline-block;
+                }
 
-        .dropdown-options li {
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            color: white;
-        }
+                .dropdown-options {
+                    display: none;
+                    position: absolute;
+                    background-color: black;
+                    min-width: 160px;
+                    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.8);
+                    z-index: 1;
+                }
 
-        .search {
-            text-align: center;
-            margin: 20px 0;
-        }
+                .dropdown-options li {
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                    color: white;
+                }
 
-        button#searchButton:hover {
-            background-color: #0056b3;
-        }
+                .search {
+                    text-align: center;
+                    margin: 20px 0;
+                }
 
-        input[type="text"] {
-            padding: 5px;
-            width: 300px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
+                button#searchButton:hover {
+                    background-color: #0056b3;
+                }
 
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin: 0 10px;
-        }
+                input[type="text"] {
+                    padding: 5px;
+                    width: 300px;
+                    font-size: 16px;
+                    border-radius: 5px;
+                    border: 1px solid #ccc;
+                }
 
-        .nprod {
-            text-align: center
-        }
+                button {
+                    background-color: #007bff;
+                    color: white;
+                    border: none;
+                    padding: 10px 20px;
+                    font-size: 16px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    margin: 0 10px;
+                }
 
-        .dropdown-options li:hover {
-            background-color: black;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <div class="logo">
-        <a href="telaprincipal_usuario.jsp">
-            <img src="img/logo.png" width="140px" alt="Logo da empresa">
-        </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="telaprincipal_usuario.jsp">Home</a></li>
-                <li><a href="maisprodutos_usuarios.jsp">Mais Produtos</a></li>
-                <li><a href="pedidos.jsp">Acompanhar Pedidos</a></li>
-            </ul>
-        </nav>
-        <div class="user">
-            <a href="index.jsp">Fa&ccedil;a Login</a>
-            <a href="cadastrocliente.jsp">Crie Seu Login</a>
-        </div>
-        <div class="user-dropdown">
-            <img src="img/usuario.png" width="30px" height="30px" alt="Ícone do Usuário" id="user-icon">
-            <ul class="dropdown-options">
-                <li><a href="#" style="color: white;">Ver Perfil</a></li>
-                <li><a href="cadastrocliente.jsp" id="edit-data-link" style="color: white;">Editar Perfil</a>
-                    <ul class="sub-options" id="edit-data-options" style="display: none;">
-                        <li><a href="cadastrocliente.jsp" style="color: white;">Editar Endere&ccedil;o de Entrega</a></li>
-                        <li><a href="cadastrocliente.jsp" style="color: white;">Alterar Dados</a></li>
-                        <li><a href="cadastrocliente.jsp" style="color: white;">Adicionar Endere&ccedil;o de Entrega</a></li>
-                    </ul>
-                </li>
-                <li><a href="#" style="color: red;">Deslogar</a></li>
-            </ul>
-        </div>
-        <div class="cart-icon">
-            <a href="carrinho.jsp">
-            <img src="img/cart-icon.png" alt="Ícone de Carrinho">
-          </a>
-        </div>
-    </header>
-    <main>
-     <div class="cart-link">
-                        <a href="carrinho.jsp">Ir para o Carrinho</a>
-                    </div>
+                .nprod {
+                    text-align: center
+                }
 
-        <form action="/maisprodutosusers" method="get" class="search-form" style="text-align: center;">
-            <input type="text" name="nomeProduto" placeholder="Pesquisar por nome...">
-            <button type="submit">Pesquisar</button>
-        </form>
+                .dropdown-options li:hover {
+                    background-color: black;
+                }
+            </style>
+        </head>
 
-        <c:choose>
-            <c:when test="${empty produtos}">
-                <div class="nprod">
-                    <p>Nenhum produto encontrado.</p>
+        <body>
+            <header>
+                <div class="logo">
+                    <a href="telaprincipal_usuario.jsp">
+                        <img src="img/logo.png" width="140px" alt="Logo da empresa">
+                    </a>
                 </div>
-            </c:when>
-            <c:otherwise>
-                <section class="product-carousel">
-                    <c:forEach var="maisprodutosusers" items="${produtos}" varStatus="loop">
-                        <section class="product-card">
-                            <img src="data:image/jpeg;base64,${maisprodutosusers.imagemBase64}" alt="Imagem do Produto">
-                            <p>${maisprodutosusers.nome}</p>
-                            <p>R$ ${maisprodutosusers.preco}</p>
-                            <a href="maisprodutosusers?idProduto=${maisprodutosusers.ID}"><button>Comprar</button></a>
-                            <button class="add-to-cart-button"
-                                    data-product-id="${maisprodutosusers.ID}"
-                                    data-product-name="${maisprodutosusers.nome}"
-                                    data-product-price="${maisprodutosusers.preco}"
-                                    data-product-image="${maisprodutosusers.imagemBase64}">
-                                Adicionar ao Carrinho
-                            </button>
+                <nav>
+                    <ul>
+                        <li><a href="telaprincipal_usuario.jsp">Home</a></li>
+                        <li><a href="maisprodutos_usuarios.jsp">Mais Produtos</a></li>
+                        <li><a href="pedidos.jsp">Acompanhar Pedidos</a></li>
+                    </ul>
+                </nav>
+                <div class="user">
+                    <a href="index.jsp">Fa&ccedil;a Login</a>
+                    <a href="cadastrocliente.jsp">Crie Seu Login</a>
+                </div>
+                <div class="user-dropdown">
+                    <img src="img/usuario.png" width="30px" height="30px" alt="Ícone do Usuário" id="user-icon">
+                    <ul class="dropdown-options">
+                        <li><a href="#" style="color: white;">Ver Perfil</a></li>
+                        <li><a href="cadastrocliente.jsp" id="edit-data-link" style="color: white;">Editar Perfil</a>
+                            <ul class="sub-options" id="edit-data-options" style="display: none;">
+                                <li><a href="cadastrocliente.jsp" style="color: white;">Editar Endere&ccedil;o de
+                                        Entrega</a></li>
+                                <li><a href="cadastrocliente.jsp" style="color: white;">Alterar Dados</a></li>
+                                <li><a href="cadastrocliente.jsp" style="color: white;">Adicionar Endere&ccedil;o de
+                                        Entrega</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" style="color: red;">Deslogar</a></li>
+                    </ul>
+                </div>
+                <div class="cart-icon">
+                    <a href="carrinho.jsp">
+                        <img src="img/cart-icon.png" alt="Ícone de Carrinho">
+                    </a>
+                </div>
+            </header>
+            <main>
+                <div class="cart-link">
+                    <a href="carrinho.jsp">Ir para o Carrinho</a>
+                </div>
+
+                <form action="/maisprodutosusers" method="get" class="search-form" style="text-align: center;">
+                    <input type="text" name="nomeProduto" placeholder="Pesquisar por nome...">
+                    <button type="submit">Pesquisar</button>
+                </form>
+
+                <c:choose>
+                    <c:when test="${empty produtos}">
+                        <div class="nprod">
+                            <p>Nenhum produto encontrado.</p>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <section class="product-carousel">
+                            <c:forEach var="maisprodutosusers" items="${produtos}" varStatus="loop">
+                                <section class="product-card">
+                                    <img src="data:image/jpeg;base64,${maisprodutosusers.imagemBase64}"
+                                        alt="Imagem do Produto">
+                                    <p>${maisprodutosusers.nome}</p>
+                                    <p>R$ ${maisprodutosusers.preco}</p>
+                                    <a
+                                        href="maisprodutosusers?idProduto=${maisprodutosusers.ID}"><button>Comprar</button></a>
+                                    <button class="add-to-cart-button" data-product-id="${maisprodutosusers.ID}"
+                                        data-product-name="${maisprodutosusers.nome}"
+                                        data-product-price="${maisprodutosusers.preco}"
+                                        data-product-image="${maisprodutosusers.imagemBase64}">
+                                        Adicionar ao Carrinho
+                                    </button>
+                                </section>
+                            </c:forEach>
                         </section>
-                    </c:forEach>
-                </section>
-            </c:otherwise>
-        </c:choose>
+                    </c:otherwise>
+                </c:choose>
 
 
-        <!-- Botões de paginação -->
-        <div id="pagination">
-            <button id="prev-page-button" disabled>Página Anterior</button>
-            <button id="next-page-button">Próxima Página</button>
-        </div>
+                <!-- Botões de paginação -->
+                <div id="pagination">
+                    <button id="prev-page-button" disabled>Página Anterior</button>
+                    <button id="next-page-button">Próxima Página</button>
+                </div>
 
-    </main>
-    <footer>
-        <div class="footer">
-            <p>&copy; 2023 GYM C.A.P.S. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+            </main>
+            <footer>
+                <div class="footer">
+                    <p>&copy; 2023 GYM C.A.P.S. Todos os direitos reservados.</p>
+                </div>
+            </footer>
 
-    <script>
-       document.addEventListener("DOMContentLoaded", function () {
-           var addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    var addToCartButtons = document.querySelectorAll(".add-to-cart-button");
 
-           addToCartButtons.forEach(function (button) {
-               button.addEventListener("click", function () {
-                   var productId = button.getAttribute("data-product-id");
-                   var productName = button.getAttribute("data-product-name");
-                   var productPrice = button.getAttribute("data-product-price");
-                   var productImage = button.getAttribute("data-product-image");
+                    addToCartButtons.forEach(function (button) {
+                        button.addEventListener("click", function () {
+                            var productId = button.getAttribute("data-product-id");
+                            var productName = button.getAttribute("data-product-name");
+                            var productPrice = button.getAttribute("data-product-price");
+                            var productImage = button.getAttribute("data-product-image");
 
-                   addToCart(productId, productName, productPrice, productImage);
-               });
-           });
+                            addToCart(productId, productName, productPrice, productImage);
+                        });
+                    });
 
-           function addToCart(productId, productName, productPrice, productImage) {
-               var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-               cartItems.push({
-                   id: productId,
-                   name: productName,
-                   price: productPrice,
-                   image: productImage
-               });
-               localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                    function addToCart(productId, productName, productPrice, productImage) {
+                        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+                        cartItems.push({
+                            id: productId,
+                            name: productName,
+                            price: productPrice,
+                            image: productImage
+                        });
+                        localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-               console.log('Produto adicionado ao carrinho:', productName);
-           }
-        });
-    </script>
-</body>
-</html>
+                        console.log('Produto adicionado ao carrinho:', productName);
+                    }
+                });
+            </script>
+        </body>
+
+        </html>

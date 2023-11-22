@@ -1,65 +1,59 @@
-    document.getElementById("prosseguirCompra").addEventListener("click", function (e) {
-        e.preventDefault(); // Impede o envio do formulário por padrão
+document.addEventListener('DOMContentLoaded', function () {
+    // Campos obrigatórios
+    var nomeInput = document.getElementById('nome');
+    var emailInput = document.getElementById('email');
+    var enderecoSelect = document.getElementById('endereco');
 
-        var enderecoSelecionado = document.getElementById("endereco").value;
-        var formaPagamentoSelecionada = document.getElementById("formaPagamento").value;
+    // Campo de seleção de forma de pagamento
+    var formaPagamentoSelect = document.getElementById('formaPagamento');
 
-        if (enderecoSelecionado === "" || formaPagamentoSelecionada === "") {
-            alert("Preencha todos os campos em branco.");
-        } else if ((formaPagamentoSelecionada === "cartao" || formaPagamentoSelecionada === "debito") && !validateCreditCardFields()) {
-            alert("Preencha os campos do cartão de crédito/débito corretamente.");
+    // Campos do cartão de crédito
+    var cartaoCampos = document.getElementById('cartaoCampos');
+    var numeroCartaoInput = document.getElementById('numeroCartao');
+    var codigoVerificadorInput = document.getElementById('codigoVerificador');
+    var nomeCompletoInput = document.getElementById('nomeCompleto');
+    var dataVencimentoInput = document.getElementById('dataVencimento');
+    var parcelasInput = document.getElementById('parcelas');
+
+    // Botão de finalizar pedido
+    var prosseguirCompraButton = document.getElementById('prosseguirCompra');
+
+    // Adiciona um ouvinte de evento para verificar os campos obrigatórios
+    [nomeInput, emailInput, enderecoSelect].forEach(function (element) {
+        element.addEventListener('input', verificarCamposObrigatorios);
+    });
+
+    // Adiciona um ouvinte de evento para selecionar/desselecionar os campos do cartão
+    formaPagamentoSelect.addEventListener('change', function () {
+        if (formaPagamentoSelect.value === 'cartao') {
+            exibirCamposCartao();
         } else {
-            // Se todos os campos estiverem preenchidos corretamente, redirecione para a página de checkout
-            window.location.href = "checkout.jsp";
+            ocultarCamposCartao();
         }
     });
 
-    // Função para validar os campos do cartão de crédito/débito
-    function validateCreditCardFields() {
-        var numeroCartao = document.getElementById("numeroCartao").value;
-        var codigoVerificador = document.getElementById("codigoVerificador").value;
-        var nomeCompleto = document.getElementById("nomeCompleto").value;
-        var dataVencimento = document.getElementById("dataVencimento").value;
-        var parcelas = document.getElementById("parcelas").value;
+    // Função para verificar campos obrigatórios
+    function verificarCamposObrigatorios() {
+        var camposPreenchidos = nomeInput.value !== '' && emailInput.value !== '' && enderecoSelect.value !== '';
+        formaPagamentoSelect.disabled = !camposPreenchidos;
 
-        // Adicione aqui a lógica de validação dos campos do cartão
-        // Retorna true se os campos estiverem corretos e false caso contrário
-        // Por exemplo:
-        if (numeroCartao === "" || codigoVerificador === "" || nomeCompleto === "" || dataVencimento === "" || parcelas === "") {
-            return false;
-        }
-
-        return true;
+        // Ativa ou desativa o botão de finalizar compra com base nos campos preenchidos
+        prosseguirCompraButton.disabled = !camposPreenchidos;
     }
 
-    // Adicione um ouvinte de eventos para verificar os campos ao alterar qualquer campo do formulário
-    var formInputs = document.querySelectorAll("input, select");
-    formInputs.forEach(function (input) {
-        input.addEventListener("input", function () {
-            validateFormFields();
+    // Função para exibir campos do cartão
+    function exibirCamposCartao() {
+        cartaoCampos.style.display = 'block';
+        [numeroCartaoInput, codigoVerificadorInput, nomeCompletoInput, dataVencimentoInput, parcelasInput].forEach(function (element) {
+            element.required = true;
         });
-    });
-
-    // Função para validar e habilitar/desabilitar o botão "Finalizar Pedido"
-    function validateFormFields() {
-        var enderecoSelecionado = document.getElementById("endereco").value;
-        var formaPagamentoSelecionada = document.getElementById("formaPagamento").value;
-
-        var button = document.getElementById("prosseguirCompra");
-
-        if (enderecoSelecionado !== "" && formaPagamentoSelecionada !== "") {
-            if (
-                (formaPagamentoSelecionada === "cartao" || formaPagamentoSelecionada === "debito") &&
-                !validateCreditCardFields()
-            ) {
-                button.disabled = true;
-            } else {
-                button.disabled = false;
-            }
-        } else {
-            button.disabled = true;
-        }
     }
 
-    // Verifique os campos de formulário quando a página for carregada
-    validateFormFields();
+    // Função para ocultar campos do cartão
+    function ocultarCamposCartao() {
+        cartaoCampos.style.display = 'none';
+        [numeroCartaoInput, codigoVerificadorInput, nomeCompletoInput, dataVencimentoInput, parcelasInput].forEach(function (element) {
+            element.required = false;
+        });
+    }
+});
