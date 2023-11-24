@@ -79,7 +79,7 @@
                 <option value="cartao">Cart&atilde;o de Cr&eacute;dito</option>
                 <option value="boleto">Boleto Banc&aacute;rio</option>
                 <option value="deposito">PIX</option>
-                <option value="deposito">De&oacute;sito Banc&aacute;rio</option>
+                <option value="deposito">Dep&oacute;sito Banc&aacute;rio</option>
             </select>
 
             <div id="cartaoCampos" style="display: none;">
@@ -99,60 +99,14 @@
                 <input type="number" id="parcelas" name="parcelas">
             </div>
             <button id="prosseguirCompra">
-            <a href="checkout.jsp" style="text-decoration: none; color: inherit;">Finalizar Pedido
+                <a href="checkout.jsp" style="text-decoration: none; color: inherit;">Finalizar Pedido
+            </button>
+            <button id="voltarEscolhaPagamento">
+                <a href="carrinho.jsp" style="text-decoration: none; color: inherit;">Voltar
             </button>
         </div>
     </div>
     <script src="finalizarcompra.js"></script>
-    <script>
-        var formaPagamento = document.getElementById("formaPagamento");
-        var cartaoCampos = document.getElementById("cartaoCampos");
-
-        formaPagamento.addEventListener("change", function () {
-            var selectedOption = formaPagamento.value;
-
-            if (selectedOption === "cartao" || selectedOption === "debito") {
-                cartaoCampos.style.display = "block";
-            } else {
-                cartaoCampos.style.display = "none";
-            }
-        });
-
-        document.getElementById("prosseguirCompra").addEventListener("click", function () {
-            var enderecoSelecionado = document.getElementById("endereco").value;
-            var formaPagamentoSelecionada = document.getElementById("formaPagamento").value;
-
-            if (enderecoSelecionado === "") {
-                alert("Selecione um endereço de entrega.");
-            } else if ((formaPagamentoSelecionada === "cartao" || formaPagamentoSelecionada === "debito") && !validateCreditCardFields()) {
-                alert("Preencha os campos do cartão de crédito/debito corretamente.");
-            } else {
-
-            }
-        });
-
-        function validateCreditCardFields() {
-            var numeroCartao = document.getElementById("numeroCartao").value;
-            var codigoVerificador = document.getElementById("codigoVerificador").value;
-            var nomeCompleto = document.getElementById("nomeCompleto").value;
-            var dataVencimento = document.getElementById("dataVencimento").value;
-            var parcelas = document.getElementById("parcelas").value;
-
-            return true;
-        }
-    </script>
-    <script>
-        document.getElementById("prosseguirCompra").addEventListener("click", function () {
-            // Verificar se o cliente selecionou um endereço de entrega
-            var enderecoSelecionado = document.getElementById("endereco").value;
-
-            if (enderecoSelecionado === "") {
-                alert("Selecione um endereço de entrega.");
-            } else {
-                document.getElementById("formaPagamento").removeAttribute("disabled");
-            }
-        });
-    </script>
 </body>
 
 </html>
