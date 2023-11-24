@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="carrinho.css">
     <title>Carrinho de Compras</title>
-
 </head>
 
 <body>
@@ -57,6 +56,7 @@
             </a>
         </div>
     </header>
+
     <div class="cart-container">
         <h2>Seu Carrinho</h2>
 
@@ -75,108 +75,105 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Obter dados do carrinho do localStorage
-            var carrinho = JSON.parse(localStorage.getItem("cartItems")) || { produtos: [] };
+            console.log("Página carregada");
 
-            // Renderizar itens do carrinho
-            renderizarItensDoCarrinho();
+            var carrinho = JSON.parse(localStorage.getItem("cartItems")) || [];
 
-            // Função para renderizar os itens do carrinho
            function renderizarItensDoCarrinho() {
+               console.log("Entrou na função renderizarItensDoCarrinho");
+
                var cartItemsContainer = document.getElementById("cart-items-container");
                cartItemsContainer.innerHTML = "";
 
-               if (carrinho && carrinho.produtos) {
-                   carrinho.produtos.forEach(function (produto) {
-                       var productCard = document.createElement("div");
-                       productCard.className = "product-card";
-
-                       // Criar o HTML do item do carrinho
-                       var produtoHTML = `
-                          <div class="product-info">
-                              <img src="data:image/jpeg;base64,${produto.imagem}" alt="${produto.nome}">
-                              <div class="product-details">
-                                  <div class="product-name">${produto.nome}</div>
-                                  <div class="product-price">R$ <span class="price">${produto.preco}</span></div>
-                              </div>
-                          </div>
-                          <div class="product-actions">
-                              <button class="remove" onclick="removerItem('${produto.nome}')">-</button>
-                              <div class="product-quantity">${produto.quantidade}</div>
-                              <button class="add" onclick="adicionarItem('${produto.nome}')">+</button>
-                              <button class="delete" onclick="removerItem('${produto.nome}')">
-                                  <img src="img/lixeira.png" alt="Remover Produto">
-                              </button>
-                          </div>
-                       `;
-
-                       productCard.innerHTML = produtoHTML;
-
-                       cartItemsContainer.appendChild(productCard);
-                   });
+               if (!carrinho || carrinho.length === 0) {
+                   console.log("Carrinho vazio");
+                   cartItemsContainer.innerHTML = "<p>Carrinho vazio</p>";
+                   return;
                }
 
-               // Atualizar subtotal, frete e total
-               atualizarTotal();
+               carrinho.forEach(function (produto) {
+                   console.log("Produto no carrinho:", produto);
 
-               // Log para validar dados
-               console.log("Dados do Carrinho:", carrinho);
+                   var productCard = document.createElement("div");
+                   productCard.className = "product-card";
+
+                  var produtoHTML = `
+                      <div class="product-info">
+                          <img src="${produto.image}" alt="${produto.name}">
+                          <div class="product-details">
+                              <div class="product-name">${produto.name}</div>
+                              <div class="product-price">R$ <span class="price">${produto.price.toFixed(2)}</span></div>
+                          </div>
+                      </div>
+                      <div class="product-actions">
+                          <button class="remove" onclick="removerItem('${produto.name}')">Remover</button>
+                      </div>
+                  `;
+
+                   productCard.innerHTML = produtoHTML;
+                   cartItemsContainer.appendChild(productCard);
+               });
+
+               console.log("Renderização concluída");
            }
 
-            // Função para adicionar um item ao carrinho
-            window.adicionarItem = function (nomeProduto) {
-                var produtoExistente = carrinho.produtos.find(produto => produto.nome === nomeProduto);
+            function atualizarTotal() {
+                console.log("Entrou na função atualizarTotal");
 
-                if (produtoExistente) {
-                    produtoExistente.quantidade++;
+                var subtotal = 0;
+
+                if (carrinho && carrinho.length > 0) {
+                    subtotal = carrinho.reduce(function (total, produto) {
+                        return total + parseFloat(produto.price);
+                    }, 0);
                 }
 
-                renderizarItensDoCarrinho();
-            };
+                document.getElementById("subtotal").innerText = subtotal.toFixed(2);
 
-            // Função para remover um item do carrinho
-            window.removerItem = function (nomeProduto) {
-                var produtoExistente = carrinho.produtos.find(produto => produto.nome === nomeProduto);
-
-                if (produtoExistente) {
-                    if (produtoExistente.quantidade > 1) {
-                        produtoExistente.quantidade--;
-                    } else {
-                        carrinho.produtos = carrinho.produtos.filter(produto => produto.nome !== nomeProduto);
-                    }
-                }
-
-                renderizarItensDoCarrinho();
-            };
-
-            // Função para finalizar o pedido
-            function finalizarPedido() {
-                // Implemente a lógica para finalizar o pedido
-                // ...
-
-                // Redirecione para a próxima página
-                window.location.href = "finalizarcompra.jsp";
+                console.log("Atualização do total concluída");
             }
 
-            // Função para atualizar subtotal, frete e total
-           function atualizarTotal() {
-               var subtotal = 0;
-               var frete = 0.00; // Adicione a lógica de cálculo do frete, se necessário
-               var total = 0;
+         window.adicionarItem = function (nomeProduto, precoProduto, imagemProduto) {
+             console.log("Adicionando item:", nomeProduto, "Preço:", precoProduto);
 
-               // Verificar se carrinho e carrinho.produtos são definidos
-               if (carrinho && carrinho.produtos && carrinho.produtos.length > 0) {
-                   subtotal = carrinho.produtos.reduce((total, produto) => total + produto.preco * produto.quantidade, 0);
-                   total = subtotal + frete;
-               }
+             var produtoExistente = carrinho.find(produto => produto.name === nomeProduto);
 
-               document.getElementById("subtotal").innerText = subtotal.toFixed(2);
-               document.getElementById("frete").innerText = frete.toFixed(2);
-               document.getElementById("total").innerText = total.toFixed(2);
+             if (produtoExistente) {
+                 produtoExistente.price += precoProduto;
+             } else {
+                 carrinho.push({
+                     name: nomeProduto,
+                     price: precoProduto,
+                     image: imagemProduto
+                 });
+             }
 
-               // Log para validar dados
-               console.log("Subtotal:", subtotal.toFixed(2), "Frete:", frete.toFixed(2), "Total:", total.toFixed(2));
-           }
+             console.log("Novo carrinho:", carrinho);
+
+             localStorage.setItem("cartItems", JSON.stringify(carrinho));
+             renderizarItensDoCarrinho();
+             atualizarTotal();
+
+             console.log("Item adicionado, carrinho:", carrinho);
+         };
+
+
+            window.removerItem = function (nomeProduto) {
+                console.log("Antes da remoção:", carrinho);
+
+                carrinho = carrinho.filter(produto => produto.name !== nomeProduto);
+
+                console.log("Após a remoção:", carrinho);
+
+                localStorage.setItem("cartItems", JSON.stringify(carrinho));
+                renderizarItensDoCarrinho();
+                atualizarTotal();
+
+                console.log("Item removido, carrinho:", carrinho);
+            };
+
+            renderizarItensDoCarrinho();
+            atualizarTotal();
         });
     </script>
 </body>
