@@ -27,7 +27,7 @@ public class maisprodutosServlet extends HttpServlet {
 
         if (nomeProduto != null) {
             List<produto> produtos = dao.listarProdutoPorNome(nomeProduto);
-                List<produto> produtosComImagens = adicionarImagensAosProdutos(produtos, dao);
+            List<produto> produtosComImagens = adicionarImagensAosProdutos(produtos, dao);
             request.setAttribute("produtos", produtosComImagens);
             request.getRequestDispatcher("maisprodutos_usuarios.jsp").forward(request, response);
         } else if (idProdutoParam != null) {
