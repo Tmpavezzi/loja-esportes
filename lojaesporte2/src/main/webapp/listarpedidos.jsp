@@ -43,7 +43,7 @@
                 <form action="/alteraStatusPedido" method="post">
                     <input type="hidden" name="id" value="#">
                     <input type="hidden" name="novaStatus" value="#">
-                    <button type="submit" onclick="confirmarAlteracao(${listaprodutos.ID})">Alterar
+                    <button type="submit" onclick="confirmarAlteracao">Alterar
                         Status</button>
                 </form>
             </td>
@@ -57,7 +57,7 @@
                 <form action="/alteraStatusPedido" method="post">
                     <input type="hidden" name="id" value="#">
                     <input type="hidden" name="novaStatus" value="#">
-                    <button type="submit" onclick="confirmarAlteracao(${listaprodutos.ID})">Alterar
+                    <button type="submit" onclick="confirmarAlteracao">Alterar
                         Status</button>
                 </form>
             </td>

@@ -68,7 +68,7 @@
         <div class="total">Total: R$ <span class="grand-total" id="total">0.00</span></div>
 
         <!-- Botão para a próxima etapa -->
-        <button class="finalizar-pedido" onclick="window.location.href='checkout.jsp';">
+        <button class="finalizar-pedido" onclick="window.location.href='finalizarcompra.jsp';">
             Próxima Etapa
         </button>
     </div>
@@ -106,7 +106,12 @@
                           </div>
                       </div>
                       <div class="product-actions">
-                          <button class="remove" onclick="removerItem('${produto.name}')">Remover</button>
+                      <button class="diminui">-</button>
+                             <div class="product-quantity">1</div>
+                             <button class="add">+</button>
+                          <button class="remove" onclick="removerItem('${produto.name}')">
+                               <img src="/img/lixeira.png" alt="Remover Produto">
+                          </button>
                       </div>
                   `;
 

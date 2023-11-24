@@ -27,9 +27,9 @@ function updateValues() {
 
 products.forEach((product) => {
     const addButton = product.querySelector('.add');
-    const removeButton = product.querySelector('.remove');
+    const diminuiButton = product.querySelector('.diminui');
     const quantityElement = product.querySelector('.product-quantity');
-    const deleteButton = product.querySelector('.delete');
+    const removeButton = product.querySelector('.remove');
 
     addButton.addEventListener('click', () => {
         let quantity = parseInt(quantityElement.textContent);
@@ -38,7 +38,7 @@ products.forEach((product) => {
         updateValues();
     });
 
-    removeButton.addEventListener('click', () => {
+    diminuiButton.addEventListener('click', () => {
         let quantity = parseInt(quantityElement.textContent);
         if (quantity > 1) {
             quantity--;
@@ -47,8 +47,8 @@ products.forEach((product) => {
         }
     });
 
-    deleteButton.addEventListener('click', () => {
-        product.remove();
+    removeButton.addEventListener('click', () => {
+        product.diminui();
         updateValues();
     });
 });
