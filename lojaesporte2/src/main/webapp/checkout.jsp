@@ -67,13 +67,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Preencha esta tabela com os produtos, valores e quantidades do pedido -->
+            <tr>
+                <td>WheyProtein 100% Sabor Baunilha 900g</td>
+                <td>R$ 129.99</td>
+                <td>2</td>
+                <td>R$ 259.98</td>
+            </tr>
+            <tr>
+                <td>Creatina MaxTitanium 300g</td>
+                <td>R$ 119.99</td>
+                <td>1</td>
+                <td>R$ 119.99</td>
+            </tr>
                 </tbody>
             </table>
 
-            <p>Frete: R$ 10.00</p>
-            <p>Total Geral: R$ 150.00</p>
-            <p>Endere&ccedil;o de Entrega: Endere&ccedil;o 1</p>
+            <p>Frete: R$ 5.00</p>
+            <p>Total Geral: R$ 379.97</p>
+            <p>Endere&ccedil;o de Entrega: Rua Pedroso Alvarenga, 32</p>
             <p>Forma de Pagamento: Cart&atilde;o de Cr&eacute;dito</p>
         </div>
 

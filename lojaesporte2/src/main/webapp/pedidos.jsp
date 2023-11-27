@@ -65,32 +65,44 @@
             </thead>
             <tbody id="ordersTableBody">
                 <tr>
-                    <td>1</td>
-                    <td>2023-11-03</td>
-                    <td>50.00</td>
-                    <td>Em andamento</td>
-                    <td><button onclick="showDetails(1)">Detalhes</button></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2023-11-04</td>
-                    <td>75.50</td>
-                    <td>Conclu&iacute;do</td>
-                    <td><button onclick="showDetails(2)">Detalhes</button></td>
+                    <td>158978450</td>
+                    <td>27-11-2023</td>
+                    <td>379.97</td>
+                    <td>Concluido</td>
+                    <td><button onclick="showDetails('158978450')">Detalhes</button></td>
                 </tr>
             </tbody>
         </table>
     </main>
+    <div id="orderDetailsModal" style="display: none;">
+function showDetails(orderNumber) {
+            // Suponha que você tenha detalhes do pedido em algum formato de dados
+            const orderDetails = {
+                orderNumber: orderNumber,
+                date: '27-11-2023',
+                totalAmount: '379.97',
+                status: 'Concluído',
+                shippingAddress: 'Rua Pedroso Alvarenga, 32',
+                paymentMethod: 'Cartão de Crédito'
+                // Adicione outros detalhes conforme necessário
+            };
 
-    <script>
-        // Função para mostrar detalhes (simulação)
-        function showDetails(orderNumber) {
-            alert('Detalhes do Pedido ' + orderNumber);
-            // Adicione sua lógica para exibir os detalhes reais do pedido
+            // Construa a mensagem de detalhes (pode ser uma estrutura HTML)
+            const detailsMessage = `
+                <p><strong>Número do Pedido:</strong> ${orderDetails.orderNumber}</p>
+                <p><strong>Data:</strong> ${orderDetails.date}</p>
+                <p><strong>Valor Total:</strong> R$ ${orderDetails.totalAmount}</p>
+                <p><strong>Status:</strong> ${orderDetails.status}</p>
+                <p><strong>Endereço de Entrega:</strong> ${orderDetails.shippingAddress}</p>
+                <p><strong>Forma de Pagamento:</strong> ${orderDetails.paymentMethod}</p>
+                <!-- Adicione outras informações conforme necessário -->
+            `;
+
+            // Exiba os detalhes em uma modal (pode ser substituído por outra lógica, como uma modal real)
+            const orderDetailsModal = document.getElementById('orderDetailsModal');
+            orderDetailsModal.innerHTML = detailsMessage;
+            orderDetailsModal.style.display = 'block';
         }
-
-        // Chamada da função para popular a tabela
-        populateOrdersTable();
     </script>
 </body>
 </html>

@@ -68,9 +68,9 @@
             <label for="endereco">Endere&ccedil;o de Entrega:</label>
             <select id="endereco" name="endereco">
                 <option value="">Selecione um endere&ccedil;o</option>
-                <option value="endereco1">Endere&ccedil;o 1</option>
-                <option value="endereco2">Endere&ccedil;o 2</option>
-                <option value="endereco3">Endere&ccedil;o 3</option>
+                <option value="endereco1">Rua Portugal, 11</option>
+                <option value="endereco2">Rua Pedroso Alvarenga, 32</option>
+                <option value="endereco3">Rua Inglaterra, 45</option>
             </select>
 
             <label for="formaPagamento">Forma de Pagamento:</label>
@@ -78,8 +78,6 @@
                 <option value="#">Selecione a forma de pagamento</option>
                 <option value="cartao">Cart&atilde;o de Cr&eacute;dito</option>
                 <option value="boleto">Boleto Banc&aacute;rio</option>
-                <option value="deposito">PIX</option>
-                <option value="deposito">Dep&oacute;sito Banc&aacute;rio</option>
             </select>
 
             <div id="cartaoCampos" style="display: none;">

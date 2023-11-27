@@ -84,7 +84,6 @@
                     </c:otherwise>
                 </c:choose>
 
-
                 <!-- Botões de paginação -->
                 <div id="pagination">
                     <button id="prev-page-button">Página Anterior</button>
@@ -127,6 +126,7 @@
                     }
                 });
             </script>
+
         </body>
 
         </html>

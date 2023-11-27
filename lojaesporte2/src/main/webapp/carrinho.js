@@ -1,56 +1,56 @@
-const products = document.querySelectorAll('.product-card');
-let subtotal = 0;
-let shipping = 5.00;
-
-// Função para calcular e exibir os valores dinamicamente
-function updateValues() {
-    subtotal = 0;
-    products.forEach((product) => {
-        const quantityElement = product.querySelector('.product-quantity');
-        const priceElement = product.querySelector('.price');
-        const productQuantity = parseInt(quantityElement.textContent);
-        const productPrice = parseFloat(priceElement.textContent);
-        subtotal += productQuantity * productPrice;
-    });
-
-    const totalElement = document.querySelector('.grand-total');
-    const total = subtotal + shipping;
-
-    totalElement.textContent = total.toFixed(2);
-
+document.addEventListener("DOMContentLoaded", function () {
+    const productCards = document.querySelectorAll('.product-card');
     const subtotalElement = document.querySelector('.subtotal');
-    subtotalElement.textContent = subtotal.toFixed(2);
-
     const shippingElement = document.querySelector('.shipping');
-    shippingElement.textContent = shipping.toFixed(2);
-}
+    const grandTotalElement = document.querySelector('.grand-total');
 
-products.forEach((product) => {
-    const addButton = product.querySelector('.add');
-    const diminuiButton = product.querySelector('.diminui');
-    const quantityElement = product.querySelector('.product-quantity');
-    const removeButton = product.querySelector('.remove');
+    productCards.forEach((productCard) => {
+        const addButton = productCard.querySelector('.add');
+        const removeButton = productCard.querySelector('.remove');
+        const deleteButton = productCard.querySelector('.delete');
+        const quantityElement = productCard.querySelector('.product-quantity');
+        const priceElement = productCard.querySelector('.price');
 
-    addButton.addEventListener('click', () => {
-        let quantity = parseInt(quantityElement.textContent);
-        quantity++;
-        quantityElement.textContent = quantity;
-        updateValues();
+        addButton.addEventListener('click', () => {
+            updateQuantity(quantityElement, 1);
+        });
+
+        removeButton.addEventListener('click', () => {
+            updateQuantity(quantityElement, -1);
+        });
+
+        deleteButton.addEventListener('click', () => {
+            productCard.remove();
+            updateTotals();
+        });
     });
 
-    diminuiButton.addEventListener('click', () => {
+    function updateQuantity(quantityElement, change) {
         let quantity = parseInt(quantityElement.textContent);
-        if (quantity > 1) {
-            quantity--;
+
+        if (quantity + change >= 0) {
+            quantity += change;
             quantityElement.textContent = quantity;
-            updateValues();
+            updateTotals();
         }
-    });
+    }
 
-    removeButton.addEventListener('click', () => {
-        product.diminui();
-        updateValues();
-    });
+    function updateTotals() {
+        let subtotal = 0;
+        let total = 0;
+        const frete = 5.00;
+
+        productCards.forEach((productCard) => {
+            const quantity = parseInt(productCard.querySelector('.product-quantity').textContent);
+            const price = parseFloat(productCard.querySelector('.price').textContent);
+            subtotal += quantity * price;
+        });
+
+        total = subtotal + frete;
+
+        // Atualiza os elementos HTML com os novos valores
+        subtotalElement.innerText = subtotal.toFixed(2);
+        shippingElement.innerText = frete.toFixed(2);
+        grandTotalElement.innerText = total.toFixed(2);
+    }
 });
-
-updateValues();

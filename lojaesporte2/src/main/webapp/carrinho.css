@@ -83,20 +83,20 @@ body {
     cursor: pointer;
 }
 
-.product-card button.remove {
-    background-color: rgb(228, 83, 83);
+.product-card button.delete {
+    background-color: rgb(224, 14, 14);
     border-radius: 50%;
     width: 30px;
     height: 30px;
     border: none;
-    display: flex;
+    display: center;
     justify-content: center;
     align-items: center;
 }
 
-.product-card button.remove img {
-    max-width: 100%;
-    max-height: 100%;
+.product-card button.delete img {
+    max-width: 25px;
+    max-height: 25px;
 }
 
 .product-card .product-quantity {
