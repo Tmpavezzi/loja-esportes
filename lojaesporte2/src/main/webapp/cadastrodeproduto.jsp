@@ -52,6 +52,8 @@
         inputElement.addEventListener("change", () => {
             selectElement.innerHTML = "";
 
+            console.log(inputElement)
+
             const defaultOption = document.createElement("option");
             defaultOption.value = "";
             defaultOption.textContent = "Selecione uma imagem de capa";

@@ -21,35 +21,13 @@ public class listarprodutosservlet extends  HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String nomePorduto = request.getParameter("nomeProduto");
+        String nomeProduto = request.getParameter("nomeProduto");
 
         listardao dao = new listardao();
-        List<produto> produtos = dao.listarProdutoPorNome(nomePorduto);
+        List<produto> produtos = dao.listarProdutoPorNome(nomeProduto);
 
-        List<produto> produtosComImagens = new ArrayList<>();
+        request.setAttribute("produtos", produtos);
 
-        for(produto produto : produtos){
-            List<ImagenProduto> imagens = produto.getImagens();
-            if(imagens!=null){
-                for(ImagenProduto imagem : imagens){
-                    int imagenId = imagem.getImagenId();
-
-                    if(imagenId>0){
-                        byte[] imagemBytes = dao.recuperarImagemPorId(imagem.getImagenId());
-                        if(imagemBytes!=null){
-                            String imagemBases64 = Base64.getEncoder().encodeToString(imagemBytes);
-                            produto.setImagemBase64(imagemBases64);
-                    }
-
-                    }
-                }
-            }
-            produtosComImagens.add(produto);
-        }
-         request.setAttribute("produtos",produtosComImagens);
-
-        request.getRequestDispatcher("listarproduto.jsp").forward(request,response);
-
+        request.getRequestDispatcher("listarproduto.jsp").forward(request, response);
     }
-
 }

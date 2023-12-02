@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import  javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -35,13 +36,23 @@ public class maisprodutosServlet extends HttpServlet {
             produto produto = dao.recuperarProdutoPorId(produtoId);
 
             if (produto != null) {
-                produto = adicionarImagensAoProduto(produto, dao);
+
+                List imags = null;
+                try {
+                    imags  = dao.recuperarImagemsPorProdutoId(produto.getID());
+
+                } catch (Exception e) {
+
+                }
+
+                System.out.println(produto);
                 request.setAttribute("produto", produto);
                 request.setAttribute("nomeProduto", produto.getNome());
                 request.setAttribute("avaliacao", produto.getAvaliacao());
                 request.setAttribute("preco", produto.getPreco());
                 request.setAttribute("descricao", produto.getDescricao());
                 request.setAttribute("produtoId", produtoId);
+                request.setAttribute("imagemBase64", (String) imags.get(0));
                 request.getRequestDispatcher("descricaoproduto_usuario.jsp").forward(request, response);
             } else {
                 request.getRequestDispatcher("produto_nao_encontrado.jsp").forward(request, response);
@@ -63,7 +74,7 @@ public class maisprodutosServlet extends HttpServlet {
             for (ImagenProduto imagem : imagens) {
                 int imagemId = imagem.getImagenId();
                 if (imagemId > 0) {
-                    byte[] imagemBytes = dao.recuperarImagemPorId(imagem.getImagenId());
+                    byte[] imagemBytes = dao.recuperarImagemPorProdutoId(imagem.getImagenId());
                     if (imagemBytes != null) {
                         String imagemBase64 = Base64.getEncoder().encodeToString(imagemBytes);
                         produto.setImagemBase64(imagemBase64);

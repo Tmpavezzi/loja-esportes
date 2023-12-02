@@ -99,4 +99,21 @@ public class produto {
     public void setImagemPrincipal(String imagemPrincipal) {
         this.imagemPrincipal = imagemPrincipal;
     }
+
+
+    @Override
+    public String toString() {
+        return "produto{" +
+                "ID=" + ID +
+                ", nome='" + nome + '\'' +
+                ", avaliacao=" + avaliacao +
+                ", descricao='" + descricao + '\'' +
+                ", preco=" + preco +
+                ", estoque=" + estoque +
+                ", status='" + status + '\'' +
+                ", imagens=" + imagens +
+                ", imagemPrincipal='" + imagemPrincipal + '\'' +
+                ", imagemBase64='" + imagemBase64 + '\'' +
+                '}';
+    }
 }

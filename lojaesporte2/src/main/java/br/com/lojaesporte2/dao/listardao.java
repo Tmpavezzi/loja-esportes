@@ -125,25 +125,58 @@ public class listardao {
         }
     }
 
-    public byte[] recuperarImagemPorId( int imagemId) {
-        String sql  = "SELECT IMAGEM FROM IMAGEM WHERE IMAGEM_ID = ?";
+    public byte[] recuperarImagemPorProdutoId(int produtoId) {
+        String sql = "SELECT IMAGEM FROM IMAGEM WHERE PRODUTO_ID = ?";
         try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:~/test","sa","sa");
+            Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             System.out.println("Sucesso na conexão");
 
-            preparedStatement.setInt(1,imagemId);
-            ResultSet resultSet= preparedStatement.executeQuery();
+            preparedStatement.setInt(1, produtoId);
+            ResultSet resultSet = preparedStatement.executeQuery();
 
-            if(resultSet.next()){
+            if (resultSet.next()) {
                 return resultSet.getBytes("IMAGEM");
             }
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.out.println("Falha na recuperação da imagem do banco de dados: " + e.getMessage());
         }
         return null;
+    }
+
+
+    public List<String> recuperarImagemsPorProdutoId(int produtoId) throws SQLException {
+
+        List<String> listaDeImgs = new ArrayList<>();
+        String sql = "SELECT IMAGEM FROM IMAGEM WHERE PRODUTO_ID = ?";
+        Connection connection = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, produtoId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            byte[] imagemBytes = null;
+            while (resultSet.next()){
+                imagemBytes = resultSet.getBytes("IMAGEM");
+                    String imagemBase64 = Base64.getEncoder().encodeToString(imagemBytes);
+                    listaDeImgs.add(imagemBase64);
+            }
+
+            return  listaDeImgs;
+
+        } catch (SQLException e) {
+            System.out.println("Falha na recuperação da imagem do banco de dados: " + e.getMessage());
+        }finally {
+            if ((connection != null) && !connection.isClosed()){
+                connection.close();
+            }
         }
+        return listaDeImgs;
+
+    }
+
 
 
     public List<produto>listarProdutoPorNome(String nome){
@@ -200,7 +233,7 @@ public class listardao {
     }
 
     public produto recuperarProdutoPorId(int produtoId) {
-        String sql = "SELECT NOME, DESCRICAO, PRECO, AVALIACAO FROM PRODUTO WHERE ID = ?";
+        String sql = "SELECT ID, NOME, DESCRICAO, PRECO, AVALIACAO FROM PRODUTO WHERE ID = ?";
 
         try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
@@ -209,6 +242,7 @@ public class listardao {
 
             if (resultSet.next()) {
                 produto produto = new produto();
+                produto.setID(resultSet.getInt("ID"));
                 produto.setNome(resultSet.getString("NOME"));
                 produto.setDescricao(resultSet.getString("DESCRICAO"));
                 produto.setPreco(resultSet.getDouble("PRECO"));

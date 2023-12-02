@@ -63,7 +63,10 @@
                 <div class="carousel-container">
                     <div class="carousel">
                         <div class="carousel-slide">
-                            <img id="productImage" alt="Imagem do Produto">
+                            <img alt="Imagem do Produto"  id="productImage" src="data:image/jpeg;base64,${imagemBase64}"
+
+
+
                         </div>
                     </div>
                 </div>

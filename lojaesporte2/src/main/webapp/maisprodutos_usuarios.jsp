@@ -84,6 +84,7 @@
                     </c:otherwise>
                 </c:choose>
 
+
                 <!-- Botões de paginação -->
                 <div id="pagination">
                     <button id="prev-page-button">Página Anterior</button>
@@ -118,7 +119,7 @@
                             id: productId,
                             name: productName,
                             price: productPrice,
-                            image: productImage
+                            image: productImage5
                         });
                         localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
@@ -126,7 +127,6 @@
                     }
                 });
             </script>
-
         </body>
 
         </html>
