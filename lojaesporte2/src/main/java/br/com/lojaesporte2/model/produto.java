@@ -20,6 +20,13 @@ public class produto {
     public produto() {
     }
 
+    public produto(int ID, String nome, double preco, String imagemBase64) {
+        this.ID = ID;
+        this.nome = nome;
+        this.preco = preco;
+        this.imagemBase64 = imagemBase64;
+    }
+
     public String getImagemBase64() {
         return imagemBase64;
     }

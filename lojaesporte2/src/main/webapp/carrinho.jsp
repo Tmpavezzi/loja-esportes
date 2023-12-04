@@ -19,7 +19,12 @@
             <nav>
                 <ul>
                     <li><a href="telaprincipal_usuario.jsp">Home</a></li>
-                    <li><a href="maisprodutos_usuarios.jsp">Mais Produtos</a></li>
+                    <li>
+                        <form action="/maisprodutosusers" method="get" class="search-form" style="text-decoration: none; color: white; border-radius: 2px; margin-left: 5px; margin-right: 50px; transition-duration: .5s;">
+                            <input type="hidden" name="nomeProduto" placeholder="Mais Produtos">
+                            <button type="submit">Mais Produto</button>
+                        </form>
+                    </li>
                     <li><a href="pedidos.jsp">Acompanhar Pedidos</a></li>
                 </ul>
             </nav>
@@ -61,29 +66,14 @@
 
         <div class="cart-container">
             <h2>Seu Carrinho</h2>
+            <c:forEach var="produto" items="${carrinho}">
                 <div class="product-card">
                     <div class="product-info">
-                        <img src="/img/whey.jpg" alt="Produto 1">
-                        <div class="product-details">
-                            <div class="product-name">WheyProtein 100% Sabor Baunilha 900g</div>
-                            <div class="product-price">R$ <span class="price">129.99</span></div>
-                        </div>
-                    </div>
-                    <div class="product-actions">
-                        <button class="remove">-</button>
-                        <span class="product-quantity">1</span>
-                        <button class="add">+</button>
-                        <button class="delete">
-                            <img src="/img/lixeira.png" alt="Remover Produto">
-                        </button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-info">
-                       <img src="/img/creatina maxtitanium.jpg" alt="Produto 2">
+
+                       <img src="data:image/jpeg;base64, ${produto.imagemBase64}" alt="Imagem do Produto"/>
                          <div class="product-details">
-                           <div class="product-name">Creatina MaxTitanium 300g</div>
-                           <div class="product-price">R$ <span class="price">119.99</span></div>
+                           <div class="product-name">${produto.nome}</div>
+                           <div class="product-price">R$ <span class="price"> ${produto.preco} </span></div>
                             </div>
                                 </div>
                                 <div class="product-actions">
@@ -95,6 +85,8 @@
                                     </button>
                                 </div>
                             </div>
+
+            </c:forEach>
             <div class="product-subtotal">Subtotal: R$ <span class="subtotal">0.00</span></div>
             <div class="product-shipping">Frete: R$ <span class="shipping">5.00</span></div>
             <div class="total">Total: R$ <span class="grand-total">0.00</span></div>

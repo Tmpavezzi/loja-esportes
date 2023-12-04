@@ -17,7 +17,7 @@ import java.util.Base64;
 import java.util.List;
 
 @WebServlet("/maisprodutosusers")
-public class maisprodutosServlet extends HttpServlet {
+public class MaisprodutosServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

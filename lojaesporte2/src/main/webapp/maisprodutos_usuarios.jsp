@@ -20,7 +20,12 @@
                 <nav>
                     <ul>
                         <li><a href="telaprincipal_usuario.jsp">Home</a></li>
-                        <li><a href="maisprodutos_usuarios.jsp">Mais Produtos</a></li>
+                        <li>
+                            <form action="/maisprodutosusers" method="get" class="search-form" style="text-decoration: none; color: white; border-radius: 2px; margin-left: 5px; margin-right: 50px; transition-duration: .5s;">
+                                <input type="hidden" name="nomeProduto" placeholder="Mais Produtos">
+                                <button type="submit">Mais Produto</button>
+                            </form>
+                        </li>
                         <li><a href="pedidos.jsp">Acompanhar Pedidos</a></li>
                     </ul>
                 </nav>
@@ -76,8 +81,15 @@
                                         data-product-name="${maisprodutosusers.nome}"
                                         data-product-price="${maisprodutosusers.preco}"
                                         data-product-image="${maisprodutosusers.imagemBase64}">
-                                        Adicionar ao Carrinho
+                                        <form class="add-to-cart-button" action="AdicionarAoCarrinho" method="post">
+                                            <input type="hidden" name="produtoId" value="${maisprodutosusers.ID}">
+                                            <input type="hidden" name="produtoNome" value="${maisprodutosusers.nome}">
+                                            <input type="hidden" name="produtoPreco" value="${maisprodutosusers.preco}">
+                                            <input type="hidden" name="produtoImagem" value="${maisprodutosusers.imagemBase64}">
+                                            <input type="submit" value="Adicionar ao carrinho">
+                                        </form>
                                     </button>
+
                                 </section>
                             </c:forEach>
                         </section>

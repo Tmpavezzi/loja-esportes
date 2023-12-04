@@ -20,7 +20,12 @@
                 <nav>
                     <ul>
                         <li><a href="telaprincipal_usuario.jsp">Home</a></li>
-                        <li><a href="maisprodutos_usuarios.jsp">Mais Produtos</a></li>
+                        <li>
+                            <form action="/maisprodutosusers" method="get" class="search-form" style="text-decoration: none; color: white; border-radius: 2px; margin-left: 5px; margin-right: 50px; transition-duration: .5s;">
+                                <input type="hidden" name="nomeProduto" placeholder="Mais Produtos">
+                                <button type="submit">Mais Produto</button>
+                            </form>
+                        </li>
                         <li><a href="pedidos.jsp">Acompanhar Pedidos</a></li>
                     </ul>
                 </nav>
@@ -63,9 +68,8 @@
                 <div class="carousel-container">
                     <div class="carousel">
                         <div class="carousel-slide">
-                            <img alt="Imagem do Produto"  id="productImage" src="data:image/jpeg;base64,${imagemBase64}"
 
-
+                            <img alt="Imagem do Produto"  id="productImage" src="data:image/jpeg;base64,${imagemBase64}" style="width: 300px; height: 300px;">
 
                         </div>
                     </div>
