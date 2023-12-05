@@ -23,7 +23,7 @@
                         <li>
                             <form action="/maisprodutosusers" method="get" class="search-form" style="text-decoration: none; color: white; border-radius: 2px; margin-left: 5px; margin-right: 50px; transition-duration: .5s;">
                                 <input type="hidden" name="nomeProduto" placeholder="Mais Produtos">
-                                <button type="submit">Mais Produto</button>
+                                <button class="nav mais-produtos-button" type="submit">Mais Produto</button>
                             </form>
                         </li>
                         <li><a href="pedidos.jsp">Acompanhar Pedidos</a></li>

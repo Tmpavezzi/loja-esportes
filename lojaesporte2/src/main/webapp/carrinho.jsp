@@ -8,7 +8,24 @@
         <link rel="stylesheet" href="carrinho.css">
         <title>Carrinho de Compras</title>
     </head>
+    <style>
+    .mais-produtos-button {
+        text-decoration: none;
+        color: white;
+        border-radius: 2px;
+        margin-left: 5px;
+        margin-right: 50px;
+        transition-duration: .5s;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
 
+    .mais-produtos-button:hover {
+        background-color: #e9e9e9;
+        color: black;
+    }
+    </style>
     <body>
         <header>
             <div class="logo">
@@ -22,7 +39,7 @@
                     <li>
                         <form action="/maisprodutosusers" method="get" class="search-form" style="text-decoration: none; color: white; border-radius: 2px; margin-left: 5px; margin-right: 50px; transition-duration: .5s;">
                             <input type="hidden" name="nomeProduto" placeholder="Mais Produtos">
-                            <button type="submit">Mais Produto</button>
+                            <button class="nav mais-produtos-button" type="submit">Mais Produto</button>
                         </form>
                     </li>
                     <li><a href="pedidos.jsp">Acompanhar Pedidos</a></li>
