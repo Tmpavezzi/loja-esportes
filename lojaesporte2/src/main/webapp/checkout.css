@@ -69,6 +69,22 @@ nav ul li a:hover {
     text-decoration: none;
     color: white;
 }
+.mais-produtos-button {
+    text-decoration: none;
+    color: white;
+    border-radius: 2px;
+    margin-left: 5px;
+    margin-right: 50px;
+    transition-duration: .5s;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mais-produtos-button:hover {
+    background-color: #e9e9e9;
+    color: black;
+}
 
 .content {
     max-width: 800px;
