@@ -111,34 +111,32 @@
             </footer>
 
             <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    var addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+                   document.addEventListener("DOMContentLoaded", function () {
+                       var urlParams = new URLSearchParams(window.location.search);
+                       var productId = urlParams.get('productId');
+                       var productName = urlParams.get('productName');
+                       var productPrice = urlParams.get('productPrice');
+                       var productImage = urlParams.get('productImage');
 
-                    addToCartButtons.forEach(function (button) {
-                        button.addEventListener("click", function () {
-                            var productId = button.getAttribute("data-product-id");
-                            var productName = button.getAttribute("data-product-name");
-                            var productPrice = button.getAttribute("data-product-price");
-                            var productImage = button.getAttribute("data-product-image");
+                       // Verifique se os parâmetros são válidos antes de adicionar ao carrinho
+                       if (productId && productName && productPrice && productImage) {
+                           // Adicione o produto ao carrinho usando sua lógica existente
+                           adicionarItem(productName, parseFloat(productPrice), productImage);
+                       }
+                   });
 
-                            addToCart(productId, productName, productPrice, productImage);
-                        });
-                    });
+                   // Sua lógica JavaScript existente para adicionar ou remover itens do carrinho
+                   function adicionarItem(nomeProduto, precoProduto, imagemProduto) {
+                       // Sua lógica de adição ao carrinho aqui
+                       console.log("Produto adicionado ao carrinho:", nomeProduto, precoProduto, imagemProduto);
+                       // ...
 
-                    function addToCart(productId, productName, productPrice, productImage) {
-                        var cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-                        cartItems.push({
-                            id: productId,
-                            name: productName,
-                            price: productPrice,
-                            image: productImage5
-                        });
-                        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                       // Redirecione para a mesma página do carrinho ou faça o que for necessário
+                       window.location.href = 'carrinho.jsp';
+                   }
 
-                        console.log('Produto adicionado ao carrinho:', productName);
-                    }
-                });
-            </script>
+                   // Outras funções e scripts necessários
+               </script>
         </body>
 
         </html>

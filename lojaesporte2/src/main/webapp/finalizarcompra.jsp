@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,16 +69,15 @@
             <label for="nome">Nome:</label>
             <input type="text" id="nome" name="nome">
 
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email">
+           <label for="email">E-mail:</label>
+           <input type="email" id="email" name="email">
 
-            <label for="endereco">Endere&ccedil;o de Entrega:</label>
-            <select id="endereco" name="endereco">
-                <option value="">Selecione um endere&ccedil;o</option>
-                <option value="endereco1">Rua Portugal, 11</option>
-                <option value="endereco2">Rua Pedroso Alvarenga, 32</option>
-                <option value="endereco3">Rua Inglaterra, 45</option>
-            </select>
+               <label for="logradouros">Logradouro:</label>
+               <select id="logradouros" name="logradouros">
+                   <c:forEach var="logradouro" items="${logradourosOptions}">
+                       <option value="${logradouro.value}">${logradouro.text}</option>
+                   </c:forEach>
+               </select>
 
             <label for="formaPagamento">Forma de Pagamento:</label>
             <select id="formaPagamento" name="formaPagamento" disabled>
@@ -109,7 +110,36 @@
             </button>
         </div>
     </div>
-    <script src="finalizarcompra.js"></script>
+
+
+  <script>
+          function carregarLogradouros() {
+              var email = document.getElementById("email").value;
+
+              if (email.trim() !== "") {
+                  var xhr = new XMLHttpRequest();
+                  xhr.onreadystatechange = function () {
+                      if (xhr.readyState == 4) {
+                          if (xhr.status == 200) {
+                              // Remova este trecho de código relacionado ao preenchimento das opções
+                          } else {
+                              console.error("Falha na requisição com status:", xhr.status);
+                          }
+                      }
+                  };
+
+                  // Use POST se estiver enviando dados sensíveis; caso contrário, GET é suficiente
+                  xhr.open("GET", "/CarregarLogradouroServlet?email=" + encodeURIComponent(email), true);
+                  xhr.send();
+              } else {
+                  alert("Por favor, preencha o campo de e-mail.");
+              }
+          }
+
+          // Chama a função ao carregar a página ou quando o email é alterado
+          document.getElementById("email").addEventListener("input", carregarLogradouros);
+          document.addEventListener("DOMContentLoaded", carregarLogradouros);
+      </script>
 </body>
 
 </html>

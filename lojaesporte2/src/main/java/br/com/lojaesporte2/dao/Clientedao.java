@@ -277,6 +277,41 @@ public class Clientedao {
             System.out.println(e.getMessage());;
             return false;
         }
+
+
+    }
+
+    public List<String> obterLogradourosEnderecoEntregaPorEmail(String emial) {
+        List<String> logradouros = new ArrayList<>();
+        String sqlClienteId = "SELECT id FROM Cliente WHERE email = ?";
+        String sqlEnderecos = "SELECT logradouro FROM EnderecoEntrega WHERE cliente_id = ?";
+
+        try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa")) {
+            // Obter o ID do cliente com base no e-mail
+            try (PreparedStatement preparedStatementClienteId = connection.prepareStatement(sqlClienteId)) {
+                preparedStatementClienteId.setString(1, emial);
+                ResultSet resultSetClienteId = preparedStatementClienteId.executeQuery();
+
+                if (resultSetClienteId.next()) {
+                    int clienteId = resultSetClienteId.getInt("id");
+
+                    // Obter os logradouros com base no ID do cliente
+                    try (PreparedStatement preparedStatementEnderecos = connection.prepareStatement(sqlEnderecos)) {
+                        preparedStatementEnderecos.setInt(1, clienteId);
+                        ResultSet resultSetEnderecos = preparedStatementEnderecos.executeQuery();
+
+                        while (resultSetEnderecos.next()) {
+                            String logradouro = resultSetEnderecos.getString("logradouro");
+                            logradouros.add(logradouro);
+                        }
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return logradouros;
     }
 
 
