@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!DOCTYPE html>
     <html lang="pt-br">
 
@@ -83,7 +84,8 @@
 
         <div class="cart-container">
             <h2>Seu Carrinho</h2>
-            <c:forEach var="produto" items="${carrinho}">
+            <c:if test="${not empty sessionScope.carrinho}">
+                        <c:forEach var="produto" items="${sessionScope.carrinho}">
                 <div class="product-card">
                     <div class="product-info">
 
@@ -107,22 +109,66 @@
             <div class="product-subtotal">Subtotal: R$ <span class="subtotal">0.00</span></div>
             <div class="product-shipping">Frete: R$ <span class="shipping">5.00</span></div>
             <div class="total">Total: R$ <span class="grand-total">0.00</span></div>
-            <button class="finalizar-pedido" id="finalizarCompraBtn">
-                       <a href="finalizarcompra.jsp" style="text-decoration: none; color: inherit;">Finalizar Compra
-                       </a>
-                   </button>
+            <button class="finalizar-pedido" onclick="finalizarCompra()">
+                Finalizar Compra
+            </button>
+             </c:if>
         </div>
-        <script>
-               document.getElementById("finalizarCompraBtn").addEventListener("click", function() {
-                   var url = "/FinalizarCompraServlet?";
-                   carrinho.forEach(function(produto, index) {
-                       url += "produto" + index + "=" + encodeURIComponent(produto.nome) + "&";
-                       url += "preco" + index + "=" + encodeURIComponent(produto.preco) + "&";
-                       // Adicione mais parâmetros conforme necessário (imagem, quantidade, etc.)
-                   });
-                   window.location.href = url;
-               });
-           </script>
+   <script>
+       function calcularTotalPedido(carrinho) {
+           // Implementação do cálculo do total do pedido
+           var total = 0;
+
+           for (var i = 0; i < carrinho.length; i++) {
+               var produto = carrinho[i];
+               total += produto.preco * produto.quantidade;
+           }
+
+           return total;
+       }
+
+       function finalizarCompra() {
+           console.log("Função finalizarCompra() chamada");
+
+           var carrinho = []; // Obtenha o array do carrinho da sua página, pode ser uma variável JavaScript ou outra fonte
+
+           // Cria um formulário dinâmico
+           var form = document.createElement("form");
+           form.setAttribute("method", "post");
+           form.setAttribute("action", "/FinalizarCompraServlet");
+
+           // Adiciona os campos ao formulário
+           var totalPedidoInput = document.createElement("input");
+           totalPedidoInput.setAttribute("type", "hidden");
+           totalPedidoInput.setAttribute("name", "totalPedido");
+           totalPedidoInput.setAttribute("value", calcularTotalPedido(carrinho));
+           form.appendChild(totalPedidoInput);
+
+           carrinho.forEach(function (produto, index) {
+               var nomeInput = document.createElement("input");
+               nomeInput.setAttribute("type", "hidden");
+               nomeInput.setAttribute("name", "produtoNome" + index);
+               nomeInput.setAttribute("value", produto.nome);
+               form.appendChild(nomeInput);
+
+               var precoInput = document.createElement("input");
+               precoInput.setAttribute("type", "hidden");
+               precoInput.setAttribute("name", "produtoPreco" + index);
+               precoInput.setAttribute("value", produto.preco);
+               form.appendChild(precoInput);
+
+               var quantidadeInput = document.createElement("input");
+               quantidadeInput.setAttribute("type", "hidden");
+               quantidadeInput.setAttribute("name", "produtoQuantidade" + index);
+               quantidadeInput.setAttribute("value", produto.quantidade);
+               form.appendChild(quantidadeInput);
+           });
+
+           // Adiciona o formulário ao corpo do documento e o submete
+           document.body.appendChild(form);
+           form.submit();
+       }
+   </script>
             <script src="carrinho.js"></script>
     </body>
     </html>

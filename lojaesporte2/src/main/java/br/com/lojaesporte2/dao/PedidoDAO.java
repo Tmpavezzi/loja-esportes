@@ -13,16 +13,22 @@ public class PedidoDAO {
         try (Connection connection = DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa")) {
             connection.setAutoCommit(false);
 
+            // Depuração: Exiba ou registre as informações do Pedido antes do loop
+            System.out.println("Pedido ID antes do loop: " + pedido.getIdPedido());
+
             inserirPedido(connection, pedido);
 
             for (PedidoItem item : pedido.getPedidoItems()) {
+                // Depuração: Exiba ou registre informações sobre o PedidoItem
+                System.out.println("ID do PedidoItem: " + item.getIdPedido());
+
                 inserirPedidoItem(connection, pedido.getIdPedido(), item);
                 atualizarEstoqueProduto(connection, item.getIdProduto(), item.getQuantidade());
             }
 
             connection.commit();
         } catch (SQLException e) {
-            System.out.println(e.getMessage());;
+            System.out.println(e.getMessage());
         }
     }
 
@@ -43,7 +49,8 @@ public class PedidoDAO {
             try (var generatedKeys = preparedStatement.getGeneratedKeys()) {
                 if (generatedKeys.next()) {
                     idPedido = generatedKeys.getInt(1);
-                    pedido.setIdPedido(idPedido); // Atualiza o ID do pedido no objeto
+                    System.out.println("ID do Pedido gerado: " + idPedido);
+                    pedido.setIdPedido(idPedido);
                 } else {
                     throw new SQLException("Falha ao obter o ID do pedido.");
                 }

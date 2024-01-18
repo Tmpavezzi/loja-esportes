@@ -8,8 +8,11 @@ import br.com.lojaesporte2.model.produto;
 import java.io.IOException;
 import java.math.BigDecimal;
 import static java.math.BigDecimal.ZERO;
+
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,25 +29,52 @@ public class CarrinhoServlte extends HttpServlet{
             response.sendRedirect("index.jsp");
             return;
         }
-
-        // Recupera as informações do carrinho da sessão
         List<produto> carrinho = (List<produto>) session.getAttribute("carrinho");
 
-        // Calcula o total do pedido
-        BigDecimal totalPedido = calcularTotalPedido(carrinho);
-
-        // Cria um objeto Pedido
-        Pedido pedido = new Pedido();
-        pedido.setValorTotal(totalPedido);
-        pedido.setSituacao("Em andamento");
-
-        // Adiciona os itens ao pedido
-        for (produto produto : carrinho) {
-            PedidoItem item = new PedidoItem(0, 0, produto.getID(), produto.getEstoque(), produto.getPreco());
-            pedido.adicionarItem(item);
+        if (carrinho == null || carrinho.isEmpty()) {
+            // Carrinho vazio, redirecionar para alguma página apropriada
+            response.sendRedirect("carrinho_vazio.jsp");
+            return;
         }
 
 
+        double totalPedido = Double.parseDouble(request.getParameter("totalPedido"));
+
+        int index = 0;
+        while (true) {
+            String produtoNome = request.getParameter("produtoNome" + index);
+            if (produtoNome == null) {
+                break;
+            }
+
+            double produtoPreco = Double.parseDouble(request.getParameter("produtoPreco" + index));
+            int produtoQuantidade = Integer.parseInt(request.getParameter("produtoQuantidade" + index));
+
+            produto produto = new produto();  // Certifique-se de que Produto é a sua classe de modelo
+            produto.setNome(produtoNome);
+            produto.setPreco(produtoPreco);
+            produto.setEstoque(produtoQuantidade);
+
+            carrinho.add(produto);
+
+            index++;
+        }
+
+        // Armazena a lista carrinho na sessão
+        session.setAttribute("carrinho", carrinho);
+        System.out.println(carrinho);
+
+        // Restante do seu código...
+
+        // Insere o pedido no banco de dados
+        Pedido pedido = new Pedido();
+        pedido.setValorTotal(new BigDecimal(totalPedido));
+        pedido.setSituacao("Em andamento");
+
+        for (produto produto : carrinho) {
+            PedidoItem item = new PedidoItem(produto.getID(), produto.getEstoque(), produto.getPreco());
+            pedido.adicionarItem(item);
+        }
 
         // Insere o pedido no banco de dados
         PedidoDAO pedidoDAO = new PedidoDAO();
@@ -57,12 +87,15 @@ public class CarrinhoServlte extends HttpServlet{
         response.sendRedirect("finalizarcompra.jsp");
     }
 
-    private BigDecimal calcularTotalPedido(List<produto> carrinho) {
-        return carrinho.stream()
-                .map(produto -> BigDecimal.valueOf(produto.getPreco()).multiply(BigDecimal.valueOf(produto.getEstoque())))
-                .reduce(ZERO, BigDecimal::add);
+    private BigDecimal calcularTotalPedido(HttpServletRequest request) {
+        // Aqui você pode adaptar a lógica para calcular o total do pedido a partir dos parâmetros da requisição
+        // Neste exemplo, estou apenas recuperando um parâmetro chamado "totalPedido" da requisição
+        String totalPedidoStr = request.getParameter("totalPedido");
+
+        // Converte a string para BigDecimal (ou outro tipo necessário)
+        BigDecimal totalPedido = new BigDecimal(totalPedidoStr);
+
+        return totalPedido;
     }
 }
-
-
 

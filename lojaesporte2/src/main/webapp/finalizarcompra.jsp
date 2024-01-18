@@ -111,35 +111,34 @@
         </div>
     </div>
 
-
   <script>
-          function carregarLogradouros() {
-              var email = document.getElementById("email").value;
+            function carregarLogradouros() {
+                var email = document.getElementById("email").value;
 
-              if (email.trim() !== "") {
-                  var xhr = new XMLHttpRequest();
-                  xhr.onreadystatechange = function () {
-                      if (xhr.readyState == 4) {
-                          if (xhr.status == 200) {
-                              // Remova este trecho de código relacionado ao preenchimento das opções
-                          } else {
-                              console.error("Falha na requisição com status:", xhr.status);
-                          }
-                      }
-                  };
+                if (email.trim() !== "") {
+                    var xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState == 4) {
+                            if (xhr.status == 200) {
+                                // Remova este trecho de código relacionado ao preenchimento das opções
+                            } else {
+                                console.error("Falha na requisição com status:", xhr.status);
+                            }
+                        }
+                    };
 
-                  // Use POST se estiver enviando dados sensíveis; caso contrário, GET é suficiente
-                  xhr.open("GET", "/CarregarLogradouroServlet?email=" + encodeURIComponent(email), true);
-                  xhr.send();
-              } else {
-                  alert("Por favor, preencha o campo de e-mail.");
-              }
-          }
+                    // Use POST se estiver enviando dados sensíveis; caso contrário, GET é suficiente
+                    xhr.open("GET", "/CarregarLogradouroServlet?email=" + encodeURIComponent(email), true);
+                    xhr.send();
+                } else {
+                    alert("Por favor, preencha o campo de e-mail.");
+                }
+            }
 
-          // Chama a função ao carregar a página ou quando o email é alterado
-          document.getElementById("email").addEventListener("input", carregarLogradouros);
-          document.addEventListener("DOMContentLoaded", carregarLogradouros);
-      </script>
+            // Chama a função ao carregar a página ou quando o email é alterado
+            document.getElementById("email").addEventListener("input", carregarLogradouros);
+            document.addEventListener("DOMContentLoaded", carregarLogradouros);
+        </script>
 </body>
 
 </html>

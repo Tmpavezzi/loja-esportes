@@ -1,6 +1,7 @@
 package br.com.lojaesporte2.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pedido {
@@ -15,8 +16,9 @@ public class Pedido {
     private List<PedidoItem>pedidoItems;
 
     public Pedido() {
-        // Construtor padrão
+        this.pedidoItems = new ArrayList<>();
     }
+
 
 
     public void adicionarItem(PedidoItem item){

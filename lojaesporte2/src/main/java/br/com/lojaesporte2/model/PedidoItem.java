@@ -9,7 +9,7 @@ public class PedidoItem {
     private int quantidade;
     private BigDecimal valorUnitario;
 
-    public PedidoItem(int i, int i1, int id, int estoque, double preco) {
+    public PedidoItem(int i, int i1, double preco) {
         // Construtor padrão
     }
 
